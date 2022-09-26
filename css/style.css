@@ -32,6 +32,22 @@
     --textLink: #8AB3FD;
 }
 
-p {
-    color: var(--primario);
+h1, h2, h3, .normalBoldText, .smallBoldText{
+    font: bold;
 }
+
+h1{
+    font: 28px;
+}
+
+h2{
+    font: 24px;
+}
+
+h3{
+    font: 20px;
+}
+
+
+
+
