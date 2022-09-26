@@ -10,3 +10,32 @@
 	outline: none;
 	font-family: nunito-regular;
 }
+:root{
+    --primario: #096098;
+    --primarioSombra1: #064873;
+    --primarioSombra2: #033250;
+    --primarioSombra3: #001828;
+    --primarioLuz1: #1F7BB6;
+    --primarioLuz2: #6DB6E6;
+    --primarioLuz3: #ADDCFA;
+    --secundario: #7B28B3;
+    --secundarioSombra1: #5C0995;
+    --secundarioSombra2: #410569;
+    --secundarioSombra3: #1F0133;
+    --secundarioLuz1: #8A41BB;
+    --secundarioLuz2: #9B57C9;
+    --secundarioLuz3: #E0C2F5;
+    --acento: #FFBC2C;
+    --acentoSombra1: #FFAE00;
+    --acentoSombra2: #C18400;
+    --acentoSombra3: #674700;
+    --acentoLuz1: #FFC341;
+    --acentoLuz2: #FFD986;
+    --acentoLuz3: #FFE6B0;
+    --logo: #2E58FF;
+    --textLink: #8AB3FD;
+}
+
+p {
+    color: var(--primario);
+}
