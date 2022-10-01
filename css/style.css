@@ -63,7 +63,36 @@ body{
 header{
     background-color: var(--primarioSombra2);
     display: flex;
+    justify-content: space-between;
 }
+
+header > div{
+    width: 482px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.buscador > img{
+    width: 23px;
+    height: 23px;
+}
+.buscador{
+    display: flex;
+    align-items: center;
+}
+input{
+    width: 220px;
+    height: 36px;
+    background-color: var(--primarioLuz1);
+    border-radius: 10px;
+}
+input::placeholder{
+    size: 16px;
+    font: bold;
+    color: #ffffff;
+    opacity: 0.5;
+}
+
 
 .lanzamiento h1{
     color: var(--acentoSombra1);
