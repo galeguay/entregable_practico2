@@ -79,8 +79,27 @@ header{
     flex-direction: column;
 }
 
-button{
+.btn-masinfo{
     background-color: var(--acento);
     color: black;
+    border-radius: 17px;
+    width: 168px;
+    height: 54px;
+    
 }
+
+button:hover{
+    background-color: var(--acentoSombra3);
+}
+
+.carrusel{
+    display: flex;
+}
+
+.carrusel div{
+    margin: 10px;
+    padding: 12px 18px 12px 18px;
+
+}
+
 
