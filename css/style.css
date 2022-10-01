@@ -138,7 +138,7 @@ button:hover{
 
 
 /* ---------GAMECARD--------- */
-div.gameCard{
+li.gameCard{
     display: flex;
     flex-direction: column;
     width: 280px;
@@ -146,9 +146,11 @@ div.gameCard{
     background-color: var(--primarioLuz3);
     overflow: hidden;
     border-radius: 16px;
+    margin-left: 9px;
+    margin-right: 9px;
 }
-div.gameCard:hover{
-    filter:brightness(1.10);
+li.gameCard:hover{
+    filter:brightness(1.2);
 }
 .gameCard img{
     border-radius: 16px;
@@ -158,4 +160,49 @@ div.gameCard:hover{
     color: black;
     margin-left: 17px;
     margin-top: 3px;
+}
+
+/* ---------CARRUSEL--------- */
+
+.slider-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+.slides-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+    scroll-behavior: smooth;
+}
+
+.slide-arrow {
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    margin: auto;
+    background-color: rgba(0, 0, 0, 0.276);
+    border: none;
+    cursor: pointer;
+    transition: opacity 100ms;
+}
+
+
+.slide-arrow-prev {
+    left: 0;
+}
+
+.slide-arrow-next {
+    right: 0;
+}
+
+
+.slide {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
 }
