@@ -39,7 +39,12 @@
 h1, h2, h3, .normalBoldText, .smallBoldText{
     font-weight: bold;
 }
-
+.normalBoldText{
+    font: 16px;
+}
+p{
+    color: white;
+}
 h1{
     font: 28px;
     font-weight: 999;
@@ -64,17 +69,30 @@ body{
 
 /*HEADER*/
 header{
-    background-color: var(--primarioSombra2);
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    background-color: var(--primarioSombra2);
+}
+.divHeader1{
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
 }
 
-header > div{
+.divHeader2{
     width: 482px;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: flex-end;
     align-items: center;
     color: var(--primarioLuz2);
+}
+.divHeader2 > div, .divHeader2 > img{
+    padding-right: 20px;
+}
+.imagenPerfil{
+    width: 50px;
 }
 .buscador > img{
     width: 23px;
@@ -95,6 +113,7 @@ input::placeholder{
     font: bold;
     color: #ffffff;
     opacity: 0.5;
+    padding: 7px;
 }
 input:focus::placeholder{
     color: transparent;
@@ -210,5 +229,70 @@ footer{
     column-gap: 30px;
 }
 
+/*PAGINA DB*/
+.sectionDescripcion{
+    background-color: var(--primarioSombra2);
+    padding-top: 15px
+}
+.introduccion > img{
+    margin: 10px 0px 10px 0px;
+    width: 100%;
+}
+
+.videoseimagenes{
+    margin: 0px 10px 10px 10px;
+    display: flex;
+    flex-direction: column;
+}
+.imageneschicas{
+    display: flex;
+}
+.imageneschicas > img{
+    display: flex;
+    margin: 7px 7px 10px 0px;
+}
+
+.sectionDescripcion{
+    display: flex;
+    
+}
+.descripcion{
+    display: flex;
+    flex-direction: column;
+    margin-right: 10px;
+}
+
+.descripcionTexto{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 244px;
+    color: white;
+}
+
+.historia{
+    margin: 10px 0px 10px 10px;
+}
+.personajes{
+    margin: 10px 0px 10px 10px;
+    width: 12800;
+    height: 550px;
+}
+.personajes > img{
+    width: 200px;
+    height: 420px;
+}
 
 
+/*.divPersonajes{
+    width: 200px;
+    height: 420px; 
+    background-position: url;
+    animation: transformacionGoku 2s;
+}
+@keyframes transformacionGoku{
+    0% {background-position: 0px}
+    100% {background-position: -;}
+}
+*/
