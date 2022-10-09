@@ -1,14 +1,20 @@
-const slidesContainer = document.querySelector(".slides-container");
-const slide = document.querySelector(".slide");
-const prevButton = document.querySelector(".slide-arrow-prev");
-const nextButton = document.querySelector(".slide-arrow-next");
+let carruseles = document.querySelectorAll(".slider-wrapper");
 
-nextButton.addEventListener("click", () => {
-  const slideWidth = slide.clientWidth;
-  slidesContainer.scrollLeft += slideWidth;
-});
+for (const wrapper of carruseles) {
+  let childrens = wrapper.children;
+  let prevButton = childrens[0];
+  let nextButton = childrens[1];
+  let container = childrens[2];
+  console.log(childrens.length);
 
-prevButton.addEventListener("click", () => {
-  const slideWidth = slide.clientWidth;
-  slidesContainer.scrollLeft -= slideWidth;
-});
+  nextButton.addEventListener("click", () => {
+    const slideWidth = container.children[0].clientWidth;
+    console.log(slideWidth);
+    container.scrollLeft += slideWidth;
+  });
+
+  prevButton.addEventListener("click", () => {
+    const slideWidth = container.children[0].clientWidth;
+    container.scrollLeft -= slideWidth;
+  });
+}
