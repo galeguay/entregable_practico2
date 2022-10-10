@@ -5,16 +5,19 @@ for (const wrapper of carruseles) {
   let prevButton = childrens[0];
   let nextButton = childrens[1];
   let container = childrens[2];
-  console.log(childrens.length);
 
   nextButton.addEventListener("click", () => {
-    const slideWidth = container.children[0].clientWidth;
-    console.log(slideWidth);
+    let slideWidth = container.clientWidth;
+    if (slideWidth >= 298)
+      slideWidth = Math.trunc(slideWidth/298)*298;
     container.scrollLeft += slideWidth;
   });
 
   prevButton.addEventListener("click", () => {
-    const slideWidth = container.children[0].clientWidth;
+    let slideWidth = container.clientWidth;
+    if (slideWidth >= 298)
+      slideWidth = Math.trunc(slideWidth/298)*298;
+    slideWidth = Math.trunc(slideWidth/298)*298;
     container.scrollLeft -= slideWidth;
   });
 }
