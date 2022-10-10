@@ -42,21 +42,29 @@ p {
 
 
 h1, h2, h3, .normalBoldText, .smallBoldText{
-    font-weight: bold;
+    font-weight: 800;
 }
 
 h1{
-    font: 28px;
-    font-weight: 999;
+    font-size: 28px;
     color: white;
 }
 
 h2{
-    font: 24px;
+    font-size: 24px;
 }
 
 h3{
-    font: 20px;
+    font-size: 20px;
+}
+
+.normalText{
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.normalBoldText{
+    font-size: 16px;
 }
 
 .logo{
@@ -67,9 +75,16 @@ body{
     background-color: var(--primarioSombra3);
 }
 
-/*HEADER*/
-header{
+.flex-column{
+    display: flex;
+    flex-direction: column;
+}
+
+header, .coso, .section-box{
     background-color: var(--primarioSombra2);
+}
+
+header{
     display: flex;
     justify-content: space-between;
 }
@@ -175,6 +190,52 @@ header > img {
 .carrusel div{
     padding: 12px 18px 12px 18px;
 
+}
+
+.section-box{
+    display: flex;
+    margin: 10px 16px 0px 16px;
+}
+
+#game-window{
+    display: flex;
+    width: 890px;
+    height: 487px;
+}
+
+.game-description{
+    align-items: center;
+    margin: 16px;
+}
+
+.game-description h1{
+    margin-bottom: 10px;
+}
+.game-description p{
+    color: white;
+}
+
+.game-description .raitingGame h3{
+    color: white;
+}
+
+.imageButton{
+    display: flex;
+    align-items: center;
+    background-color: var(--primarioSombra2);
+}
+
+.imageButton img{
+    width: 30px;
+    height: 30px;
+}
+
+.game-description .descriptionButtons{
+    position: relative;
+    bottom: 0px;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
 }
 
 /*FOOTER*/
@@ -310,6 +371,16 @@ li.gameCard:hover{
 }
 .slide-arrow-next {
     right: 0;
+}
+.coso{
+    display: flex;
+    align-items: center;
+    height: 34px;
+    padding-left: 39px;
+}
+
+.coso, .coso a{
+    color: var(--primarioLuz2);
 }
 
 @media only screen and (max-width: 600px){
