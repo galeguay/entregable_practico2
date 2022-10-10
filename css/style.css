@@ -156,7 +156,7 @@ li.gameCard, .payGameCard{
     border-radius: 16px;
 }
 li.gameCard:hover{
-    filter:brightness(1.2);
+    filter:brightness(1.4);
 }
 .gameCard img{
     border-radius: 16px;

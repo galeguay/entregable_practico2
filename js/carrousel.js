@@ -17,7 +17,6 @@ for (const wrapper of carruseles) {
     let slideWidth = container.clientWidth;
     if (slideWidth >= 298)
       slideWidth = Math.trunc(slideWidth/298)*298;
-    slideWidth = Math.trunc(slideWidth/298)*298;
     container.scrollLeft -= slideWidth;
   });
 }
