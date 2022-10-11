@@ -37,6 +37,10 @@
     --textLink: #8AB3FD;
 }
 
+section > h1{
+    margin-left: 20px;
+}
+
 .backgoundColorPrimary{
     background-color: var(--primarioSombra3);
 }
