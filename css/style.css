@@ -96,10 +96,12 @@ header{
     display: none;
     background-color: var(--primarioSombra1);
     min-width: 200px;
+    width: 300px;
+    height: 260px;
 }
 .menuHamburguesa-child a {
     color: black;
-    padding: 10px;
+    padding: 15px;
     text-decoration: none;
     display: block;
 }
@@ -268,10 +270,17 @@ footer .div-footer1{
 .item2{
     display: flex;
     column-gap: 30px;
+    color: black;
+}
+footer a, footer h3{
+    color: black;
 }
 
 /*--------PAGINA DB------------*/
 
+.textShadow{
+    text-shadow: black 2px 5px 10px;
+}
 .nebulosaFondo{
     background-image: url("../images/DragonBall/Nebulosa.png");
     background-repeat: no-repeat;
@@ -294,8 +303,6 @@ footer .div-footer1{
 .logoJuego{
     margin-top: 20px;
 }
-
-
 
 .nebulosaFondo > ul{
     display: flex;
@@ -383,7 +390,6 @@ footer .div-footer1{
     background-attachment: fixed;
     background-size: 1280px;
     height: 2600px;
-    /*filter: grayscale(100%);*/
 }
 .descripcion, .historia{
     max-width: 1280px;
@@ -525,10 +531,12 @@ li.gameCard:hover{
     .lanzamiento img{
         background-color: var(--primarioSombra2);
         border-radius: 20px 20px 0px 0px;
+        max-height: 200px;
     }
     .contenidoLanzamiento{
         border-radius: 0px 0px 20px 20px;
     }
+
 
 
 }
