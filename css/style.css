@@ -43,10 +43,10 @@
 
 
 h1, h2, h3, .normalBoldText, .smallBoldText{
-    font-weight: bold;
+    font-weight: 800;
 }
 .normalBoldText{
-    font: 16px;
+    font-size: 16px;
 }
 
 p{
@@ -54,7 +54,6 @@ p{
 }
 h1{
     font-size: 28px;
-    font-weight: 999;
     color: white;
 }
 
@@ -66,13 +65,32 @@ h3{
     font-size: 20px;
 }
 
+.normalText{
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.normalBoldText{
+    font-size: 16px;
+}
+
 .logo{
     width: 250px;
 }
 .divBody{
     background-color: var(--primarioSombra3);
 }
+.flex{
+    display: flex;
+}
+.flex-column{
+    display: flex;
+    flex-direction: column;
+}
 
+header, .coso, .section-box{
+    background-color: var(--primarioSombra2);
+}
 
 /*HEADER*/
 
@@ -195,8 +213,15 @@ header > img {
     padding-right: 50px;
 }
 
-.btn-masinfo{
+.button{
     background-color: var(--acento);
+}
+.button:hover{
+    background-color: var(--acentoLuz3);
+}
+
+.btn-masinfo{
+    color: black;
     border-radius: 17px;
     width: 168px;
     height: 54px;
@@ -204,9 +229,6 @@ header > img {
 }
 button > h2{
     color: black;
-}
-button:hover{
-    background-color: var(--acentoSombra3);
 }
 
 /*RECOMENDADOS*/
@@ -227,6 +249,45 @@ button:hover{
 
 .carrusel div, .slides-container{
     padding: 12px 18px 12px 18px;
+}
+
+.section-box{
+    display: flex;
+    margin: 10px 16px 0px 16px;
+}
+
+#game-window{
+    display: flex;
+    width: 890px;
+    height: 487px;
+}
+
+.game-description{
+    align-items: center;
+    margin: 16px;
+}
+
+.game-description h1{
+    margin-bottom: 10px;
+}
+
+.imageButton{
+    display: flex;
+    align-items: center;
+    background-color: var(--primarioSombra2);
+}
+
+.imageButton img{
+    width: 30px;
+    height: 30px;
+}
+
+.game-description .descriptionButtons{
+    position: relative;
+    bottom: 0px;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
 }
 
 /*FOOTER*/
@@ -454,28 +515,61 @@ section, div{
 }
 
 /* ---------GAMECARD--------- */
-li.gameCard{
+.gameCard, .payGameCard{
     display: flex;
     flex-direction: column;
-    width: 280px;
-    height: 196px;
-    background-color: var(--primarioLuz3);
+    min-width: 280px;
+    max-height: 240px;
     overflow: hidden;
-    border-radius: 16px;
+}
+.gameCard{
+    background-color: var(--primarioLuz3);
+}
+li.gameCard, .payGameCard{
     margin-left: 9px;
     margin-right: 9px;
+    border-radius: 16px;
 }
 li.gameCard:hover{
-    filter:brightness(1.2);
+    filter:brightness(1.4);
 }
 .gameCard img{
     border-radius: 16px;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 .gameCard h3{
+    display: block;
     color: black;
+    width: 244px;
     margin-left: 17px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: inline-block;
+    white-space:nowrap;
     margin-top: 3px;
+}
+.payGameCard .payInfo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 253px;
+    height: 44px;
+    background-color: white;
+    border-radius: 0px 0px 16px 16px;
+    padding-left: 17px;
+    padding-right: 17px;
+}
+
+.payGameCard .price{
+    color:#4C4C4C;
+}
+
+.buyButton{
+    display: flex;
+    padding: 5px 25px 5px 25px;
+    color: black;
+    font-weight: bolder;
+    border-radius: 16px;
 }
 
 /* ---------CARRUSEL--------- */
@@ -487,7 +581,6 @@ li.gameCard:hover{
 
 .slides-container {
     height: 100%;
-    width: 100%;
     display: flex;
     overflow: hidden;
     scroll-behavior: smooth;
@@ -496,34 +589,94 @@ li.gameCard:hover{
 .slide-arrow {
     height: 100%;
     position: absolute;
+    align-items: center;
     z-index: 1;
     display: flex;
-    align-items: center;
     margin: auto;
+    padding-left: 10px;
+    padding-right: 10px;
     background-color: rgba(0, 0, 0, 0.276);
     border: none;
     cursor: pointer;
     transition: opacity 100ms;
 }
-
-
 .slide-arrow-prev {
     left: 0;
 }
-
 .slide-arrow-next {
     right: 0;
 }
-
-
-.slide {
+.coso{
     display: flex;
-    flex-direction: row;
-    width: 100%;
-    height: 100%;
+    align-items: center;
+    height: 34px;
+    padding-left: 39px;
 }
 
-@media screen and (max-width: 600px){
+.coso, .coso a{
+    color: var(--primarioLuz2);
+}
+
+.gameInfo, .section-box{
+    padding: 16px;
+}
+
+.gameInfo section{
+    margin-bottom: 8px;
+}
+.gameInfo section p{
+    margin-top: 8px;
+    margin-left: 10px;
+}
+.seccionComentarios h2{
+    margin-bottom: 10px;
+}
+.comentarios{
+    margin-left: 15px;
+}
+.comentarios li, .comentarios .infoComentario, .comentarios textarea{
+    padding: 10px;
+    border-radius: 10px;
+}
+.comentarios li, .seccionComentarios textarea{
+    background-color: #D9D9D9;
+}
+.comentarios li{
+    margin-bottom: 20px;
+}
+.comentarios li div{
+    display: flex;
+    align-items: center;
+    background-color: var(--primario);
+    border-radius: 10px;
+}
+.comentarios p{
+    color: black;
+}
+.seccionComentarios textarea{
+    width: 1015px;
+    height: 131px;
+    resize: none;
+    border-radius: 10px;
+}
+.comentarios .mensaje{
+    color: black;
+    margin-left: 10px;
+}
+.infoComentario div{
+    margin-left: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.seccionComentarios button{
+    display: flex;
+    padding: 5px 25px 5px 25px;
+    color: black;
+    font-weight: bolder;
+    border-radius: 16px;
+}
+@media only screen and (max-width: 600px){
     .lanzamiento div{
         display: flex;
         flex-direction: column;
@@ -536,7 +689,17 @@ li.gameCard:hover{
     .contenidoLanzamiento{
         border-radius: 0px 0px 20px 20px;
     }
-
+    .slides-container {
+        margin-left: 35px;
+        margin-right: 35px;
+    }
+    .slide-arrow {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .slide-arrow img{
+        height: 60px;
+    }
 
 
 }
