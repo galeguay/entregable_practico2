@@ -15,7 +15,16 @@
     </div>
     <header>
         <div class="divHeader1">
-            <img src="images/icons/menuHamburguesa.png" alt="Menu Hamburguesa">
+            <div class="menuHamburguesa">
+                <img class="mainmenubtn" src="images/icons/menuHamburguesa.png" alt="Menu Hamburguesa">
+                <div class="menuHamburguesa-child">
+                  <a href="#recomendados">Recomendados</a>
+                  <a href="#premium">Premium</a>
+                  <a href="#carreras">Carreras</a>
+                  <a href="#clasicos">Clasicos</a>
+                  <a href="#accion">Accion y aventura</a>
+                </div>
+              </div>
             <img src="images/icons/logo.png" alt="logo de Juegazos" class="logo">
         </div>
         <div class="divHeader2">
@@ -24,7 +33,6 @@
                 <form action="GET"><input type="text" placeholder="Buscar juego..."></form>
             </div>
             <img src="images/icons/carrito.png" alt="Carrito de compras">
-            <img src="images/icons/imagenperfil.png" alt="Imagen del perfil" class="imagenPerfil">
         </div>
     </header>
     <div class="divBody">
@@ -45,8 +53,8 @@
             </div>
         </section>
 
-        <section class="juegosRecomendados">
-            <h1>Juegos recomendados</h1>
+        <section class="juegosRecomendados" id="recomendados">
+            <h1>Recomendados para vos...</h1>
             <div class="slider-wrapper">
                 <div class="slide-arrow slide-arrow-prev">
                     <img src="images/left-arrow.png">
@@ -94,57 +102,8 @@
                 </ul>
             </div>
         </section>
-        <section class="juegosRecomendados">
-            <h1>Juegos recomendados</h1>
-            <div class="slider-wrapper">
-                <div class="slide-arrow slide-arrow-prev">
-                    <img src="images/left-arrow.png">
-                </div>
-                <div class="slide-arrow slide-arrow-next">
-                    <img src="images/right-arrow.png">
-                </div>
-                <ul class="slides-container">
-                    <div class="slide">
-                        <li class="gameCard">
-                            <img src="images/clasicos/superMario.png">
-                            <h3>Super Mario</h3>
-                        </li>
-                        <li class="gameCard">
-                            <img src="images/clasicos/superMario.png">
-                            <h3>Super Mario</h3>
-                        </li>
-                        <li class="gameCard">
-                            <img src="images/clasicos/superMario.png">
-                            <h3>Super Mario</h3>
-                        </li>
-                        <li class="gameCard">
-                            <img src="images/clasicos/superMario.png">
-                            <h3>Super Mario</h3>
-                        </li>
-                    </div>
-                    <div class="slide">
-                        <li class="gameCard">
-                            <img src="images/clasicos/superMario.png">
-                            <h3>Super Mario</h3>
-                        </li>
-                        <li class="gameCard">
-                            <img src="images/clasicos/superMario.png">
-                            <h3>Super Mario</h3>
-                        </li>
-                        <li class="gameCard">
-                            <img src="images/clasicos/superMario.png">
-                            <h3>Super Mario</h3>
-                        </li>
-                        <li class="gameCard">
-                            <img src="images/clasicos/superMario.png">
-                            <h3>Super Mario</h3>
-                        </li>
-                    </div>
-                </ul>
-            </div>
-        </section>
-        <section class="juegos">
-            <h1>Juegos premium</h1>
+        <section class="juegos" id="premium">
+            <h1>Premium</h1>
             <div class="carrusel">
                 <div>
                     <img class="carrusel-item" src="images/recomendados/gta5.jpg" alt="Grand Theft Auto V">
@@ -176,8 +135,8 @@
                 </div>
             </div>
         </section>
-        <section class="juegos">
-            <h1>Juegos de carreras</h1>
+        <section class="juegos" id="carreras">
+            <h1>Carreras</h1>
             <div class="carrusel">
                 <div>
                     <img class="carrusel-item" src="images/recomendados/gta5.jpg" alt="Grand Theft Auto V">
@@ -209,8 +168,8 @@
                 </div>
             </div>
         </section>
-        <section class="juegos">
-            <h1>Juegos clasicos</h1>
+        <section class="juegos" id="clasicos">
+            <h1>Clasicos</h1>
             <div class="carrusel">
                 <div>
                     <img class="carrusel-item" src="images/recomendados/gta5.jpg" alt="Grand Theft Auto V">
@@ -242,8 +201,8 @@
                 </div>
             </div>
         </section>
-        <section class="juegos">
-            <h1>Juegos de accion y aventura</h1>
+        <section class="juegos" id="accion">
+            <h1>Accion y aventura</h1>
             <div class="carrusel">
                 <div>
                     <img class="carrusel-item" src="images/recomendados/gta5.jpg" alt="Grand Theft Auto V">
@@ -285,9 +244,9 @@
                 <ul>
                     <li><a>Juegos recomendados</a></li>
                     <li><a>Juegos de acción y aventura</a></li>
-                    <li><a>Juegos de carrera</a></li>
+                    <li><a>Juegos de carreras</a></li>
                     <li><a>Juegos de clásicos</a></li>
-                    <li><a>Juegos de pagos</a></li>
+                    <li><a>Juegos premium</a></li>
                 </ul>
             </section>
             <section class="colum">

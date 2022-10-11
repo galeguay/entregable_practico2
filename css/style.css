@@ -9,6 +9,7 @@
 	border: none;
 	outline: none;
 	font-family: nunito-regular;
+    color: white;
 }
 :root{
     --primario: #096098;
@@ -52,17 +53,17 @@ p{
     color: white;
 }
 h1{
-    font: 28px;
+    font-size: 28px;
     font-weight: 999;
     color: white;
 }
 
 h2{
-    font: 24px;
+    font-size: 24px;
 }
 
 h3{
-    font: 20px;
+    font-size: 20px;
 }
 
 .logo{
@@ -74,18 +75,48 @@ h3{
 
 
 /*HEADER*/
+
 header{
+    width: 1280px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: var(--primarioSombra2);
 }
+
+.mainmenubtn {
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+.menuHamburguesa {
+    position: relative;
+}
+.menuHamburguesa-child {
+    display: none;
+    background-color: var(--primarioSombra1);
+    min-width: 200px;
+}
+.menuHamburguesa-child a {
+    color: black;
+    padding: 10px;
+    text-decoration: none;
+    display: block;
+}
+.menuHamburguesa:hover .menuHamburguesa-child {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+}
+
 .divHeader1{
     margin-left: 10px;
     display: flex;
     align-items: center;
     column-gap: 20px;
 }
+
+
 
 .divHeader2{
     width: 482px;
@@ -149,7 +180,6 @@ header > img {
 }
 
 .contenidoLanzamiento{
-    color: white;
     background-color: var(--primarioSombra2);
     display: flex;
     flex-direction: column;
@@ -165,12 +195,14 @@ header > img {
 
 .btn-masinfo{
     background-color: var(--acento);
-    color: black;
     border-radius: 17px;
     width: 168px;
     height: 54px;
+    margin-bottom: 20px;
 }
-
+button > h2{
+    color: black;
+}
 button:hover{
     background-color: var(--acentoSombra3);
 }
@@ -199,13 +231,15 @@ button:hover{
 footer{
     color: black;
     background-color: var(--primarioLuz1);
+    width: 1280px;
     height: 280px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-.div-footer1{
+footer .div-footer1{
+    color: black;
     margin-top: 20px;
     display: flex;
     justify-content: space-around;
@@ -236,52 +270,130 @@ footer{
     column-gap: 30px;
 }
 
-/*PAGINA DB*/
-.sectionDescripcion{
-    padding-top: 15px
-}
-.introduccion > img{
-    margin: 10px 0px 10px 0px;
-    width: 100%;
-}
+/*--------PAGINA DB------------*/
 
-.videoseimagenes{
-    margin: 0px 10px 10px 10px;
+.nebulosaFondo{
+    background-image: url("../images/DragonBall/Nebulosa.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 1280px 900px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: 900;
+    text-shadow: black 2px 0 10px;
 }
-.imageneschicas{
-    display: flex;
+.btnReservar{
+    background-color: var(--acento);
+    border-radius: 17px;
+    width: 168px;
+    height: 54px;
+    margin-bottom: 20px;
 }
-.imageneschicas > img{
-    display: flex;
-    margin: 7px 7px 10px 0px;
+.logoJuego{
+    margin-top: 20px;
 }
 
-.sectionDescripcion{
+
+
+.nebulosaFondo > ul{
     display: flex;
-    
+    font-size: 28px;
+    column-gap: 30px;
+}
+.numeros{
+    font-size: 48px;
+    padding: 0px 47px 0px 0px;
+}
+
+.disponible{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 15px;
+    padding-bottom: 20px;
+}
+
+.sectionImagenes{
+    margin-bottom: 10px;
+}
+.divImagenes > img{
+    margin-top: 15px;
 }
 .descripcion{
     display: flex;
     flex-direction: column;
-    margin-right: 10px;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 10px 30px 10px;
+    row-gap: 15px;
 }
-
-.descripcionTexto{
+.historia{
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    height: 244px;
-    color: white;
+    margin: 15px 10px 30px 10px;
+    row-gap: 15px;
 }
 
-.historia{
-    margin: 10px 0px 10px 10px;
+.divImagenes > img{
+    width: 1000px;
 }
+.divImagenes{
+    display: flex;
+    justify-content: center;
+}
+
+.features{
+    margin: 20px 10px 20px 10px;
+}
+.features > div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.feature, .feature2{
+    width: 1050px;
+    height: 315;
+    display: flex;
+    justify-content: center;
+    margin: 20px 10px 40px 10px;
+    border-style: outset;
+}
+.feature2{
+    border-style: inset;
+}
+
+.divContenido{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    row-gap: 40px;
+}
+
+.imgFondo {
+    -webkit-filter: grayscale(1); /* Webkit */
+    filter: gray; /* IE6-9 */
+    filter: grayscale(1); /* W3C */
+}
+.imagenFondo{
+    background-image: url("../images/DragonBall/imagenFondo.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 1280px;
+    height: 2600px;
+    /*filter: grayscale(100%);*/
+}
+.descripcion, .historia{
+    max-width: 1280px;
+}
+
 .personajes{
-    margin: 10px 0px 10px 10px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    margin: 20px 0px 10px 10px;
     width: 12800;
     height: 550px;
 }
@@ -289,19 +401,51 @@ footer{
     width: 200px;
     height: 420px;
 }
+.divPersonajes{
+    display: flex;
+    margin: 20px 20px 20px 20px;
+}
+.personaje{
+    display: flex;
+    column-gap: 50px;
+}
+
+.contenidoPersonaje{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding-right: 20px;
+}
+.contenidoPersonaje > h1{
+    align-self: center;
+}
+.divPersonajes{
+    display: flex;
+    justify-content: space-evenly;
+    column-gap: 50px;
+    color: black;
+}
+.personaje{
+    -webkit-transition: all 0.7s ease;
+    transition: all 0.7s ease;
+}
+.personaje:hover{
+    -webkit-transform:scale(1.3);
+    transform: scale(1.2);
+    -webkit-box-shadow: 0px 0px 20px rgba(255,255,255,0.8);
+    -moz-box-shadow: 0px 0px 20px rgba(255,255,255,0.8);
+    box-shadow: 0px 0px 20px rgba(255,255,255,0.8);
+}
 
 
-/*.divPersonajes{
-    width: 200px;
-    height: 420px; 
-    background-position: url;
-    animation: transformacionGoku 2s;
+.historia, .features, .personajes{
+    margin-top: 50px;
+    margin-bottom: 70px;
 }
-@keyframes transformacionGoku{
-    0% {background-position: 0px}
-    100% {background-position: -;}
+
+section, div{
+    max-width: 1280px;
 }
-*/
 
 /* ---------GAMECARD--------- */
 li.gameCard{
@@ -373,7 +517,18 @@ li.gameCard:hover{
     height: 100%;
 }
 
+@media screen and (max-width: 600px){
+    .lanzamiento div{
+        display: flex;
+        flex-direction: column;
+    }
+    .lanzamiento img{
+        background-color: var(--primarioSombra2);
+        border-radius: 20px 20px 0px 0px;
+    }
+    .contenidoLanzamiento{
+        border-radius: 0px 0px 20px 20px;
+    }
 
-/*body{
-    background-image: url("../images/DragonBall/fondo1.png");
-   }*/
+
+}

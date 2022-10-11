@@ -1,3 +1,4 @@
+"use strict"
 const slidesContainer = document.querySelector(".slides-container");
 const slide = document.querySelector(".slide");
 const prevButton = document.querySelector(".slide-arrow-prev");
@@ -13,3 +14,8 @@ prevButton.addEventListener("click", () => {
   slidesContainer.scrollLeft -= slideWidth;
 });
 
+let btnMenu = document.querySelector(".burger");
+btnMenu.addEventListener("click", () => {
+  classList.toggle("hola");
+});
+  
