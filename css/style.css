@@ -37,9 +37,9 @@
     --textLink: #8AB3FD;
 }
 
-/*p {
-    color: var(--primario);
-}*/
+.backgoundColorPrimary{
+    background-color: var(--primarioSombra3);
+}
 
 
 h1, h2, h3, .normalBoldText, .smallBoldText{
@@ -88,14 +88,14 @@ h3{
     flex-direction: column;
 }
 
-header, .coso, .section-box{
+header, .breadcrum, .section-box{
     background-color: var(--primarioSombra2);
 }
 
 /*HEADER*/
 
 header{
-    width: 1280px;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -292,7 +292,7 @@ button > h2{
 footer{
     color: black;
     background-color: var(--primarioLuz1);
-    width: 1280px;
+    width: 100%;
     height: 280px;
     display: flex;
     flex-direction: column;
@@ -504,10 +504,6 @@ footer .div-footer1{
     margin-bottom: 70px;
 }
 
-section, div{
-    max-width: 1280px;
-}
-
 /* ---------GAMECARD--------- */
 .gameCard, .payGameCard{
     display: flex;
@@ -600,14 +596,15 @@ li.gameCard:hover{
 .slide-arrow-next {
     right: 0;
 }
-.coso{
+.breadcrum{
     display: flex;
+    margin-top: 10px;
     align-items: center;
     height: 34px;
     padding-left: 39px;
 }
 
-.coso, .coso a{
+.breadcrum, .breadcrum a{
     color: var(--primarioLuz2);
 }
 
@@ -618,7 +615,7 @@ li.gameCard:hover{
 .gameInfo section{
     margin-bottom: 8px;
 }
-.gameInfo section p{
+.gameInfo section p, .gameInfo a{
     margin-top: 8px;
     margin-left: 10px;
 }
