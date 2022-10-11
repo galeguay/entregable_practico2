@@ -619,6 +619,10 @@ li.gameCard:hover{
     margin-top: 8px;
     margin-left: 10px;
 }
+.raitingGame img{
+    width: 40px;
+    height: 40px;
+}
 .seccionComentarios h2{
     margin-bottom: 10px;
 }
