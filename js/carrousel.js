@@ -1,3 +1,4 @@
+"use strict"
 let carruseles = document.querySelectorAll(".slider-wrapper");
 
 for (const wrapper of carruseles) {
