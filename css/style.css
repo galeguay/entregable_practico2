@@ -74,7 +74,9 @@ h3{
 body{
     background-color: var(--primarioSombra3);
 }
-
+.flex{
+    display: flex;
+}
 .flex-column{
     display: flex;
     flex-direction: column;
@@ -210,13 +212,6 @@ header > img {
 
 .game-description h1{
     margin-bottom: 10px;
-}
-.game-description p{
-    color: white;
-}
-
-.game-description .raitingGame h3{
-    color: white;
 }
 
 .imageButton{
@@ -383,6 +378,65 @@ li.gameCard:hover{
     color: var(--primarioLuz2);
 }
 
+.gameInfo, .section-box{
+    padding: 16px;
+}
+
+.gameInfo section{
+    margin-bottom: 8px;
+}
+.gameInfo section p{
+    margin-top: 8px;
+    margin-left: 10px;
+}
+.seccionComentarios h2{
+    margin-bottom: 10px;
+}
+.comentarios{
+    margin-left: 15px;
+}
+.comentarios li, .comentarios .infoComentario, .comentarios textarea{
+    padding: 10px;
+    border-radius: 10px;
+}
+.comentarios li, .seccionComentarios textarea{
+    background-color: #D9D9D9;
+}
+.comentarios li{
+    margin-bottom: 20px;
+}
+.comentarios li div{
+    display: flex;
+    align-items: center;
+    background-color: var(--primario);
+    border-radius: 10px;
+}
+.comentarios p{
+    color: black;
+}
+.seccionComentarios textarea{
+    width: 1015px;
+    height: 131px;
+    resize: none;
+    border-radius: 10px;
+}
+.comentarios .mensaje{
+    color: black;
+    margin-left: 10px;
+}
+.infoComentario div{
+    margin-left: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.seccionComentarios button{
+    display: flex;
+    padding: 5px 25px 5px 25px;
+    color: black;
+    font-weight: bolder;
+    border-radius: 16px;
+}
 @media only screen and (max-width: 600px){
     .slides-container {
         margin-left: 35px;
