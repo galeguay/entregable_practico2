@@ -49,35 +49,29 @@ section > h1{
 h1, h2, h3, .normalBoldText, .smallBoldText{
     font-weight: 800;
 }
-.normalBoldText{
-    font-size: 16px;
-}
 
-p{
+p, h1, .normalBoldText{
     color: white;
 }
+
 h1{
     font-size: 28px;
-    color: white;
 }
-
 h2{
     font-size: 24px;
 }
-
 h3{
     font-size: 20px;
 }
-
-.normalText{
+.normalText, .normalBoldText{
     font-size: 16px;
+}
+.normalText{
     font-weight: 600;
 }
-
-.normalBoldText{
-    font-size: 16px;
+a:hover{
+    text-decoration: underline;
 }
-
 .logo{
     width: 250px;
 }
@@ -214,20 +208,26 @@ header > img {
 }
 
 .button{
+    height: fit-content;
+    color: black;
+    font-weight: bolder;
     background-color: var(--acento);
+    border-radius: 16px;
+    padding: 5px 25px 5px 25px;
 }
 .button:hover{
     background-color: var(--acentoLuz3);
 }
 
 .btn-masinfo{
-    color: black;
-    border-radius: 17px;
+    padding: 0px;
     width: 168px;
     height: 54px;
+    border-radius: 17px;
     margin-bottom: 20px;
 }
-button > h2{
+
+button h2{
     color: black;
 }
 
@@ -255,7 +255,7 @@ button > h2{
 
 .section-box{
     display: flex;
-    margin: 10px 16px 0px 16px;
+    margin: 0px 16px 16px 16px;
 }
 
 #game-window{
@@ -273,13 +273,13 @@ button > h2{
     margin-bottom: 10px;
 }
 
-.imageButton{
+.raitingButton{
     display: flex;
     align-items: center;
     background-color: var(--primarioSombra2);
 }
 
-.imageButton img{
+.raitingButton img{
     width: 30px;
     height: 30px;
 }
@@ -301,6 +301,7 @@ footer{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    margin-top: 16px;
 }
 
 footer .div-footer1{
@@ -309,6 +310,11 @@ footer .div-footer1{
     display: flex;
     justify-content: space-around;
 }
+
+footer .normalBoldText{
+    color: black;
+}
+
 .div-footer1 section{
     display: flex;
     flex-direction: column;
@@ -583,13 +589,6 @@ li.gameCard:hover{
     color:#4C4C4C;
 }
 
-.buyButton{
-    display: flex;
-    padding: 5px 25px 5px 25px;
-    color: black;
-    font-weight: bolder;
-    border-radius: 16px;
-}
 
 /* ---------CARRUSEL--------- */
 
@@ -628,6 +627,7 @@ li.gameCard:hover{
 .breadcrum{
     display: flex;
     margin-top: 10px;
+    margin-bottom: 10px;
     align-items: center;
     height: 34px;
     padding-left: 39px;
@@ -636,17 +636,25 @@ li.gameCard:hover{
 .breadcrum, .breadcrum a{
     color: var(--primarioLuz2);
 }
-
-.gameInfo, .section-box{
+.breadcrum a:hover{
+    text-decoration: underline;
+}
+.gameInfo, .seccionComentarios{
     padding: 16px;
 }
-
 .gameInfo section{
+    margin-bottom: 15px;
+}
+.gameInfo h2{
     margin-bottom: 8px;
 }
 .gameInfo section p, .gameInfo a{
-    margin-top: 8px;
     margin-left: 10px;
+}
+.gameMedia{
+    width: fit-content;
+    padding: 10px 10px 5px 10px;
+    background-color: rgba(0, 0, 0, 0.20);
 }
 .raitingGame img{
     width: 40px;
@@ -655,35 +663,27 @@ li.gameCard:hover{
 .seccionComentarios h2{
     margin-bottom: 10px;
 }
-.comentarios{
+.listaComentarios{
     margin-left: 15px;
 }
-.comentarios li, .comentarios .infoComentario, .comentarios textarea{
+.listaComentarios li, .listaComentarios .infoComentario, .listaComentarios textarea{
     padding: 10px;
     border-radius: 10px;
 }
-.comentarios li, .seccionComentarios textarea{
+.listaComentarios li, .seccionComentarios textarea{
     background-color: #D9D9D9;
 }
-.comentarios li{
+.listaComentarios li{
     margin-bottom: 20px;
 }
-.comentarios li div{
+.listaComentarios li div{
     display: flex;
     align-items: center;
     background-color: var(--primario);
     border-radius: 10px;
 }
-.comentarios p{
-    color: black;
-}
-.seccionComentarios textarea{
-    width: 1015px;
-    height: 131px;
-    resize: none;
-    border-radius: 10px;
-}
-.comentarios .mensaje{
+
+.listaComentarios .mensaje{
     color: black;
     margin-left: 10px;
 }
@@ -694,12 +694,20 @@ li.gameCard:hover{
     justify-content: space-between;
 }
 .seccionComentarios button{
-    display: flex;
-    padding: 5px 25px 5px 25px;
-    color: black;
-    font-weight: bolder;
-    border-radius: 16px;
+    padding: 10px 30px 5px 30px;
+    margin-left: 50px;
 }
+.formComentario{
+    display:flex;
+    align-items: flex-end;
+}
+.formComentario textarea{
+    width: 1015px;
+    height: 131px;
+    resize: none;
+    border-radius: 10px;
+}
+
 @media only screen and (max-width: 600px){
     .lanzamiento div{
         display: flex;
@@ -724,6 +732,5 @@ li.gameCard:hover{
     .slide-arrow img{
         height: 60px;
     }
-
 
 }
