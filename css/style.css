@@ -187,12 +187,10 @@ header > img {
     margin: 0px 17px 17px 17px;
 }
 .lanzamiento h1{
-    padding: 7px 0px 10px 10px;
-}
-
-.lanzamiento h1{
+    padding: 7px 0px 7px 0px;
     color: var(--acentoSombra1);
 }
+
 .lanzamiento div{
     display: flex;
 }
@@ -234,15 +232,17 @@ button > h2{
 }
 
 /*RECOMENDADOS*/
-.juegos h1{
+.category h1{
     padding-left: 18px;
-    background: rgb(3,50,80);
     background: linear-gradient(90deg, rgba(3,50,80,1) 35%, rgba(0,24,40,1) 50%);
 }
-.juegosRecomendados h1{
+.category, .lanzamiento{
+    margin-bottom: 30px;
+}
+.recomendados h1{
+    color: black;
     padding-left: 18px;
-    background: (var(--secundarioLuz1));
-    background: linear-gradient(90deg, rgb(152, 40, 185) 35%, rgb(38, 1, 63) 50%);
+    background: linear-gradient(90deg, var(--primarioLuz2) 35%, rgb(0,24,40,1) 50%);
 }
 /*CARRUSELES*/
 .carrusel{
@@ -342,13 +342,17 @@ footer a, footer h3{
 /*--------PAGINA DB------------*/
 
 .textShadow{
-    text-shadow: black 2px 5px 10px;
+    text-shadow: 2px 5px 10px black ;
+}
+.textShadow > h1{
+    text-shadow: 5px 5px 5px black ;
+    text-shadow: rgb(255, 0, 0) 5px 0 15px;
 }
 .nebulosaFondo{
     background-image: url("../images/DragonBall/Nebulosa.png");
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-size: 1280px 900px;
+    background-size: auto 900px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -366,16 +370,34 @@ footer a, footer h3{
 .logoJuego{
     margin-top: 20px;
 }
-
-.nebulosaFondo > ul{
+.temporizador{
     display: flex;
-    font-size: 28px;
-    column-gap: 30px;
+    justify-content: center;
+    align-items: center;
+    column-gap: 45px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
+.itemsTemporizador{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+.itemsTemporizador > p{
+    font-size: 64px; 
+    text-shadow: 5px 5px 5px black;
+}
+.disponible h3, .itemsTemporizador > h1, .nebulosaFondo > h1{ 
+    text-shadow: 5px 5px 5px black;
+}
+
 .numeros{
     font-size: 48px;
     padding: 0px 47px 0px 0px;
 }
+
 
 .disponible{
     display: flex;
@@ -428,6 +450,9 @@ footer a, footer h3{
     display: flex;
     justify-content: center;
     margin: 20px 10px 40px 10px;
+    
+}
+.feature{
     border-style: outset;
 }
 .feature2{
@@ -442,16 +467,11 @@ footer a, footer h3{
     row-gap: 40px;
 }
 
-.imgFondo {
-    -webkit-filter: grayscale(1); /* Webkit */
-    filter: gray; /* IE6-9 */
-    filter: grayscale(1); /* W3C */
-}
 .imagenFondo{
     background-image: url("../images/DragonBall/imagenFondo.png");
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-size: 1280px;
+    background-size: 1366px;
     height: 2600px;
 }
 .descripcion, .historia{
@@ -504,6 +524,7 @@ footer a, footer h3{
     -webkit-box-shadow: 0px 0px 20px rgba(255,255,255,0.8);
     -moz-box-shadow: 0px 0px 20px rgba(255,255,255,0.8);
     box-shadow: 0px 0px 20px rgba(255,255,255,0.8);
+    text-shadow: rgb(0, 0, 255) 4px 1px 5px;
 }
 
 

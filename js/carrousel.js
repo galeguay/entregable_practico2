@@ -21,3 +21,5 @@ for (const wrapper of carruseles) {
     container.scrollLeft -= slideWidth;
   });
 }
+
+
