@@ -488,20 +488,21 @@ footer a, footer h3{
     flex-direction: column;
     row-gap: 20px;
     margin: 20px 0px 10px 10px;
-    width: 12800;
     height: 550px;
 }
 .personajes > img{
     width: 200px;
     height: 420px;
 }
-.divPersonajes{
+.slider-wrapper-personajes{
     display: flex;
     margin: 20px 20px 20px 20px;
 }
 .personaje{
     display: flex;
     column-gap: 50px;
+    margin: 50px;
+    width: 500px;
 }
 
 .contenidoPersonaje{
@@ -513,7 +514,7 @@ footer a, footer h3{
 .contenidoPersonaje > h1{
     align-self: center;
 }
-.divPersonajes{
+.slides-container-personajes{
     display: flex;
     justify-content: space-evenly;
     column-gap: 50px;
@@ -523,7 +524,7 @@ footer a, footer h3{
     -webkit-transition: all 0.7s ease;
     transition: all 0.7s ease;
 }
-.personaje:hover{
+/*.personaje:hover{
     -webkit-transform:scale(1.3);
     transform: scale(1.2);
     -webkit-box-shadow: 0px 0px 20px rgba(255,255,255,0.8);
