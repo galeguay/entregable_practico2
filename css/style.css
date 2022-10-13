@@ -301,7 +301,6 @@ footer{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-top: 16px;
 }
 
 footer .div-footer1{
