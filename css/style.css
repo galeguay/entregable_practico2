@@ -650,7 +650,9 @@ li.gameCard:hover{
     padding-left: 17px;
     padding-right: 17px;
 }
-
+.payGameCard .gameCard img{
+    border-radius: 16px 16px 0px 0px;
+}
 .payGameCard .price{
     color:#4C4C4C;
 }
