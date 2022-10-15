@@ -105,29 +105,38 @@ header{
     border: none;
     cursor: pointer;
 }
-.menuHamburguesa {
+/* .menuHamburguesa {
     position: relative;
-    width: 40px;
-    height: 40px;
-}
+} */
 .menuHamburguesa-child {
     display: none;
+    flex-direction: column;
+    align-items: center;
     background-color: var(--primarioSombra1);
     min-width: 200px;
     width: 300px;
-    height: 260px;
+    height: 375px;
+    
 }
+
 .menuHamburguesa-child a {
+    width: 85%;
+    background-color: var(--primarioLuz2);
+    margin: 5px;
     color: black;
     padding: 15px;
     text-decoration: none;
     display: block;
 }
-.menuHamburguesa:hover .menuHamburguesa-child {
+.menuHamburguesa-child > a:hover{
+    filter: brightness(1.20);
+}
+.menuHamburguesa:hover .menuHamburguesa-child{
     display: flex;
     flex-direction: column;
     position: absolute;
 }
+
 
 .divHeader1{
     margin-left: 10px;
@@ -217,8 +226,12 @@ header > img {
     border-radius: 16px;
     padding: 5px 25px 5px 25px;
 }
-.button:hover{
+button:hover{
     background-color: var(--acentoLuz3);
+    cursor: pointer;
+}
+a:hover{
+    cursor: pointer;
 }
 
 .btn-masinfo{
