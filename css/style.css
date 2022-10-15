@@ -260,36 +260,78 @@ button h2{
 
 #game-window{
     display: flex;
-    width: 890px;
-    height: 487px;
 }
 
 .game-description{
-    align-items: center;
-    margin: 16px;
+    justify-content: space-between;
+    margin: 20px;
 }
 
-.game-description h1{
+.game-description .title{
     margin-bottom: 10px;
 }
+.actualRaiting{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width:35%;
+    height: 80px;
+    background-color: var(--primarioLuz1);
+}
+.actualRaiting p{
+    color: var(--primarioLuz3)
+}
+.actualRaiting img{
+    margin-left: 10px;
+}
 
-.raitingButton{
+
+
+.raitingSection, .raitingButtons div{
+    display: flex;
+    width: 100%;
+}
+.raitingSection{
+    margin-top: 20px;
+}
+.raitingSection img, .actualRaiting img{
+    width: 28px;
+    height: 28px;
+}
+
+.raitingButtons{
+    display: flex;
+    width:65%;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5px;
+}
+.raitingButtons div{
+    justify-content: center;
+}
+.raitingButtons img{
+    margin: 5px;
+}
+.raitingButtons img:hover{
+    margin: 5px;
+}
+
+.iconButton{
     display: flex;
     align-items: center;
     background-color: var(--primarioSombra2);
 }
-
-.raitingButton img{
+.iconButton img{
     width: 30px;
     height: 30px;
 }
 
 .game-description .descriptionButtons{
-    position: relative;
-    bottom: 0px;
     display: flex;
     width: 100%;
     justify-content: space-around;
+    margin-bottom: 10px;
 }
 
 /*FOOTER*/
@@ -635,10 +677,7 @@ li.gameCard:hover{
     padding: 10px 10px 5px 10px;
     background-color: rgba(0, 0, 0, 0.20);
 }
-.raitingGame img{
-    width: 40px;
-    height: 40px;
-}
+
 .seccionComentarios h2{
     margin-bottom: 10px;
 }
