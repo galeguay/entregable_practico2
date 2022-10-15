@@ -107,6 +107,8 @@ header{
 }
 .menuHamburguesa {
     position: relative;
+    width: 40px;
+    height: 40px;
 }
 .menuHamburguesa-child {
     display: none;
@@ -749,21 +751,65 @@ li.gameCard:hover{
     .lanzamiento img{
         background-color: var(--primarioSombra2);
         border-radius: 20px 20px 0px 0px;
-        max-height: 200px;
+        max-height: 240px;
     }
     .contenidoLanzamiento{
         border-radius: 0px 0px 20px 20px;
     }
-    .slides-container {
+    /*.slides-container {
         margin-left: 35px;
         margin-right: 35px;
-    }
-    .slide-arrow {
+    }*/
+    /*.slide-arrow {
         padding-left: 0px;
         padding-right: 0px;
-    }
+    }*/
     .slide-arrow img{
         height: 60px;
     }
+    .category h1{
+        background: linear-gradient(90deg, rgba(3,50,80,1) 35%, rgba(0,24,40,1) 70%);
+    }
+    .recomendados h1{
+        color: black;
+        padding-left: 18px;
+        background: linear-gradient(90deg, var(--primarioLuz2) 35%, rgb(0,24,40,1) 70%);
+    }
+    footer .div-footer1{
+        margin-top: 10px;
+    }
+    
+    .div-footer1 section{
+        row-gap: 10px;
+    }
+    
+    .div-footer1 section ul{
+        row-gap: 12px;
+    }
+    .div-footer2{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .divHeader1{
+        margin-left: 5px;
+        column-gap: 10px;
+    }
+    .divHeader2 > div, .divHeader2 > img{
+        padding-right: 10px;
+    }
+    .buscador > img{
+        width: 20px;
+        height: 20px;
+    }
+    input{
+        width: 150px;
+        height: 30px;
+        border-radius: 8px;
+    }
+    input::placeholder{
+        padding: 5px;
+    }
+    
 
 }
