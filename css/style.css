@@ -120,6 +120,7 @@ header{
 }
 
 .menuHamburguesa-child a {
+    text-align: center;
     width: 85%;
     background-color: var(--primarioLuz2);
     margin: 5px;
@@ -135,6 +136,41 @@ header{
     display: flex;
     flex-direction: column;
     position: absolute;
+}
+
+/*----PERFIL----*/
+.menuPerfil-child {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--primarioSombra1);
+    width: 300px;
+    height: 315px;
+}
+
+.imageRedes{
+    width: 285px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+.menuPerfil-child a {
+    text-align: center;
+    width: 85%;
+    background-color: var(--primarioLuz2);
+    margin: 5px;
+    color: black;
+    padding: 15px;
+    text-decoration: none;
+    display: block;
+}
+.menuPerfil-child > a:hover{
+    filter: brightness(1.20);
+}
+.menuPerfil:hover .menuPerfil-child{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px; left: 1050px;
 }
 
 
@@ -158,6 +194,7 @@ header{
 .imagenPerfil{
     width: 50px;
 }
+
 .buscador > img{
     width: 23px;
     height: 23px;
