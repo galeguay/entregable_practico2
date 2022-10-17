@@ -37,9 +37,7 @@
     --textLink: #8AB3FD;
 }
 
-section > h1{
-    margin-left: 20px;
-}
+
 
 .backgoundColorPrimary{
     background-color: var(--primarioSombra3);
@@ -253,7 +251,7 @@ button h2{
 
 /*RECOMENDADOS*/
 .category h1{
-    padding-left: 18px;
+    padding-left: 38px;
     background: linear-gradient(90deg, rgba(3,50,80,1) 35%, rgba(0,24,40,1) 50%);
 }
 .category, .lanzamiento{
@@ -261,7 +259,6 @@ button h2{
 }
 .recomendados h1{
     color: black;
-    padding-left: 18px;
     background: linear-gradient(90deg, var(--primarioLuz2) 35%, rgb(0,24,40,1) 50%);
 }
 /*CARRUSELES*/
@@ -915,5 +912,13 @@ li.gameCard:hover{
     }
     .buscador img{
         display: none;
+    }
+    .category h1{
+        padding-left: 15px;
+        background: linear-gradient(90deg, rgba(3,50,80,1) 35%, rgba(0,24,40,1) 95%);
+    }
+    .recomendados h1{
+        width: 100%;
+        background: linear-gradient(90deg, var(--primarioLuz2) 35%, rgb(0,24,40,1) 95%);
     }
 }
