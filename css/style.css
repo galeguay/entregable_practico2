@@ -37,9 +37,6 @@
     --textLink: #8AB3FD;
 }
 
-section > h1{
-    margin-left: 20px;
-}
 
 .backgoundColorPrimary{
     background-color: var(--primarioSombra3);
@@ -90,9 +87,7 @@ header, .breadcrum, .section-box{
     background-color: var(--primarioSombra2);
 }
 
-.hide {
-    visibility: hidden;
-}
+
 
 /*HEADER*/
 
@@ -109,20 +104,17 @@ header{
     border: none;
     cursor: pointer;
 }
-/* .menuHamburguesa {
-    position: relative;
-}*/
+
 .menuHamburguesa-child {
     display: flex;
     flex-direction: column;
     position: absolute;
-    flex-direction: column;
+    top: 70px; left: 0px;
     align-items: center;
     background-color: var(--primarioSombra1);
     min-width: 200px;
     width: 300px;
     height: 375px;
-    
 }
 
 .menuHamburguesa-child a {
@@ -139,20 +131,26 @@ header{
     filter: brightness(1.20);
 }
 /*----PERFIL----*/
+.imagenPerfil{
+    cursor: pointer;
+}
+.imageRedes{
+    width: 285px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
 .menuPerfil-child {
-    display: none;
+    display: flex;
     flex-direction: column;
+    position: absolute;
+    top: 70px; left: 1050px;
     align-items: center;
     background-color: var(--primarioSombra1);
     width: 300px;
     height: 315px;
 }
 
-.imageRedes{
-    width: 285px;
-    margin-top: 10px;
-    margin-bottom: 5px;
-}
 .menuPerfil-child a {
     text-align: center;
     width: 85%;
@@ -166,13 +164,6 @@ header{
 .menuPerfil-child > a:hover{
     filter: brightness(1.20);
 }
-.menuPerfil:hover .menuPerfil-child{
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 60px; left: 1050px;
-}
-
 
 .divHeader1{
     margin-left: 10px;
@@ -404,6 +395,7 @@ footer a, footer h3{
 .textShadow > h1{
     text-shadow: 5px 5px 5px black ;
     text-shadow: rgb(255, 0, 0) 5px 0 15px;
+    margin-left: 10px;
 }
 .nebulosaFondo{
     background-image: url("../images/DragonBall/Nebulosa.png");
@@ -804,6 +796,17 @@ li.gameCard:hover{
     resize: none;
     border-radius: 10px;
 }
+.hide {
+    visibility: hidden;
+}
+.hide2{
+    visibility: hidden;
+}
+.text{
+    padding: 5px 0 0 5px;
+    color: black;
+}
+
 
 @media only screen and (max-width: 600px){
     .lanzamiento div{
@@ -841,7 +844,7 @@ li.gameCard:hover{
         height: auto;
         width: auto;
     }
-    footer .div-footer1{
+    .div-footer1{
         flex-direction: column;
         height: auto;
         width: auto;
@@ -853,19 +856,23 @@ li.gameCard:hover{
     }
 
     .div-footer1 section ul{
+        align-items: flex-start;
         row-gap: 12px;
         margin: 10px;
         margin-bottom: 20px;
     }
+    .div-footer1 li{
+        text-align: end;
+    }
     .div-footer2{
         flex-direction: column;
+        align-items: center;
     }
     .div-footer2 .item1, .div-footer2 .item2{
-    margin-left: 20px;
-    margin-right: 20px;
+        margin: 10px 20px 0px 20px;
     }
     .div-footer2 .item2{
-        margin-top: 20px;
+        margin-bottom: 10px;
     }
     .divHeader1{
         margin-left: 5px;
