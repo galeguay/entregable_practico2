@@ -801,22 +801,36 @@ li.gameCard:hover{
         padding-left: 18px;
         background: linear-gradient(90deg, var(--primarioLuz2) 35%, rgb(0,24,40,1) 70%);
     }
-    footer .div-footer1{
-        margin-top: 10px;
+    footer{
+        height: auto;
+        width: auto;
     }
-    
+    footer .div-footer1{
+        flex-direction: column;
+        height: auto;
+        width: auto;
+        margin: 20px;
+    }
+
     .div-footer1 section{
         row-gap: 10px;
     }
-    
+
     .div-footer1 section ul{
         row-gap: 12px;
+        margin: 10px;
+        margin-bottom: 20px;
     }
     .div-footer2{
         flex-direction: column;
-        align-items: center;
     }
-
+    .div-footer2 .item1, .div-footer2 .item2{
+    margin-left: 20px;
+    margin-right: 20px;
+    }
+    .div-footer2 .item2{
+        margin-top: 20px;
+    }
     .divHeader1{
         margin-left: 5px;
         column-gap: 10px;
@@ -836,6 +850,4 @@ li.gameCard:hover{
     input::placeholder{
         padding: 5px;
     }
-    
-
 }
