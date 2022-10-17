@@ -656,6 +656,9 @@ li.gameCard:hover{
 .gohan{
     margin-left: 20px;
 }
+.beerus{
+    margin-right: 20px;
+}
 .contenidoPersonaje{
     display: flex;
     flex-direction: column;
