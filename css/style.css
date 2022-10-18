@@ -851,7 +851,6 @@ li.gameCard:hover{
     color: black;
 }
 
-
 @media only screen and (max-width: 600px){
     .lanzamiento div{
         display: flex;
