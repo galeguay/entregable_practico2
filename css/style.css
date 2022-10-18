@@ -809,6 +809,44 @@ li.gameCard:hover{
     border-radius: 10px;
 }
 
+.loadingScreen{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 2;
+    background-color: var(--primarioSombra3);
+}
+.loading{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 2;
+    transform: translate(-50%,-50%);
+}
+#myProgress {
+    width: 100%;
+    background-color: grey;
+  }
+  
+  #myBar {
+    width: 1%;
+    height: 30px;
+    background-color: green;
+  }
+
+.rotate {
+    animation: rotation 2s infinite linear;
+  }
+
+  @keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
 @media only screen and (max-width: 600px){
     .lanzamiento div{
         display: flex;
