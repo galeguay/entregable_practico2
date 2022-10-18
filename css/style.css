@@ -37,6 +37,10 @@
     --textLink: #8AB3FD;
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> dev-ale
 
 .backgoundColorPrimary{
     background-color: var(--primarioSombra3);
@@ -194,11 +198,15 @@ header{
     display: flex;
     align-items: center;
 }
+.buscador form{
+    margin-left: 10px;
+}
 input{
     width: 220px;
     height: 36px;
     background-color: var(--primarioLuz1);
     border-radius: 10px;
+    padding-left: 10px;
 }
 input::placeholder{
     size: 16px;
@@ -276,7 +284,7 @@ button h2{
 
 /*RECOMENDADOS*/
 .category h1{
-    padding-left: 18px;
+    padding-left: 38px;
     background: linear-gradient(90deg, rgba(3,50,80,1) 35%, rgba(0,24,40,1) 50%);
 }
 .category, .lanzamiento{
@@ -284,7 +292,6 @@ button h2{
 }
 .recomendados h1{
     color: black;
-    padding-left: 18px;
     background: linear-gradient(90deg, var(--primarioLuz2) 35%, rgb(0,24,40,1) 50%);
 }
 /*CARRUSELES*/
@@ -936,5 +943,36 @@ li.gameCard:hover{
     }
     input::placeholder{
         padding: 5px;
+    }
+
+    header{
+        flex-direction: column;
+        padding-bottom: 10px;
+    }
+    .divHeader1, .divHeader2{
+        width: 100%;
+    }
+    .divHeader1{
+        justify-content: space-around;
+    }
+    .divHeader2{
+        justify-content: space-around;
+    }
+    .divHeader2 .carrito{
+        margin-left: 10px;
+    }
+    input{
+        width: 100%;
+    }
+    .buscador img{
+        display: none;
+    }
+    .category h1{
+        padding-left: 15px;
+        background: linear-gradient(90deg, rgba(3,50,80,1) 35%, rgba(0,24,40,1) 95%);
+    }
+    .recomendados h1{
+        width: 100%;
+        background: linear-gradient(90deg, var(--primarioLuz2) 35%, rgb(0,24,40,1) 95%);
     }
 }
