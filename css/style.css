@@ -406,6 +406,7 @@ footer .normalBoldText{
     display: flex;
     flex-direction: column;
     row-gap: 15px;
+    margin: 10px;
 }
 
 .div-footer1 section ul{
@@ -936,14 +937,19 @@ li.gameCard:hover{
         width: auto;
     }
     .div-footer1{
-        flex-direction: column;
+        display: flex;
+        flex-wrap: wrap;
         height: auto;
         width: auto;
         margin: 20px;
     }
+    footer .div-footer1 {
+        justify-content: space-between;
+    }
 
     .div-footer1 section{
-        row-gap: 10px;
+        row-gap: 0px;
+        margin: 10px;
     }
 
     .div-footer1 section ul{
