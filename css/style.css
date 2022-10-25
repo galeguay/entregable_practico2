@@ -194,11 +194,15 @@ header{
     display: flex;
     align-items: center;
 }
+.buscador form{
+    margin-left: 10px;
+}
 input{
     width: 220px;
     height: 36px;
     background-color: var(--primarioLuz1);
     border-radius: 10px;
+    padding-left: 10px;
 }
 input::placeholder{
     size: 16px;
@@ -258,6 +262,9 @@ button:hover{
     background-color: var(--acentoLuz3);
     cursor: pointer;
 }
+button:active{
+    background-color: var(--acentoSombra3);
+}
 a:hover{
     cursor: pointer;
 }
@@ -276,7 +283,7 @@ button h2{
 
 /*RECOMENDADOS*/
 .category h1{
-    padding-left: 18px;
+    padding-left: 38px;
     background: linear-gradient(90deg, rgba(3,50,80,1) 35%, rgba(0,24,40,1) 50%);
 }
 .category, .lanzamiento{
@@ -284,7 +291,6 @@ button h2{
 }
 .recomendados h1{
     color: black;
-    padding-left: 18px;
     background: linear-gradient(90deg, var(--primarioLuz2) 35%, rgb(0,24,40,1) 50%);
 }
 /*CARRUSELES*/
@@ -457,7 +463,40 @@ footer a, footer h3{
     width: 168px;
     height: 54px;
     margin-bottom: 20px;
+
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    display: inline-block;
 }
+.btnReservar:hover h2{
+    color: white;
+}
+.btnReservar:after{
+   content: "";
+  background: var(--acentoSombra3);
+  position: absolute;
+  z-index: -1;
+  padding: 16px 20px;
+  display: block;
+  top: 0;
+  bottom: 0;
+  left: -100%;
+  right: 100%;
+  -webkit-transition: all 0.35s;
+  transition: all 0.35s; 
+}
+
+.btnReservar:hover::after {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  -webkit-transition: all 0.35s;
+  transition: all 0.35s;
+}
+
+
 .logoJuego{
     margin-top: 20px;
 }
@@ -505,13 +544,13 @@ footer a, footer h3{
 
 .content-imagenes:hover{
     animation-play-state: paused;
-    filter: brightness(1.10);
 }
 
 @keyframes imagenes {
     0% {background-position: 0;}
     100% {background-position: -5000px;}
 }
+
 
 
 .disponible{
@@ -664,6 +703,12 @@ li.gameCard:hover{
     -webkit-transition: all 0.7s ease;
     transition: all 0.7s ease;
 }
+/* .personaje img:hover{
+    -webkit-transform: rotateY(180deg);
+    -webkit-transform-style: preserve-3d;
+    transform: rotateY(180deg);
+    transform-style: preserve-3d;
+} */
 .personaje:hover{
     -webkit-transform:scale(1.3);
     transform: scale(1.2);
@@ -851,6 +896,45 @@ li.gameCard:hover{
     color: black;
 }
 
+
+.loadingScreen{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 2;
+    background-color: var(--primarioSombra3);
+}
+.loading{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 2;
+    transform: translate(-50%,-50%);
+}
+#myProgress {
+    width: 100%;
+    background-color: grey;
+  }
+  
+  #myBar {
+    width: 1%;
+    height: 30px;
+    background-color: green;
+  }
+
+.rotate {
+    animation: rotation 2s infinite linear;
+  }
+
+  @keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
 @media only screen and (max-width: 600px){
     .lanzamiento div{
         display: flex;
@@ -864,14 +948,6 @@ li.gameCard:hover{
     .contenidoLanzamiento{
         border-radius: 0px 0px 20px 20px;
     }
-    /*.slides-container {
-        margin-left: 35px;
-        margin-right: 35px;
-    }*/
-    /*.slide-arrow {
-        padding-left: 0px;
-        padding-right: 0px;
-    }*/
     .slide-arrow img{
         height: 60px;
     }
@@ -935,5 +1011,36 @@ li.gameCard:hover{
     }
     input::placeholder{
         padding: 5px;
+    }
+
+    header{
+        flex-direction: column;
+        padding-bottom: 10px;
+    }
+    .divHeader1, .divHeader2{
+        width: 100%;
+    }
+    .divHeader1{
+        justify-content: space-around;
+    }
+    .divHeader2{
+        justify-content: space-around;
+    }
+    .divHeader2 .carrito{
+        margin-left: 10px;
+    }
+    input{
+        width: 100%;
+    }
+    .buscador img{
+        display: none;
+    }
+    .category h1{
+        padding-left: 15px;
+        background: linear-gradient(90deg, rgba(3,50,80,1) 35%, rgba(0,24,40,1) 95%);
+    }
+    .recomendados h1{
+        width: 100%;
+        background: linear-gradient(90deg, var(--primarioLuz2) 35%, rgb(0,24,40,1) 95%);
     }
 }
