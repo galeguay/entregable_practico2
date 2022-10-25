@@ -1,4 +1,6 @@
 var i = 0;
+let bodyDiv = document.querySelector(".divBody");
+let header = document.querySelector("header");
 let loadingDiv = document.querySelector(".loadingScreen");
 function move() {
   if (i == 0) {
@@ -10,6 +12,8 @@ function move() {
       if (width >= 100) {
         clearInterval(id);
         i = 0;
+        bodyDiv.classList.toggle('ultrablur');
+        header.classList.toggle('ultrablur');
         loadingDiv.classList.toggle('hide');
       } else {
         width++;
