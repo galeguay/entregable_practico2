@@ -409,7 +409,6 @@ footer .normalBoldText{
     display: flex;
     flex-direction: column;
     row-gap: 15px;
-    margin: 10px;
 }
 
 .div-footer1 section ul{
