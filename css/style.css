@@ -421,6 +421,12 @@ footer .normalBoldText{
     display: flex;
     justify-content: space-around;
     background-color: var(--primario);
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.item1, .item2{
+    padding-left: 15px;
+    padding-right: 15px;
 }
 .item1{
     font-weight: bold;
@@ -970,14 +976,19 @@ li.gameCard:hover{
         width: auto;
     }
     .div-footer1{
-        flex-direction: column;
+        display: flex;
+        flex-wrap: wrap;
         height: auto;
         width: auto;
         margin: 20px;
     }
+    footer .div-footer1 {
+        justify-content: space-between;
+    }
 
     .div-footer1 section{
-        row-gap: 10px;
+        row-gap: 0px;
+        margin: 10px;
     }
 
     .div-footer1 section ul{
@@ -998,6 +1009,9 @@ li.gameCard:hover{
     }
     .div-footer2 .item2{
         margin-bottom: 10px;
+    }
+    .div-footer2 .item1{
+        text-align: center;
     }
     .divHeader1{
         margin-left: 5px;
