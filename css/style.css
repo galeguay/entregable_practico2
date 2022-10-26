@@ -839,10 +839,27 @@ li.gameCard:hover{
     margin-left: 10px;
 }
 .gameMedia{
+    margin-left: 10px;
     width: fit-content;
     padding: 10px 10px 5px 10px;
     background-color: rgba(0, 0, 0, 0.20);
 }
+.gameMedia img{
+    filter: blur(1px) grayscale(100%);
+    border-radius: 10px;
+}
+.gameMedia img:hover{
+    animation: 0.5s ease-in example forwards;
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes example {
+    to {filter: blur(0px) grayscale(0%);
+        transform: scale(1.4) rotateX(360deg);
+        border-radius: 0px;
+        box-shadow: 0px 0px 50px 20px black}
+  }
 
 .seccionComentarios h2{
     margin-bottom: 10px;
