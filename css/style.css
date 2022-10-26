@@ -275,7 +275,14 @@ a:hover{
     height: 54px;
     border-radius: 17px;
     margin-bottom: 20px;
+    border-color: var(--acento);
+    box-shadow: 0 0 40px 40px var(--acento) inset, 0 0 0 0 var(--acento);
+    -webkit-transition: all 150ms ease-in-out;
+    transition: all 150ms ease-in-out;
 }
+.btn-masinfo:hover {
+    box-shadow: 0 0 10px 0 var(--acentoLuz1) inset, 0 0 10px 4px var(--acentoLuz1);
+  }
 
 button h2{
     color: black;
@@ -469,37 +476,23 @@ footer a, footer h3{
     width: 168px;
     height: 54px;
     margin-bottom: 20px;
-
     position: relative;
     z-index: 1;
     overflow: hidden;
     display: inline-block;
 }
-.btnReservar:hover h2{
-    color: white;
-}
-.btnReservar:after{
-   content: "";
-  background: var(--acentoSombra3);
-  position: absolute;
-  z-index: -1;
-  padding: 16px 20px;
-  display: block;
-  top: 0;
-  bottom: 0;
-  left: -100%;
-  right: 100%;
-  -webkit-transition: all 0.35s;
-  transition: all 0.35s; 
-}
 
-.btnReservar:hover::after {
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  -webkit-transition: all 0.35s;
-  transition: all 0.35s;
+.btnReservar {
+    border-color: var(--acento);
+    background-image: -webkit-linear-gradient(45deg, var(--acentoLuz2) 50%, transparent 50%);
+    background-image: linear-gradient(45deg, var(--acentoLuz2) 50%, transparent 50%);
+    background-position: 100%;
+    background-size: 400%;
+    -webkit-transition: background 300ms ease-in-out;
+    transition: background 300ms ease-in-out;
+}
+.btnReservar:active{
+    box-shadow: 0 0 10px 0 var(--acentoLuz1) inset, 0 0 10px 4px var(--acentoLuz1);
 }
 
 
@@ -550,6 +543,8 @@ footer a, footer h3{
 
 .content-imagenes:hover{
     animation-play-state: paused;
+     transform: scale(1.1);
+    box-shadow: 0px 0px 30px 10px rgba(255,255,255,0.8);
 }
 
 @keyframes imagenes {
