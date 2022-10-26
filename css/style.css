@@ -1033,9 +1033,12 @@ li.gameCard:hover{
     .divHeader1{
         margin-left: 5px;
         column-gap: 10px;
+        justify-content: space-between;
+        
     }
     .divHeader2 > div, .divHeader2 > img{
         padding-right: 10px;
+        padding-left: 10px;
     }
     .buscador > img{
         width: 20px;
@@ -1055,13 +1058,13 @@ li.gameCard:hover{
         padding-bottom: 10px;
     }
     .divHeader1, .divHeader2{
-        width: 100%;
-    }
-    .divHeader1{
-        justify-content: space-around;
+        width: 90%;
     }
     .divHeader2{
         justify-content: space-around;
+    }
+    .divHeader1{
+        justify-content: space-between;
     }
     .divHeader2 .carrito{
         margin-left: 10px;
