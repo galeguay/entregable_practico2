@@ -35,6 +35,8 @@
     --acentoLuz3: #FFE6B0;
     --logo: #2E58FF;
     --textLink: #8AB3FD;
+    --mouse-x: 0px;
+    --mouse-y: 0px;
 }
 
 
@@ -1002,6 +1004,19 @@ li.gameCard:hover{
     transform: rotate(359deg);
   }
 }
+
+
+/* ---------- 4 EN LINEA --------- */
+
+#ficha{
+    transform: translate(0px, var(--mouse-y));
+    transition: 2s;
+}
+#tablero{
+    width: 400px;
+    height: 300px;
+}
+
 
 
 @media only screen and (max-width: 600px){
