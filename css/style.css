@@ -324,6 +324,7 @@ button h2{
 .game-description{
     justify-content: space-between;
     margin: 20px;
+    width: 390px;
 }
 
 .game-description .title{
@@ -1006,16 +1007,6 @@ li.gameCard:hover{
 }
 
 
-/* ---------- 4 EN LINEA --------- */
-
-#ficha{
-    transform: translate(0px, var(--mouse-y));
-    transition: 2s;
-}
-#tablero{
-    width: 400px;
-    height: 300px;
-}
 
 
 

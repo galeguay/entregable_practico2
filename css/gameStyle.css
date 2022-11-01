@@ -1,0 +1,14 @@
+/* ---------- 4 EN LINEA --------- */
+
+#ficha{
+    transform: translate(0px, var(--mouse-y));
+    transition: 2s;
+}
+#tablero{
+    width: 400px;
+    height: 300px;
+}
+#gameDiv{
+    width: 890px;
+    height: 487px;
+}
