@@ -1,0 +1,87 @@
+Match{
+    TipoTablero
+    TiempoDeJuego
+    TiempoDeTurno
+    Jugador1
+    Jugador2
+    
+    
+    contructor(){
+    
+    }
+    
+    
+    seJuega(){
+        Temporizador.hayTiempo()
+            turno(jugador sorteado)
+                
+    }
+    
+    startMatch(){
+        cargar canvas
+        sortea primerjugador
+        setInterval(FinDePartida(null), 1000*60*TiempDeJuego)
+        turno(jugador sorteado)
+    }
+    
+    
+    
+    iniciarTurno(jugadorActual){
+        setInterval(turno(jugadorSiguiente), 1000*60*TiempDeTurno)
+        habilita a jugar su ficha y oculta al otro
+        //ver tiempo por jugador
+        
+        luego de soltar la fihca en el tablero{
+            tablaro.insertarFicha(jugadorActual, columna)
+            si tablero.hayGanador() 
+                llama a FinDePartida(jugadorActual)
+            si no gano y hay tablero.hayCasillerosLibres
+                llama a turno(jugadorSiguiente)
+        }
+    }
+    
+    FinDePartida(Jugador){
+        si tablero.hayGanador()
+            
+            dibuja animacion de ganador
+        sino
+            mostrar motivo de fin de partida
+        y mostrar opciones de reinici rapido o menu principal
+    }
+
+    reiniciar()
+    
+}
+
+Jugador{
+    nombre
+    ficha
+    
+    
+}
+
+Tablero{
+    rows
+    columns
+    y_row0
+    x_column0
+    tipoTablero("int" de cant de fichas en linea para ganar)
+    
+    dibujarse(tipoTablero)
+    
+    insertarFicha(Jugador, columna){
+        animar caida de ficha
+        actualizar matriz de logica (aregar el numerito en la matriz)
+        si columnaCompleta()
+            ocultar el drop point
+        
+    }
+    
+    hayGanador() (devuelve "boolean")
+    
+    columanCompleta(columa) -> boolean
+    
+    hayCasillerosLibres() -> boolean
+        
+    
+}
