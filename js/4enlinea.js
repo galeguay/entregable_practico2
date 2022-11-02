@@ -14,7 +14,7 @@ function drawBoard() {
   tablero4.onload = function () {
     ctx.drawImage(tablero4, 100, 100);
   };
-  tablero4.src = 'images/4enlinea/tablero4enLinea.jpg';
+  tablero4.src = "images/4enLinea/tablero4enLinea.jpg";
 }
 drawBoard();
 
@@ -28,7 +28,7 @@ function drawFichaMessi(event) {
   fichaMessi.onload = function () {
     ctx.drawImage(fichaMessi, cursorX, cursorY);
   };
-  fichaMessi.src = 'images/4enlinea/fichaMessi.png';
+  fichaMessi.src = "images/4enLinea/fichaMessi.png";
   console.log(cursorX);
   console.log(cursorY);
 }
