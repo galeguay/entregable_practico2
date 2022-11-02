@@ -5,9 +5,9 @@ window.addEventListener('load', () => {
 
 })
 
-
-let canvas = document.querySelector('#myCanvas');
+let canvas = document.querySelector('#gameCanvas');
 let ctx = canvas.getContext('2d');
+
 
 function drawBoard() {
   var tablero4 = new Image();
@@ -17,7 +17,6 @@ function drawBoard() {
   tablero4.src = "images/4enLinea/tablero4enLinea.jpg";
 }
 drawBoard();
-
 
 let cursorX = 0;
 let cursorY = 0;
@@ -39,7 +38,3 @@ function getMousePos(event){
   console.log(cursorX);
   console.log(cursorY);
 }
-
-
-
-
