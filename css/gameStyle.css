@@ -1,14 +1,29 @@
 /* ---------- 4 EN LINEA --------- */
-
+:root{
+    --mouse-x: 0px;
+    --mouse-y: 0px;
+}
+.game{
+    margin: 50px;
+    display: flex;
+    align-items: center;
+}
 #ficha{
-    transform: translate(0px, var(--mouse-y));
+    position: relative;
+    /* left: var(--mouse-x);
+    top: var(--mouse-y); */
+    transform: translate(var(--mouse-x), var(--mouse-y));
     transition: 2s;
 }
 #tablero{
+    /* z-index: 1; */
+    position: absolute;
+    left: 280px;
+    top: 200px;
     width: 400px;
     height: 300px;
 }
 #gameDiv{
     width: 890px;
-    height: 487px;
+    height: 590px;
 }

@@ -1,15 +1,45 @@
-"use stric";
+"use strict";
 
-// let canvas = document.querySelector('#myCanvas');
-// let ctx = canvas.getContext('2d');
-// let canvasWidht = canvas.width;
-// let canvasHeight = canvas.height;
+window.addEventListener('load', () => {
+  document.addEventListener('mousedown', drawFichaMessi);
+
+})
 
 
-let root = document.documentElement;
+let canvas = document.querySelector('#myCanvas');
+let ctx = canvas.getContext('2d');
 
-root.addEventListener("mousemove", e => {
-  root.style.setProperty('--mouse-x', e.clientX + "px");
-  root.style.setProperty('--mouse-y', 150 + "px");
-});
+function drawBoard() {
+  var tablero4 = new Image();
+  tablero4.onload = function () {
+    ctx.drawImage(tablero4, 100, 100);
+  };
+  tablero4.src = 'images/4enlinea/tablero4enLinea.jpg';
+}
+drawBoard();
+
+
+let cursorX = 0;
+let cursorY = 0;
+
+function drawFichaMessi(event) {
+  getMousePos(event);
+  var fichaMessi = new Image();
+  fichaMessi.onload = function () {
+    ctx.drawImage(fichaMessi, cursorX, cursorY);
+  };
+  fichaMessi.src = 'images/4enlinea/fichaMessi.png';
+  console.log(cursorX);
+  console.log(cursorY);
+}
+
+function getMousePos(event){
+  let cursorX = Math.round(event.offsetX);
+  let cursorY = Math.round(event.offsetY);
+  console.log(cursorX);
+  console.log(cursorY);
+}
+
+
+
 
