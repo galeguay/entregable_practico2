@@ -7,11 +7,12 @@ window.addEventListener('load', () => {
 
 })
 
-let canvas = document.querySelector('#myCanvas');
+let canvas = document.querySelector('#gameCanvas');
 let ctx = canvas.getContext('2d');
 let canvasWidth = canvas.width;
 let canvasHeight = canvas.height;
 let drag = false;
+
 
 function drawBoard() {
   let tablero4 = new Image();
@@ -50,9 +51,6 @@ function moveMouse(event){ // Movimiento del mouse
 
 }
 
-
-
-
 let cursorX = 0;
 let cursorY = 0;
 
@@ -61,15 +59,15 @@ function drawFichaMessi() {
   fichaMessi.onload = function () {
     ctx.drawImage(fichaMessi, 0, 0);
   };
-  fichaMessi.src = 'images/4enLinea/fichaMessi.png';
+  fichaMessi.src = "images/4enLinea/fichaMessi.png";
+  console.log(cursorX);
+  console.log(cursorY);
 }
 drawFichaMessi();
 
 function getMousePos(event){
   let cursorX = Math.round(event.offsetX);
   let cursorY = Math.round(event.offsetY);
+  console.log(cursorX);
+  console.log(cursorY);
 }
-
-
-
-
