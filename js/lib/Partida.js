@@ -4,8 +4,8 @@ class Partida{
         this.cantidadFichasParaGanar = cantidadFichasParaGanar;
         this.tiempoDeJuego = tiempoDeJuego;
         this.tiempoDeTurno = tiempoDeTurno;
-        //this.jugador1 = new Jugador();
-        //this.jugador2 = new Jugador();
+        this.jugador1 = new Jugador();
+        this.jugador2 = new Jugador();
         this.jugadorActual;
         this.matrizLogica = new MatrizLogica(cantidadFichasParaGanar);
     }
@@ -28,18 +28,17 @@ class Partida{
         iniciarTurno()
     }
 
-    iniciarTurno(){
+    #iniciarTurno(){
         //Establecer temporizador
         setInterval(finishMatch(null),1000*60*tiempoDeJuego);
-
         //Habilitar ficha al jugadorActual
         //cuando suelte la ficha en un dropPoint
         tablero
     }
 
-    terminarPartida(jugador){
-        if (!jugador){
-            if (MatrizTablero.hayGanador){
+    terminarPartida(jugadorActual){
+        if (!jugadorActual){
+            if (this.matrizLogica.esGanador(jugadorActual)){
                 //dibujar pantalla ganador
             }else{
                 //mostrar motivo por el cual finalizó la partida
