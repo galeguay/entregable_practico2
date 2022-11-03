@@ -3,8 +3,7 @@
 window.addEventListener('load', () => {
   document.addEventListener('mousedown', startDragged); // Inicia arrastrada
   document.addEventListener('mouseup', stopDragged); // Detiene arrastrada
-  document.addEventListener('mousemove', moveMouse); // Movimiento del mouse 
-
+  document.addEventListener('mousemove', moveMouse); // Movimiento del mouse
 })
 
 let canvas = document.querySelector('#gameCanvas');
@@ -13,20 +12,19 @@ let canvasWidth = canvas.width;
 let canvasHeight = canvas.height;
 let drag = false;
 
-
 function drawBoard() {
-  let tablero4 = new Image();
+  var tablero4 = new Image();
   tablero4.onload = function () {
     ctx.drawImage(tablero4, 100, 100);
   };
-  tablero4.src = 'images/4enLinea/tablero4enLinea.jpg';
+  tablero4.src = 'images/4enlinea/tablero4enLinea.jpg';
 }
 drawBoard();
 
+//Ficha fichaMessi = new Ficha(image,celeste)
 
 function startDragged(event){ // Inicia arrastrada
   drag = true;
-  
   let cursorX = Math.round(event.offsetX);
   let cursorY = Math.round(event.offsetY);
   //getMousePos(event);
@@ -47,7 +45,6 @@ function stopDragged(event){ // Detiene arrastrada
 }
 
 function moveMouse(event){ // Movimiento del mouse
-  
 
 }
 
