@@ -12,8 +12,6 @@ let canvas = document.querySelector('#gameCanvas');
 let ctx = canvas.getContext('2d');
 
 
-
-
 //Creo una nueva instancia de la clase Tablero
 let tablero4 = new Tablero(4, "images/4enLinea/tablero4.png", 0, 0);
 tablero4.draw(ctx);

@@ -69,7 +69,7 @@ Tablero{
     
     dibujarse(tipoTablero)
     
-    insertarFicha(Jugador, columna){
+    insertarFicha(columna){
         animar caida de ficha
         actualizar matriz de logica (aregar el numerito en la matriz)
         si columnaCompleta()
