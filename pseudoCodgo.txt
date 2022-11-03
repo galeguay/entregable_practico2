@@ -74,14 +74,18 @@ Tablero{
         actualizar matriz de logica (aregar el numerito en la matriz)
         si columnaCompleta()
             ocultar el drop point
-        
     }
-    
-    hayGanador() (devuelve "boolean")
-    
-    columanCompleta(columa) -> boolean
-    
-    hayCasillerosLibres() -> boolean
-        
-    
 }
+
+ficha {
+    imagen
+    colorborde
+    pos x
+    posy
+
+    dibujarse()
+
+    //ver animacion caida
+}
+
+VER CUANDO SE TIENE QUE LIMPIAR EL CANVAS
