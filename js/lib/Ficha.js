@@ -25,7 +25,6 @@ class Ficha {
         // this.ctx.strokeStyle = this.colorBorde;
         // this.ctx.linewidhtImg = 10;
         // this.ctx.stroke();
-        
     }
 
     /**Actualiza la posicion al mover el mouse*/
@@ -35,15 +34,6 @@ class Ficha {
         //this.posX = x + (this.widht/2);
         //this.posY = y + (this.height/2);
     }
-
-    
-    /**Chequea si el puntero esta dentro de la ficha*/
-    isPointInside(x, y){
-        let _x = this.posX - x; //La pos del circulo menos la pos del mouse
-        let _y = this.posY - y;
-        return Math.sqrt(_x * _x + _y * _y) < 50;
-    }
-
 
     getPosition(){ //Obtiene la posicion actual
         return{
@@ -58,6 +48,14 @@ class Ficha {
 
     getPosY(){ //Obtiene la pos en y
         return this.posY;
+    }
+
+    /**Chequea si el puntero esta dentro de la ficha */
+    isPointInside(cursorX, cursorY){
+        console.log(cursorX+" "+cursorY+"\n"+this.posX+" "+this.posY);
+        let _x = this.posX - cursorX;
+        let _y = this.posY - cursorY;
+        return Math.sqrt(_x * _x + _y * _y) < 60;
     }
 
 }

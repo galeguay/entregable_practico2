@@ -1,4 +1,5 @@
 "use strict";
+/** @type {CanvasRenderingContext2D} */
 
 window.addEventListener('load', () => {
   document.addEventListener('mousedown', onMouseDown); // Inicia arrastrada
@@ -8,14 +9,12 @@ window.addEventListener('load', () => {
 })
 
 let canvas = document.querySelector('#gameCanvas');
-/** @type {CanvasRenderingContext2D} */
 let ctx = canvas.getContext('2d');
 let widht = canvas.getBoundingClientRect().width;
 let height = canvas.getBoundingClientRect().height;
 
 
-
-//Creo una nueva instancia de la clase Tablero
+//Se crea una nueva instancia de la clase Tablero
 let tablero4 = new Tablero(4, "images/4enLinea/tablero4.png", 0, 0);
 
 //Creo una nueva instancia de la clase Ficha
@@ -88,3 +87,4 @@ drawFicha();*/
 /*function clearCanvas(){
   ctx.clearRect(0, 0, widht, height);
 }*/
+
