@@ -14,14 +14,14 @@ let widht = canvas.getBoundingClientRect().width;
 let height = canvas.getBoundingClientRect().height;
 
 
+let cantidadFichasParaGanar = 7;
 //Se crea una nueva instancia de la clase Tablero
-let tablero4 = new Tablero(4, "images/4enLinea/tablero4.png", 0, 0);
+let tablero = new Tablero(cantidadFichasParaGanar, 0, 0);
+tablero.draw(ctx);
 
-//Creo una nueva instancia de la clase Ficha
+//Se crean nuevas instancias de la clase Ficha
 let fichaMessi = new Ficha("images/4enLinea/fichaMessi.png", "#FF0000", 10, 10, 50, 50, widht, height);
 let fichaRonaldo = new Ficha("images/4enLinea/fichaRonaldo.png", "red", 150, 10, 50, 50,  widht, height);
-
-tablero4.draw(ctx);
 fichaMessi.draw(ctx);
 fichaRonaldo.draw(ctx);
 
@@ -32,26 +32,28 @@ function getCursorPosition(canvas, event) {
   const rect = canvas.getBoundingClientRect();
   const x = event.clientX - rect.left;
   const y = event.clientY - rect.top;
-  //console.log("x: " + x + " y: " + y);
 }
 
 
 let isMouseDown = false;
 let fichaParaMover;
+let difX;
+let difY;
 
-/**Cuando se clickea el mouse */
+/**Cuando se clickea el mouse*/
 function onMouseDown(event){
   isMouseDown = true;
   const rect = canvas.getBoundingClientRect();
   const x = event.clientX - rect.left; //coordenadas x e y dentro del canvas
   const y = event.clientY - rect.top;
-
-  let clickFicha = fichaClickeada(x, y); 
-  if(clickFicha != null){
+  console.log(x+" "+ y);
+  let clickFicha = fichaClickeada(x, y);
+  if(fichaClickeada(x, y) != null){
     fichaParaMover = clickFicha;
+    difX = x - fichaParaMover.getPosX();
+    difY = y - fichaParaMover.getPosY();
   }
 }
-
 /**Cuando se mueve el mouse mientras se esta clickeando*/
 function onMoveMouse(event){ 
   if(isMouseDown && fichaParaMover != null){
@@ -59,35 +61,25 @@ function onMoveMouse(event){
     let posX = event.clientX - rect.left;
     let posY = event.clientY - rect.top;
     if(fichaParaMover != null){
-      fichaParaMover.setPosition(posX, posY);
+      fichaParaMover.setPosition(posX - difX, posY - difY);
       fichaParaMover.draw(ctx);
-      clearCanvas();
+      //clearCanvas(fichaParaMover);
     }
   }
 }
-
-function onMouseUp(event){ // Mouse levantado
+/**Cuando se desclickea el mouse*/
+function onMouseUp(event){
   isMouseDown = false;
   fichaParaMover = null;
 }
-
 function fichaClickeada(x, y){
   if(fichaMessi.isPointInside(x, y)) return fichaMessi;
   else if(fichaRonaldo.isPointInside(x, y)) return fichaRonaldo;
 }
 
 
-// function drawFicha(fichaParaMover){
-//   console.log(fichaParaMover);
-//   clearCanvas(fichaParaMover);
-//   if(fichaParaMover === fichaMessi) fichaMessi.draw(ctx);
-//   else if (fichaParaMover === fichaRonaldo) fichaRonaldo.draw(ctx);
+// function clearCanvas(fichaParaDibujar){
+//   ctx.clearRect(0, 0, widht, height);
+//   tablero.draw(ctx);
 // }
-// drawFicha();
 
-function clearCanvas(){
-  ctx.clearRect(0, 0, widht, height);
-  tablero4.draw(ctx);
-  console.log("tablero" +tablero4);
-}
-clearCanvas();

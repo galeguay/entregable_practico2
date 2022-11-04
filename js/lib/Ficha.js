@@ -19,7 +19,6 @@ class Ficha {
         let heightImg = this.heightImg;
         imagen.onload = function () {
             ctx.drawImage(imagen, x, y, widhtImg, heightImg);
-            //ctx.globalCompositeOperation = "source-atop";
         };
         imagen.src = this.imagenSrc;
         // this.ctx.strokeStyle = this.colorBorde;
@@ -28,11 +27,9 @@ class Ficha {
     }
 
     /**Actualiza la posicion al mover el mouse*/
-    setPosition(x, y){ 
-        this.posX = x;
-        this.posY = y;
-        //this.posX = x + (this.widht/2);
-        //this.posY = y + (this.height/2);
+    setPosition(x, y){
+        this.posX = x;// - (difX);
+        this.posY = y;// - (difY);
     }
 
     getPosition(){ //Obtiene la posicion actual
@@ -52,7 +49,6 @@ class Ficha {
 
     /**Chequea si el puntero esta dentro de la ficha */
     isPointInside(cursorX, cursorY){
-        console.log(cursorX+" "+cursorY+"\n"+this.posX+" "+this.posY);
         let _x = this.posX - cursorX;
         let _y = this.posY - cursorY;
         return Math.sqrt(_x * _x + _y * _y) < 60;

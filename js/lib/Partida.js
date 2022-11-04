@@ -12,6 +12,7 @@ class Partida{
 
     iniciarPartida(){
         //Cargar canvas de la partida
+        let tablero = new Tablero(/*cantidadFichasParaGanar,*/4, "images/4enLinea/tablero4.webp", 0, 0);
         tablero.draw(ctx);
         timer.draw(ctx);
 
