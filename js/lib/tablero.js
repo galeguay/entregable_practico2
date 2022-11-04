@@ -8,12 +8,12 @@ class Tablero{
 
     draw(ctx){
         let cantidadFichasParaGanar = new Image();
-        cantidadFichasParaGanar.src = this.imagenSrc;
         cantidadFichasParaGanar.onload = function () {
             ctx.drawImage(cantidadFichasParaGanar, 0, 0, 890, 590);
             // ctx.globalCompositeOperation = "source-atop";
             
         };
+        cantidadFichasParaGanar.src = this.imagenSrc;
     }
     
     // insertarFicha(columna){

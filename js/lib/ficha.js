@@ -1,9 +1,11 @@
 class Ficha {
-    constructor(imagenSrc, colorBorde, posX, posY, widht, height){
+    constructor(imagenSrc, colorBorde, posX, posY, widhtImg, heightImg, widht, height){
         this.imagenSrc = imagenSrc;
         this.colorBorde = colorBorde;
         this.posX = posX;
         this.posY = posY;
+        this.widhtImg = widhtImg;
+        this.heightImg = heightImg;
         this.widht = widht;
         this.height = height;
     }
@@ -11,29 +13,39 @@ class Ficha {
     draw(ctx){
         // clearCanvas(); //Limpia el canvas para despues 
         let imagen = new Image();
-        imagen.src = this.imagenSrc;
         let x = this.posX;
         let y = this.posY;
-        let widht = this.widht;
-        let height = this.height;
+        let widhtImg = this.widhtImg;
+        let heightImg = this.heightImg;
         imagen.onload = function () {
-            ctx.drawImage(imagen, x, y, widht, height);
+            ctx.drawImage(imagen, x, y, widhtImg, heightImg);
             ctx.globalCompositeOperation = "source-atop";
-            // ctx.globalCompositeOperation = "destination-over";
         };
+        imagen.src = this.imagenSrc;
         // this.ctx.strokeStyle = this.colorBorde;
-        // this.ctx.lineWidht = 10;
+        // this.ctx.linewidhtImg = 10;
         // this.ctx.stroke();
         
     }
 
-    setPosition(){ //Actualiza la posicion al mover el mouse
+    /**Actualiza la posicion al mover el mouse*/
+    setPosition(x, y){ 
         this.posX = x;
-        this.getPosY = y;
-        
+        this.posY = y;
+        //this.posX = x + (this.widht/2);
+        //this.posY = y + (this.height/2);
     }
 
-    getPosicion(){ //Obtiene la posicion actual
+    
+    /**Chequea si el puntero esta dentro de la ficha*/
+    isPointInside(x, y){
+        let _x = this.posX - x; //La pos del circulo menos la pos del mouse
+        let _y = this.posY - y;
+        return Math.sqrt(_x * _x + _y * _y) < 50;
+    }
+
+
+    getPosition(){ //Obtiene la posicion actual
         return{
             x: this.getPosX(),
             y: this.getPosY()
@@ -47,13 +59,5 @@ class Ficha {
     getPosY(){ //Obtiene la pos en y
         return this.posY;
     }
-
-    isPointInside(x, y){ //Ver si el puntero esta dentro de la ficha
-        let _x = this.posX - x; //La pos del circulo menos la pos del mouse
-        let _y = this.posY - y;
-        return Math.sqrt(_x * _x + _y * _y) < 50;
-    }
-
-
 
 }
