@@ -19,7 +19,7 @@ class Ficha {
         let heightImg = this.heightImg;
         imagen.onload = function () {
             ctx.drawImage(imagen, x, y, widhtImg, heightImg);
-            ctx.globalCompositeOperation = "source-atop";
+            //ctx.globalCompositeOperation = "source-atop";
         };
         imagen.src = this.imagenSrc;
         // this.ctx.strokeStyle = this.colorBorde;

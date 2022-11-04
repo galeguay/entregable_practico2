@@ -61,8 +61,8 @@ function onMoveMouse(event){
     if(fichaParaMover != null){
       fichaParaMover.setPosition(posX, posY);
       fichaParaMover.draw(ctx);
+      clearCanvas();
     }
-    
   }
 }
 
@@ -77,14 +77,17 @@ function fichaClickeada(x, y){
 }
 
 
-/*function drawFicha(fichaParaMover){
-  clearCanvas();
-  if(fichaParaMover === fichaMessi) fichaMessi.draw(ctx);
-  else if (fichaParaMover === fichaRonaldo) fichaRonaldo.draw(ctx);
-}
-drawFicha();*/
+// function drawFicha(fichaParaMover){
+//   console.log(fichaParaMover);
+//   clearCanvas(fichaParaMover);
+//   if(fichaParaMover === fichaMessi) fichaMessi.draw(ctx);
+//   else if (fichaParaMover === fichaRonaldo) fichaRonaldo.draw(ctx);
+// }
+// drawFicha();
 
-/*function clearCanvas(){
+function clearCanvas(){
   ctx.clearRect(0, 0, widht, height);
-}*/
-
+  tablero4.draw(ctx);
+  console.log("tablero" +tablero4);
+}
+clearCanvas();
