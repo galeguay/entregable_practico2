@@ -1,35 +1,28 @@
 class Ficha {
-    constructor(imagenSrc, colorBorde, posX, posY, widhtImg, heightImg, widht, height){
-        this.imagenSrc = imagenSrc;
+    constructor(ctx, imagenSrc, colorBorde, posX, posY, widthImg, heightImg, width, height){
+        this.ctx = ctx;
         this.colorBorde = colorBorde;
         this.posX = posX;
         this.posY = posY;
-        this.widhtImg = widhtImg;
+        this.widthImg = widthImg;
         this.heightImg = heightImg;
-        this.widht = widht;
+        this.width = width;
         this.height = height;
+        this.imagen = new Image();
+        this.imagen.onload = ()=> {
+            this.draw()
+        };
+        this.imagen.src = imagenSrc;
     }
 
-    draw(ctx){
-        // clearCanvas(); //Limpia el canvas para despues 
-        let imagen = new Image();
-        let x = this.posX;
-        let y = this.posY;
-        let widhtImg = this.widhtImg;
-        let heightImg = this.heightImg;
-        imagen.onload = function () {
-            ctx.drawImage(imagen, x, y, widhtImg, heightImg);
-        };
-        imagen.src = this.imagenSrc;
-        // this.ctx.strokeStyle = this.colorBorde;
-        // this.ctx.linewidhtImg = 10;
-        // this.ctx.stroke();
+    draw(){
+        this.ctx.drawImage(this.imagen, this.posX, this.posY, this.widthImg, this.heightImg);
     }
 
     /**Actualiza la posicion al mover el mouse*/
     setPosition(x, y){
-        this.posX = x;// - (difX);
-        this.posY = y;// - (difY);
+        this.posX = x;
+        this.posY = y;
     }
 
     getPosition(){ //Obtiene la posicion actual

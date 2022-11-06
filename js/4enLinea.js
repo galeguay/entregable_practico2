@@ -16,12 +16,12 @@ let height = canvas.getBoundingClientRect().height;
 
 let cantidadFichasParaGanar = 7;
 //Se crea una nueva instancia de la clase Tablero
-let tablero = new Tablero(cantidadFichasParaGanar, 0, 0);
+let tablero = new Tablero(ctx, cantidadFichasParaGanar, 0, 0);
 tablero.draw(ctx);
 
 //Se crean nuevas instancias de la clase Ficha
-let fichaMessi = new Ficha("images/4enLinea/fichaMessi.png", "#FF0000", 10, 10, 50, 50, widht, height);
-let fichaRonaldo = new Ficha("images/4enLinea/fichaRonaldo.png", "red", 150, 10, 50, 50,  widht, height);
+let fichaMessi = new Ficha(ctx,"images/4enLinea/fichaMessi.png", "#FF0000", 10, 10, 50, 50, widht, height);
+let fichaRonaldo = new Ficha(ctx,"images/4enLinea/fichaRonaldo.png", "red", 150, 10, 50, 50,  widht, height);
 fichaMessi.draw(ctx);
 fichaRonaldo.draw(ctx);
 
@@ -40,15 +40,15 @@ let fichaParaMover;
 let difX;
 let difY;
 
+
 /**Cuando se clickea el mouse*/
 function onMouseDown(event){
   isMouseDown = true;
   const rect = canvas.getBoundingClientRect();
   const x = event.clientX - rect.left; //coordenadas x e y dentro del canvas
   const y = event.clientY - rect.top;
-  console.log(x+" "+ y);
   let clickFicha = fichaClickeada(x, y);
-  if(fichaClickeada(x, y) != null){
+  if(clickFicha != null){
     fichaParaMover = clickFicha;
     difX = x - fichaParaMover.getPosX();
     difY = y - fichaParaMover.getPosY();
@@ -62,8 +62,8 @@ function onMoveMouse(event){
     let posY = event.clientY - rect.top;
     if(fichaParaMover != null){
       fichaParaMover.setPosition(posX - difX, posY - difY);
+      clearCanvas(fichaParaMover);
       fichaParaMover.draw(ctx);
-      //clearCanvas(fichaParaMover);
     }
   }
 }
@@ -76,10 +76,8 @@ function fichaClickeada(x, y){
   if(fichaMessi.isPointInside(x, y)) return fichaMessi;
   else if(fichaRonaldo.isPointInside(x, y)) return fichaRonaldo;
 }
-
-
-// function clearCanvas(fichaParaDibujar){
-//   ctx.clearRect(0, 0, widht, height);
-//   tablero.draw(ctx);
-// }
+function clearCanvas(fichaParaDibujar){
+  ctx.clearRect(0, 0, widht, height);
+  tablero.draw(ctx);
+}
 
