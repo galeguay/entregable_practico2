@@ -1,22 +1,23 @@
 class DropPoint{
-    constructor(imagenSrc, posX, posY, widthImg, heightImg){
-        this.imagenSrc = imagenSrc;
+    constructor(ctx, posX, posY, widthImg, heightImg){
+        this.ctx = ctx;
         this.posX = posX;
         this.posY = posY;
         this.widthImg = widthImg;
         this.heightImg = heightImg;
+        this.imagen = new Image();
+        this.imagen.onload = ()=> {
+            this.draw();
+        };
+        this.imagen.src = "images/4enLinea/dropPointWhite.png";
     }
-    
-    draw(ctx){
-        let imagen = new Image();
+
+    draw(){
         let x = this.posX;
         let y = this.posY;
         let widthImg = this.widthImg;
         let heightImg = this.heightImg;
-        imagen.onload = function () {
-            ctx.drawImage(imagen, x, y, widthImg, heightImg);
-        };
-        imagen.src = this.imagenSrc;
+        this.ctx.drawImage(this.imagen, x, y, widthImg, heightImg);
     }
 
     isDropPointInside(xUpCursor, yUpCursor){

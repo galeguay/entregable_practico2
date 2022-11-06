@@ -11,6 +11,7 @@ class Tablero {
             this.draw();
         };
         this.#cargarImagen();
+        this.#cargarDropPoints();
     }
 
     #cargarImagen() {
@@ -36,31 +37,30 @@ class Tablero {
         }
     }
 
-    draw(ctx){
-        let imagen = new Image()
-        imagen.onload = function () {
-            ctx.drawImage(imagen, 0, 0, 890, 590);
-        };
-        imagen.src = this.imagenSrc;
+    draw(){
+        this.ctx.drawImage(this.imagen, 0, 0, 890, 590);
+        this.#actualizarDropPoints();
+    }
+
+
+    #cargarDropPoints(){
         let x = this.x_column0;
         let y = this.y_row0;
-        console.log(x + " " + y);
-        for (let i = 0; i < cantidadFichasParaGanar + 3; i++) {
-            let dropPoint = new DropPoint("images/4enLinea/dropPointWhite.png", x, y, 50, 50);
-            dropPoint.draw(ctx);
+        for (let i = 0; i < this.cantidadFichasParaGanar + 3; i++) {
+            let dropPoint = new DropPoint(this.ctx, x, y, 50, 50);
             this.arrayDropPoints.push(dropPoint);
             x = x + 54;
         }
-        //console.log(this.arrayDropPoints);
-        this.ctx.drawImage(this.imagen, 0, 0, 890, 590);
     }
-    // insertarFicha(columna){
-    //     ctx.translate(x,y);
-
-    //     actualizar matriz de logica (aregar el numerito en la matriz)
-    //     si columnaCompleta()
-    //         ocultar el drop point
-    // }
+    #actualizarDropPoints(){
+        let x = this.x_column0;
+        let y = this.y_row0;
+        for (let i = 0; i < this.arrayDropPoints.length; i++) {
+            //let dropPoint = new DropPoint(this.ctx, x, y, 50, 50);
+            this.arrayDropPoints[i].draw();
+            x = x + 54;
+        }
+    }
 
     clearCanvas(){
         this.ctx.clearRect(0, 0, width, height);
