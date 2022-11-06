@@ -8,25 +8,19 @@ class Partida{
         this.jugador2 = new Jugador();
         this.jugadorActual;
         this.matrizLogica = new MatrizLogica(cantidadFichasParaGanar);
+        this.iniciarPartida();
     }
 
     iniciarPartida(){
         //Cargar canvas de la partida
-        let tablero = new Tablero(/*cantidadFichasParaGanar,*/4, "images/4enLinea/tablero4.webp", 0, 0);
-        tablero.draw(ctx);
-        timer.draw(ctx);
-
+        console.log("iniciandoPartida");
+        this.tablero = new Tablero(this.ctx, this.cantidadFichasParaGanar, 0, 0);
+        //this.tablero.draw();
+        //timer.draw(ctx);
         //Sortear primer jugador
-        let primerJugador = Math.floor (Math.random() * 2.0) + 1;
-        if (primerJugador == 1)
-            jugadorActual = this.jugador1;
-        else
-            jugadorActual = this.jugador2;
-
         //Iniciar Temporizador
-
         //Iniciar turno primer jugador
-        iniciarTurno()
+        //iniciarTurno();
     }
 
     #iniciarTurno(){
@@ -48,4 +42,16 @@ class Partida{
         }
     }
 
+    fichaPrimerJugador(){
+        let primerJugador = Math.floor (Math.random() * 2.0) + 1;
+        if (primerJugador == 1)
+            this.jugadorActual = this.jugador1;
+        else
+            this.jugadorActual = this.jugador2;
+        return this.jugadorActual.getFicha();
+    }
+
+    tablero(){
+        return this.tablero;
+    }
 }

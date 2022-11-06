@@ -1,9 +1,9 @@
 class DropPoint{
-    constructor(imagenSrc, posX, posY, widhtImg, heightImg){
+    constructor(imagenSrc, posX, posY, widthImg, heightImg){
         this.imagenSrc = imagenSrc;
         this.posX = posX;
         this.posY = posY;
-        this.widhtImg = widhtImg;
+        this.widthImg = widthImg;
         this.heightImg = heightImg;
     }
     
@@ -11,10 +11,10 @@ class DropPoint{
         let imagen = new Image();
         let x = this.posX;
         let y = this.posY;
-        let widhtImg = this.widhtImg;
+        let widthImg = this.widthImg;
         let heightImg = this.heightImg;
         imagen.onload = function () {
-            ctx.drawImage(imagen, x, y, widhtImg, heightImg);
+            ctx.drawImage(imagen, x, y, widthImg, heightImg);
         };
         imagen.src = this.imagenSrc;
     }
