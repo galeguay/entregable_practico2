@@ -14,7 +14,7 @@ let widht = canvas.getBoundingClientRect().width;
 let height = canvas.getBoundingClientRect().height;
 
 
-let cantidadFichasParaGanar = 7;
+let cantidadFichasParaGanar = 4;
 //Se crea una nueva instancia de la clase Tablero
 let tablero = new Tablero(cantidadFichasParaGanar, 0, 0);
 tablero.draw(ctx);
@@ -67,15 +67,26 @@ function onMoveMouse(event){
     }
   }
 }
+
 /**Cuando se desclickea el mouse*/
 function onMouseUp(event){
   isMouseDown = false;
-  fichaParaMover = null;
+  const rectt = canvas.getBoundingClientRect();
+  const xUpCursor = event.clientX - rectt.left; //coordenadas x e y dentro del canvas
+  const yUpCursor = event.clientY - rectt.top;
+  let dropPoint = tablero.checkDropPoint(xUpCursor, yUpCursor);
+  if(dropPoint != null && fichaParaMover != null){
+    tablero.insertarFicha(ctx, fichaParaMover, dropPoint, yUpCursor);
+    console.log("Se encontro DropPoint");
+  }else fichaParaMover = null;
+  
 }
+
 function fichaClickeada(x, y){
   if(fichaMessi.isPointInside(x, y)) return fichaMessi;
   else if(fichaRonaldo.isPointInside(x, y)) return fichaRonaldo;
 }
+
 
 
 // function clearCanvas(fichaParaDibujar){

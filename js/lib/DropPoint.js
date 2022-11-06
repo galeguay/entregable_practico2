@@ -18,4 +18,10 @@ class DropPoint{
         };
         imagen.src = this.imagenSrc;
     }
+
+    isDropPointInside(xUpCursor, yUpCursor){
+        let _x = this.posX - xUpCursor;
+        let _y = this.posY - yUpCursor;
+        return Math.sqrt(_x * _x + _y * _y) < 60;
+    }
 }
