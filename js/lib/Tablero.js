@@ -5,6 +5,7 @@ class Tablero {
         this.x_column0 = x_column0;
         this.cantidadFichasParaGanar = cantidadFichasParaGanar;
         this.imagenSrc;
+        this.matrizLogica;
         this.arrayDropPoints = new Array();
         this.arrayFichasJ1 = new Array();
         this.arrayFichasJ2 = new Array();
@@ -41,6 +42,8 @@ class Tablero {
     }
 
     draw(){
+        ctx.fillStyle = "black";
+        ctx.fillRect(0, 0, 890, 590);
         this.ctx.drawImage(this.imagen, 0, 0, 890, 590);
     }
 
@@ -116,7 +119,9 @@ class Tablero {
     insertarFicha(fichaParaMover, dropPoint){
         fichaParaMover.setPosition(dropPoint.getX(), dropPoint.getY());
         fichaParaMover.draw();
-        this.animacionCaida(fichaParaMover, 500);
+        if(dropPoint[0]) 
+        if(columnaLlena == 0)
+        this.animacionCaida(fichaParaMover, /*filaLibre*/500);
     }
 
     animacionCaida(ficha, destinoY){

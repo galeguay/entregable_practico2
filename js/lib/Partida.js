@@ -32,7 +32,7 @@ class Partida{
         setTimeout(finishMatch(null),1000*60*tiempoDeJuego);
         //Habilitar ficha al jugadorActual
         //cuando suelte la ficha en un dropPoint
-        tablero
+        //tablero
     }
 
     terminarPartida(jugadorActual){
