@@ -35,12 +35,12 @@ class Juego {
         this.partida.clearCanvas(width, height);
     }
 
-    checkDropPoint(xUp, yUp){
-        return this.partida.checkDropPoint(xUp, yUp);
+    getColumna(xUp, yUp){
+        return this.partida.getColumna(xUp, yUp);
     }
 
-    insertarFicha(fichaParaMover, dropPoint){
-        this.partida.insertarFicha(fichaParaMover, dropPoint);
+    insertarFicha(fichaParaMover, columna){
+        this.partida.insertarFicha(fichaParaMover, columna);
     }
 
 /*

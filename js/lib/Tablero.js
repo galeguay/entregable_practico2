@@ -98,18 +98,18 @@ class Tablero {
         return this.arrayFichasJ2[index];
     }
 
-    checkDropPoint(xUp, yUp){
-        if(this.arrayDropPoints[0].isPointInside(xUp, yUp)) return this.arrayDropPoints[0];
-        else if(this.arrayDropPoints[1].isPointInside(xUp, yUp)) return this.arrayDropPoints[1];
-        else if(this.arrayDropPoints[2].isPointInside(xUp, yUp)) return this.arrayDropPoints[2];
-        else if(this.arrayDropPoints[3].isPointInside(xUp, yUp)) return this.arrayDropPoints[3];
-        else if(this.arrayDropPoints[4].isPointInside(xUp, yUp)) return this.arrayDropPoints[4];
-        else if(this.arrayDropPoints[5].isPointInside(xUp, yUp)) return this.arrayDropPoints[5];
-        else if(this.arrayDropPoints[6].isPointInside(xUp, yUp)) return this.arrayDropPoints[6];
+    getColumna(xUp, yUp){
+        if(this.arrayDropPoints[0].isPointInside(xUp, yUp)) return 0;
+        else if(this.arrayDropPoints[1].isPointInside(xUp, yUp)) return 1;
+        else if(this.arrayDropPoints[2].isPointInside(xUp, yUp)) return 2;
+        else if(this.arrayDropPoints[3].isPointInside(xUp, yUp)) return 3;
+        else if(this.arrayDropPoints[4].isPointInside(xUp, yUp)) return 4;
+        else if(this.arrayDropPoints[5].isPointInside(xUp, yUp)) return 5;
+        else if(this.arrayDropPoints[6].isPointInside(xUp, yUp)) return 6;
     }
 
-
-    insertarFicha(fichaParaMover, dropPoint){
+    insertarFicha(fichaParaMover, columna){
+        let dropPoint = this.arrayDropPoints[columna];
         fichaParaMover.setPosition(dropPoint.getX(), dropPoint.getY());
         fichaParaMover.draw();
         this.animacionCaida(fichaParaMover, 500);
@@ -125,5 +125,9 @@ class Tablero {
             if(y >= destinoY)
                 clearInterval(anim);
         }, 20);
+    }
+
+    disableDropPoint(columna){
+        this.arrayDropPoints[columna].disable();
     }
 }

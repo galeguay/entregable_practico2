@@ -2,9 +2,8 @@ class MatrizLogica{
     constructor(cantidadFichasParaGanar){
         this.cantidadFichasParaGanar = cantidadFichasParaGanar;
         this.matriz;
-
         this.#inicializarMatriz();
-        this.#printMatriz();
+        this.#printMatrizConsole();
     }
 
 
@@ -13,18 +12,22 @@ class MatrizLogica{
         if (!this.esColumnaCompleta(col)){
             let casillaLibre = 0;
             let inserto = false;
+            let row = 0;
             while (row < this.matriz.length && !inserto){
-                if (this.matriz.length[row][col] != 0){
-                    this.matriz.length[casillaLibre][col] = numJugador;
+                if (this.matriz[row][col] != 0){
+                    this.matriz[casillaLibre][col] = numJugador;
                     inserto = true;
                 }else{
                     casillaLibre = row;
                     row++;
                 }
             }
+            if (row == this.matriz.length)
+                this.matriz[casillaLibre][col] = numJugador;
         }
+        this.#printMatrizConsole();
+        return this.esColumnaCompleta(col);
     }
-
 
     /**Devuelve true si la columna no tiene espacio para agregar nuevas fichas */
     esColumnaCompleta(col){ //CHEQUEAR
@@ -47,13 +50,13 @@ class MatrizLogica{
         for (let y = 0; y < this.matriz.length; y++) {
             for (let x = 0; x < this.matriz[y].length; x++) {
                 let count = 0;
-                count = this.countUp(x, y, numJugador, this.matriz);
+                count = this.#countUp(x, y, numJugador, this.matriz);
                 if (count >= this.cantidadFichasParaGanar) return true;
-                count = this.countRight(x, y, numJugador, this.matriz);
+                count = this.#countRight(x, y, numJugador, this.matriz);
                 if (count >= this.cantidadFichasParaGanar) return true;
-                count = this.countUpRight(x, y, numJugador, this.matriz);
+                count = this.#countUpRight(x, y, numJugador, this.matriz);
                 if (count >= this.cantidadFichasParaGanar) return true;
-                count = this.countDownRight(x, y, numJugador, this.matriz);
+                count = this.#countDownRight(x, y, numJugador, this.matriz);
                 if (count >= this.cantidadFichasParaGanar) return true;
             }
         }
@@ -119,7 +122,7 @@ class MatrizLogica{
     }
 
     /**Imprime la matriz en consola*/
-    #printMatriz(){
+    #printMatrizConsole(){
         console.log("Matriz inicializada: ")
         for (let i = 0; i < this.matriz.length; i++){
             let fila = "";

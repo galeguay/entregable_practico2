@@ -36,6 +36,26 @@ class Partida {
         //cuando suelte la ficha en un dropPoint
     }
 
+
+    insertarFicha(fichaParaMover, columna) {
+        console.log("insertarFicha()");
+        let numJugador = 0;
+        if (this.jugadorActual == this.jugador1)
+            numJugador = 1;
+        else
+            numJugador = 2;
+        let columnaCompleta =this.matrizLogica.insertarFicha(numJugador, columna);
+        this.tablero.insertarFicha(fichaParaMover, columna);
+        this.jugadorActual.jugoFicha();
+        if (this.matrizLogica.esGanador(numJugador))
+            this.terminarPartida(this.jugadorActual);
+        else{
+            if (columnaCompleta)
+                this.tablero.disableDropPoint(columna);
+            this.turnoSiguiente();
+        }
+    }
+
     terminarPartida(jugadorActual) {
         console.log("terminarPartida()");
         if (!jugadorActual) {
@@ -70,16 +90,10 @@ class Partida {
         this.tablero.clearCanvas(width, height);
     }
 
-    checkDropPoint(xUp, yUp) {
-        return this.tablero.checkDropPoint(xUp, yUp);
+    getColumna(xUp, yUp) {
+        return this.tablero.getColumna(xUp, yUp);
     }
 
-    insertarFicha(fichaParaMover, dropPoint) {
-        console.log("insertarFicha()");
-        this.tablero.insertarFicha(fichaParaMover, dropPoint);
-        this.jugadorActual.jugoFicha();
-        this.turnoSiguiente();
-    }
 
     tablero() {
         return this.tablero;
