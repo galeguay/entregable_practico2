@@ -8,13 +8,14 @@ class Tablero {
         this.arrayDropPoints = new Array();
         this.arrayFichasJ1 = new Array();
         this.arrayFichasJ2 = new Array();
+        this.columns = cantidadFichasParaGanar + 3;
+        this.rows = cantidadFichasParaGanar + 3;
         this.imagen = new Image();
         this.imagen.onload = ()=> {
             this.draw();
         };
         this.#cargarImagen();
         this.#cargarDropPoints();
-        this.aux;
     }
 
     #cargarImagen() {
@@ -108,11 +109,13 @@ class Tablero {
         else if(this.arrayDropPoints[6].isPointInside(xUp, yUp)) return 6;
     }
 
-    insertarFicha(fichaParaMover, columna){
+    insertarFicha(fichaParaMover, columna, row){
         let dropPoint = this.arrayDropPoints[columna];
+        let destinoY = (this.rows - row + 2) * 54 ;
+        console.log(this.rows + " - " + row + " = " + destinoY);
         fichaParaMover.setPosition(dropPoint.getX(), dropPoint.getY());
         fichaParaMover.draw();
-        this.animacionCaida(fichaParaMover, 500);
+        this.animacionCaida(fichaParaMover, destinoY);
     }
 
     animacionCaida(ficha, destinoY){

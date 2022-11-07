@@ -44,8 +44,9 @@ class Partida {
             numJugador = 1;
         else
             numJugador = 2;
-        let columnaCompleta =this.matrizLogica.insertarFicha(numJugador, columna);
-        this.tablero.insertarFicha(fichaParaMover, columna);
+        let row = this.matrizLogica.insertarFicha(numJugador, columna);
+        let columnaCompleta = this.matrizLogica.esColumnaCompleta(columna);
+        this.tablero.insertarFicha(fichaParaMover, columna, row);
         this.jugadorActual.jugoFicha();
         if (this.matrizLogica.esGanador(numJugador))
             this.terminarPartida(this.jugadorActual);

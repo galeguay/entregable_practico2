@@ -9,24 +9,25 @@ class MatrizLogica{
 
     /**Inserta numero de fcha de jugador en el ultimo casillero libre de la columna indicada por parametro */
     insertarFicha(numJugador, col){
-        if (!this.esColumnaCompleta(col)){
-            let casillaLibre = 0;
-            let inserto = false;
-            let row = 0;
-            while (row < this.matriz.length && !inserto){
-                if (this.matriz[row][col] != 0){
-                    this.matriz[casillaLibre][col] = numJugador;
-                    inserto = true;
-                }else{
-                    casillaLibre = row;
-                    row++;
-                }
-            }
-            if (row == this.matriz.length)
+        let casillaLibre = 0;
+        let inserto = false;
+        let row = 0;
+        while (row < this.matriz.length && !inserto){
+            if (this.matriz[row][col] != 0){
                 this.matriz[casillaLibre][col] = numJugador;
+                inserto = true;
+            }else{
+                casillaLibre = row;
+                row++;
+            }
         }
+        if (row == this.matriz.length){
+            this.matriz[casillaLibre][col] = numJugador;
+            row = 0;
+        }else
+            row = this.matriz.length - row;
         this.#printMatrizConsole();
-        return this.esColumnaCompleta(col);
+        return row;
     }
 
     /**Devuelve true si la columna no tiene espacio para agregar nuevas fichas */
