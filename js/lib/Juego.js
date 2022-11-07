@@ -8,12 +8,18 @@ class Juego {
         this.fichaActiva;
         this.currentX;
         this.currentY;
-        this.cargarPartida4enLinea();
-        this.mouseEvents();
+        this.configurarPartida();
+        //this.mouseEvents();
     }
 
-    cargarPartida4enLinea() {
-        this.partida = new Partida(this.canvas, this.ctx, 4, 5, 30, "Jugador1", "Jugador2");
+    configurarPartida(){
+        let jugador1 = new Jugador("Jugador1", "#FFFFFF", new Ficha(this.ctx,"images/4enLinea/fichaMessi.png", "#FF0000", 10, 500, 50, 50));
+        let jugador2 = new Jugador("Jugador2", "#FFFFFF", new Ficha(this.ctx,"images/4enLinea/fichaRonaldo.png", "#FF0000", 800, 500, 50, 50));
+        this.cargarPartida4enLinea(jugador1, jugador2);
+    }
+
+    cargarPartida4enLinea(jugador1, jugador2) {
+        this.partida = new Partida(this.ctx, 4, 5, 30, jugador1, jugador2);
         //this.fichaActiva = this.partida.fichaPrimerJugador();
     }
 
@@ -23,6 +29,14 @@ class Juego {
         else if (fichaRonaldo.isPointInside(x, y)) return fichaRonaldo;
     }
 
+    getFichaActiva(){
+        return this.partida.getFichaActiva();
+    }
+
+    clearCanvas(){
+        this.partida.clearCanvas(width, height);
+    }
+/*
     mouseEvents(){
         console.log("entro");
         window.addEventListener('load', () => {
@@ -35,7 +49,7 @@ class Juego {
         let fichaMessi = new Ficha(this.ctx,"images/4enLinea/fichaMessi.png", "#FF0000", 10, 10, 50, 50, this.width, this.height);
         let fichaRonaldo = new Ficha(this.ctx,"images/4enLinea/fichaRonaldo.png", "red", 150, 10, 50, 50,  this.width, this.height);
         //fichaMessi.draw(this.ctx);
-//        fichaRonaldo.draw(this.ctx);
+        //fichaRonaldo.draw(this.ctx);
 
         let isMouseDown = false;
         let fichaParaMover;
@@ -50,7 +64,7 @@ class Juego {
         }*/
 
         /**Cuando se clickea el mouse*/
-        function onMouseDown(event){
+        /*function onMouseDown(event){
             isMouseDown = true;
             const rect = this.canvas.getBoundingClientRect();
             const x = event.clientX - rect.left; //coordenadas x e y dentro del canvas
@@ -63,9 +77,9 @@ class Juego {
                 difY = y - fichaParaMover.getPosY();
             }
         }
-
+*/
         /**Cuando se mueve el mouse mientras se esta clickeando*/
-        function onMoveMouse(event){
+        /*function onMoveMouse(event){
             if(isMouseDown && fichaParaMover != null){
             const rect = this.canvas.getBoundingClientRect();
             let posX = event.clientX - rect.left;
@@ -77,19 +91,16 @@ class Juego {
             }
             }
         }
-
+*/
         /**Cuando se desclickea el mouse*/
-        function onMouseUp(event){
+        /*function onMouseUp(event){
             isMouseDown = false;
             fichaParaMover = null;
         }
-
         function fichaClickeada(x, y){
             if(fichaMessi.isPointInside(x, y)) return fichaMessi;
             else if(fichaRonaldo.isPointInside(x, y)) return fichaRonaldo;
         }
-
-
     }
-
+*/
 }

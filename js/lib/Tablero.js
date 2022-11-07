@@ -6,6 +6,8 @@ class Tablero {
         this.cantidadFichasParaGanar = cantidadFichasParaGanar;
         this.imagenSrc;
         this.arrayDropPoints = new Array();
+        this.arrayFichasJ1 = new Array();
+        this.arrayFichasJ2 = new Array();
         this.imagen = new Image();
         this.imagen.onload = ()=> {
             this.draw();
@@ -38,8 +40,7 @@ class Tablero {
     }
 
     draw(){
-        this.ctx.drawImage(this.imagen, 0, 0, 890, 590);
-        this.#actualizarDropPoints();
+    //    this.ctx.drawImage(this.imagen, 0, 0, 890, 590);
     }
 
 
@@ -62,8 +63,40 @@ class Tablero {
         }
     }
 
-    clearCanvas(){
-        this.ctx.clearRect(0, 0, width, height);
-        tablero.draw(ctx);
+    cargarFichas(jugador1, jugador2){
+        let dif = 10;
+        let fichaJ1 = jugador1.ficha;
+        let fichaJ2 = jugador2.ficha;
+        for (let i = 0; i < ((this.cantidadFichasParaGanar + 3) * (this.cantidadFichasParaGanar + 2))/2; i++) {
+            //let fichaNuevaJ1 = ;
+            this.arrayFichasJ1.push(new Ficha(this.ctx, fichaJ1.getImagenSrc(), fichaJ1.colorBorde, fichaJ1.getX(), fichaJ1.getY()+dif, 50, 50));
+            //let fichaNuevaJ2 = ;
+            this.arrayFichasJ2.push(new Ficha(this.ctx, fichaJ2.getImagenSrc(), fichaJ2.colorBorde, fichaJ2.getX(), fichaJ2.getY()+dif, 50, 50));
+            dif-=10;
+        }
+        this.#actualizarFichas();
     }
+
+    #actualizarFichas(){
+        for (let i = 0; i < this.arrayFichasJ1.length; i++) {
+            this.arrayFichasJ1[i].draw();
+            this.arrayFichasJ2[i].draw();
+        }
+    }
+
+    clearCanvas(width, height){
+        this.ctx.clearRect(0, 0, width, height);
+        this.draw(ctx);
+        this.#actualizarDropPoints();
+        this.#actualizarFichas();
+    }
+
+    getFichaJ1(index){
+        return this.arrayFichasJ1[index];
+    }
+
+    getFichaJ2(index){
+        return this.arrayFichasJ2[index];
+    }
+
 }

@@ -3,6 +3,7 @@ class Jugador{
         this.nombre = nombre;
         this.color = color;
         this.ficha = ficha;
+        this.fichasJugadas = 0;
     }
 
     getNombre(){
@@ -15,5 +16,13 @@ class Jugador{
 
     getColor(){
         return this.ficha;
+    }
+
+    getFicha(){
+        return this.ficha;
+    }
+
+    getFichasJugadas(){
+        return this.fichasJugadas;
     }
 }

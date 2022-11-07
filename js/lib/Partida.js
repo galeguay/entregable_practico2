@@ -4,9 +4,11 @@ class Partida{
         this.cantidadFichasParaGanar = cantidadFichasParaGanar;
         this.tiempoDeJuego = tiempoDeJuego;
         this.tiempoDeTurno = tiempoDeTurno;
-        this.jugador1 = new Jugador();
-        this.jugador2 = new Jugador();
+        this.jugador1 = jugador1;
+        this.jugador2 = jugador2;
         this.jugadorActual;
+        this.fichaActiva;
+        this.tablero;
         this.matrizLogica = new MatrizLogica(cantidadFichasParaGanar);
         this.iniciarPartida();
     }
@@ -15,6 +17,8 @@ class Partida{
         //Cargar canvas de la partida
         console.log("iniciandoPartida");
         this.tablero = new Tablero(this.ctx, this.cantidadFichasParaGanar, 0, 0);
+        this.tablero.cargarFichas(this.jugador1, this.jugador2);
+        this.fichaPrimerJugador();
         //this.tablero.draw();
         //timer.draw(ctx);
         //Sortear primer jugador
@@ -25,7 +29,7 @@ class Partida{
 
     #iniciarTurno(){
         //Establecer temporizador
-        setInterval(finishMatch(null),1000*60*tiempoDeJuego);
+        setTimeout(finishMatch(null),1000*60*tiempoDeJuego);
         //Habilitar ficha al jugadorActual
         //cuando suelte la ficha en un dropPoint
         tablero
@@ -44,14 +48,26 @@ class Partida{
 
     fichaPrimerJugador(){
         let primerJugador = Math.floor (Math.random() * 2.0) + 1;
-        if (primerJugador == 1)
+        if (primerJugador == 1){
             this.jugadorActual = this.jugador1;
-        else
+            this.fichaActiva = this.tablero.getFichaJ1(0);
+        }else{
             this.jugadorActual = this.jugador2;
+            this.fichaActiva = this.tablero.getFichaJ2(0);
+        }
+        console.log(this.jugadorActual.getNombre());
         return this.jugadorActual.getFicha();
     }
 
     tablero(){
         return this.tablero;
+    }
+
+    getFichaActiva(){
+        return this.fichaActiva;
+    }
+
+    clearCanvas(width, height){
+        this.tablero.clearCanvas(width, height);
     }
 }

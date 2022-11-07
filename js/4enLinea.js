@@ -10,22 +10,22 @@ window.addEventListener('load', () => {
 
 let canvas = document.querySelector('#gameCanvas');
 let ctx = canvas.getContext('2d');
-let widht = canvas.getBoundingClientRect().width;
+let width = canvas.getBoundingClientRect().width;
 let height = canvas.getBoundingClientRect().height;
 
 
 let cantidadFichasParaGanar = 7;
+let juego = new Juego(canvas);
 //Se crea una nueva instancia de la clase Tablero
-let tablero = new Tablero(ctx, cantidadFichasParaGanar, 0, 0);
+/*let tablero = new Tablero(ctx, cantidadFichasParaGanar, 0, 0);
 tablero.draw(ctx);
+tablero.cargarFichas();*/
 
 //Se crean nuevas instancias de la clase Ficha
-let fichaMessi = new Ficha(ctx,"images/4enLinea/fichaMessi.png", "#FF0000", 10, 10, 50, 50, widht, height);
-let fichaRonaldo = new Ficha(ctx,"images/4enLinea/fichaRonaldo.png", "red", 150, 10, 50, 50,  widht, height);
+/*let fichaMessi = new Ficha(ctx,"images/4enLinea/fichaMessi.png", "#FF0000", 10, 10, 50, 50, width, height);
+let fichaRonaldo = new Ficha(ctx,"images/4enLinea/fichaRonaldo.png", "red", 150, 10, 50, 50,  width, height);
 fichaMessi.draw(ctx);
-fichaRonaldo.draw(ctx);
-
-
+fichaRonaldo.draw(ctx)*/
 
 /**Obtiene la posicion del cursor*/
 function getCursorPosition(canvas, event) {
@@ -34,12 +34,11 @@ function getCursorPosition(canvas, event) {
   const y = event.clientY - rect.top;
 }
 
-
 let isMouseDown = false;
+let fichaActiva;
 let fichaParaMover;
 let difX;
 let difY;
-
 
 /**Cuando se clickea el mouse*/
 function onMouseDown(event){
@@ -47,23 +46,26 @@ function onMouseDown(event){
   const rect = canvas.getBoundingClientRect();
   const x = event.clientX - rect.left; //coordenadas x e y dentro del canvas
   const y = event.clientY - rect.top;
-  let clickFicha = fichaClickeada(x, y);
-  if(clickFicha != null){
-    fichaParaMover = clickFicha;
-    difX = x - fichaParaMover.getPosX();
-    difY = y - fichaParaMover.getPosY();
+  fichaActiva = juego.getFichaActiva();
+  if (fichaActiva != null){
+    if (fichaActiva.isPointInside(x, y)){
+      fichaParaMover = fichaActiva;
+      difX = x - fichaParaMover.getX();
+      difY = y - fichaParaMover.getY();
+    }
   }
 }
 /**Cuando se mueve el mouse mientras se esta clickeando*/
-function onMoveMouse(event){ 
+function onMoveMouse(event){
   if(isMouseDown && fichaParaMover != null){
     const rect = canvas.getBoundingClientRect();
     let posX = event.clientX - rect.left;
     let posY = event.clientY - rect.top;
     if(fichaParaMover != null){
-      fichaParaMover.setPosition(posX - difX, posY - difY);
-      clearCanvas(fichaParaMover);
-      fichaParaMover.draw(ctx);
+      console.log("cambia");
+      fichaActiva.setPosition(posX - difX, posY - difY);
+      juego.clearCanvas();
+      fichaActiva.draw(ctx);
     }
   }
 }
@@ -72,12 +74,3 @@ function onMouseUp(event){
   isMouseDown = false;
   fichaParaMover = null;
 }
-function fichaClickeada(x, y){
-  if(fichaMessi.isPointInside(x, y)) return fichaMessi;
-  else if(fichaRonaldo.isPointInside(x, y)) return fichaRonaldo;
-}
-function clearCanvas(fichaParaDibujar){
-  ctx.clearRect(0, 0, widht, height);
-  tablero.draw(ctx);
-}
-

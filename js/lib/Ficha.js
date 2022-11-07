@@ -1,16 +1,17 @@
 class Ficha {
-    constructor(ctx, imagenSrc, colorBorde, posX, posY, widthImg, heightImg, width, height){
+    constructor(ctx, imagenSrc, colorBorde, posX, posY, widthImg, heightImg){
         this.ctx = ctx;
+        this.imagenSrc = imagenSrc;
         this.colorBorde = colorBorde;
         this.posX = posX;
         this.posY = posY;
         this.widthImg = widthImg;
         this.heightImg = heightImg;
-        this.width = width;
-        this.height = height;
         this.imagen = new Image();
         this.imagen.onload = ()=> {
-            this.draw()
+            setTimeout(()=>{
+                this.draw()
+            });
         };
         this.imagen.src = imagenSrc;
     }
@@ -32,19 +33,22 @@ class Ficha {
         }
     }
 
-    getPosX(){ //Obtiene la pos en x
+    getX(){ //Obtiene la pos en x
         return this.posX;
     }
 
-    getPosY(){ //Obtiene la pos en y
+    getY(){ //Obtiene la pos en y
         return this.posY;
     }
 
     /**Chequea si el puntero esta dentro de la ficha */
     isPointInside(cursorX, cursorY){
-        let _x = this.posX - cursorX;
-        let _y = this.posY - cursorY;
-        return Math.sqrt(_x * _x + _y * _y) < 60;
+        let _x = (this.posX+25) - cursorX;
+        let _y = (this.posY+25) - cursorY;
+        return Math.sqrt(_x * _x + _y * _y) < 25;
     }
 
+    getImagenSrc(){
+        return this.imagenSrc;
+    }
 }
