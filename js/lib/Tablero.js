@@ -113,24 +113,30 @@ class Tablero {
     }
 
 
-    insertarFicha(ctx, fichaParaMover, columna, xUpCursor, yUpCursor){
-        ctx.save();
-        fichaParaMover.setPosition(columna.posX, columna.posY);
-        this.animacionCaida(fichaParaMover, columna.posX, 500);
-        fichaParaMover.draw(ctx);
-        ctx.restore();
+    insertarFicha(fichaParaMover, dropPoint){
+        fichaParaMover.setPosition(dropPoint.getX(), dropPoint.getY());
+        fichaParaMover.draw();
+        this.animacionCaida(fichaParaMover, 500);
     }
 
-    animacionCaida(ficha, destinoX, destinoY){
-        let y = ficha.getY;
+    animacionCaida(ficha, destinoY){
+        let y = ficha.getY();
         console.log(y);
         let anim = setInterval( ()=>{
-            ficha.setPosition(destinoX, y);
+            ficha.setPosition(ficha.getX(), y);
             this.clearCanvas();
             ficha.draw();
             y += 5;
-            if(y == destinoY) 
+            if(y == destinoY)
                 clearInterval(anim);
         }, 20);
+    }
+
+    getX(){ //Obtiene la pos en x
+        return this.posX;
+    }
+
+    getY(){ //Obtiene la pos en y
+        return this.posY;
     }
 }
