@@ -121,13 +121,12 @@ class Tablero {
 
     animacionCaida(ficha, destinoY){
         let y = ficha.getY();
-        console.log(y);
         let anim = setInterval( ()=>{
             ficha.setPosition(ficha.getX(), y);
             this.clearCanvas();
             ficha.draw();
             y += 5;
-            if(y == destinoY)
+            if(y >= destinoY)
                 clearInterval(anim);
         }, 20);
     }

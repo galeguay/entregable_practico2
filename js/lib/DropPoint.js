@@ -25,4 +25,12 @@ class DropPoint{
         let _y = (this.posY + 25) - yUpCursor;
         return Math.sqrt(_x * _x + _y * _y) < 25;
     }
+
+    getX(){
+        return this.posX;
+    }
+
+    getY(){
+        return this.posY;
+    }
 }

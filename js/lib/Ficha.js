@@ -52,5 +52,4 @@ class Ficha {
         return this.imagenSrc;
     }
 
-    
 }
