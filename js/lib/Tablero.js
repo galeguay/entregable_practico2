@@ -113,26 +113,24 @@ class Tablero {
     }
 
 
-    insertarFicha(ctx, fichaParaMover, columna, yUpCursor){
+    insertarFicha(ctx, fichaParaMover, columna, xUpCursor, yUpCursor){
         ctx.save();
-        //fichaJugadorEsperando.draw(ctx);
-        //El translate de Y es a la casilla vacia
-        ctx.translate(0,100);
+        fichaParaMover.setPosition(columna.posX, columna.posY);
+        this.animacionCaida(fichaParaMover, columna.posX, 500);
         fichaParaMover.draw(ctx);
-        //fichaParaMover.insertarFicha(jugador, columna); // actualizar matriz de logica (aregar el numerito en la matriz)
-        // if(esColumnaCompleta(columna)){ // si columnaCompleta()
-        //     this.clearCanvas(); //ANDA?? Oculto el droppoint
-        // }
         ctx.restore();
-        //console.log("Inserto ficha y el siguiente es:");
-        //console.log(fichaJugadorEsperando);
-        //return fichaJugadorEsperando; //Return del jugador siguiente
     }
 
-    animacionFicha(fichaParaMover, posY){
-        if (posY < 327){
-            fichaParaMover.draw(ctx);
-            posY++;
-        } 
+    animacionCaida(ficha, destinoX, destinoY){
+        let y = ficha.getY;
+        console.log(y);
+        let anim = setInterval( ()=>{
+            ficha.setPosition(destinoX, y);
+            this.clearCanvas();
+            ficha.draw();
+            y += 5;
+            if(y == destinoY) 
+                clearInterval(anim);
+        }, 20);
     }
 }

@@ -38,11 +38,11 @@ class Juego {
     }
 
     checkDropPoint(xUp, yUp){
-        this.partida.checkDropPoint(xUp, yUp);
+       return this.partida.checkDropPoint(xUp, yUp);
     }
 
-    insertarFicha(ctx, fichaParaMover, columna, yUpCursor){
-        this.partida.insertarFicha(ctx, fichaParaMover, columna, yUpCursor);
+    insertarFicha(ctx, fichaParaMover, columna, xUpCursor, yUpCursor){
+        this.partida.insertarFicha(ctx, fichaParaMover, columna, xUpCursor, yUpCursor);
     }
 
 /*

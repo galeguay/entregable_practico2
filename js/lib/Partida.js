@@ -75,8 +75,8 @@ class Partida{
         return this.tablero.checkDropPoint(xUp, yUp);
     }
 
-    insertarFicha(ctx, fichaParaMover, columna, yUpCursor){
-        this.tablero.insertarFicha(ctx, fichaParaMover, columna, yUpCursor);
+    insertarFicha(ctx, fichaParaMover, columna, xUpCursor, yUpCursor){
+        this.tablero.insertarFicha(ctx, fichaParaMover, columna, xUpCursor, yUpCursor);
     }
 
 }

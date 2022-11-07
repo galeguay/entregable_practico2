@@ -51,4 +51,6 @@ class Ficha {
     getImagenSrc(){
         return this.imagenSrc;
     }
+
+    
 }

@@ -94,12 +94,12 @@ function onMouseUp(event){
   const xUpCursor = event.clientX - rectt.left; //coordenadas x e y dentro del canvas
   const yUpCursor = event.clientY - rectt.top;
   let dropPoint = juego.checkDropPoint(xUpCursor, yUpCursor);
-  console.log(fichaParaMover);
   if(dropPoint != null && fichaParaMover != null){ //Si encuentra dropPoint y fichaParaMover
     juego.clearCanvas(fichaParaMover);
     //juego.clearCanvas();
     //tablero.insertarFicha(ctx, fichaParaMover, dropPoint, yUpCursor, fichaJugadorEsperando);
-    juego.insertarFicha(ctx, fichaParaMover, dropPoint, yUpCursor);//, fichaJugadorEsperando);
+    console.log(dropPoint);
+    juego.insertarFicha(ctx, fichaParaMover, dropPoint, xUpCursor, yUpCursor);//, fichaJugadorEsperando);
     //console.log(fichaParaMover);
     //fichaJugadorEsperando = null;
   }
