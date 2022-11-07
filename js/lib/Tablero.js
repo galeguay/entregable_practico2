@@ -53,17 +53,15 @@ class Tablero {
             this.arrayDropPoints.push(dropPoint);
             x = x + 54;
         }
-        //console.log(this.arrayDropPoints);
     }
+
     #actualizarDropPoints(){
         let x = this.x_column0;
         let y = this.y_row0;
         for (let i = 0; i < this.arrayDropPoints.length; i++) {
-            //let dropPoint = new DropPoint(this.ctx, x, y, 50, 50);
             this.arrayDropPoints[i].draw();
             x = x + 54;
         }
-        //console.log(this.arrayDropPoints);
     }
 
     cargarFichas(jugador1, jugador2){
@@ -71,9 +69,7 @@ class Tablero {
         let fichaJ1 = jugador1.ficha;
         let fichaJ2 = jugador2.ficha;
         for (let i = 0; i < ((this.cantidadFichasParaGanar + 3) * (this.cantidadFichasParaGanar + 2))/2; i++) {
-            //let fichaNuevaJ1 = ;
             this.arrayFichasJ1.push(new Ficha(this.ctx, fichaJ1.getImagenSrc(), fichaJ1.colorBorde, fichaJ1.getX(), fichaJ1.getY()+dif, 50, 50));
-            //let fichaNuevaJ2 = ;
             this.arrayFichasJ2.push(new Ficha(this.ctx, fichaJ2.getImagenSrc(), fichaJ2.colorBorde, fichaJ2.getX(), fichaJ2.getY()+dif, 50, 50));
             dif-=10;
         }

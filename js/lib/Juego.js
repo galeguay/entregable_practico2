@@ -36,12 +36,11 @@ class Juego {
     }
 
     checkDropPoint(xUp, yUp){
-       return this.partida.checkDropPoint(xUp, yUp);
+        return this.partida.checkDropPoint(xUp, yUp);
     }
 
     insertarFicha(fichaParaMover, dropPoint){
         this.partida.insertarFicha(fichaParaMover, dropPoint);
-        this.partida.setFichaActiva();
     }
 
 /*
