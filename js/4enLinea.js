@@ -65,7 +65,6 @@ function onMoveMouse(event){
     let posX = event.clientX - rect.left;
     let posY = event.clientY - rect.top;
     if(fichaParaMover != null){
-      console.log("cambia");
       fichaActiva.setPosition(posX - difX, posY - difY);
       juego.clearCanvas();
       fichaActiva.draw(ctx);
@@ -98,8 +97,7 @@ function onMouseUp(event){
     juego.clearCanvas(fichaParaMover);
     //juego.clearCanvas();
     //tablero.insertarFicha(ctx, fichaParaMover, dropPoint, yUpCursor, fichaJugadorEsperando);
-    console.log(dropPoint);
-    juego.insertarFicha(ctx, fichaParaMover, dropPoint, xUpCursor, yUpCursor);//, fichaJugadorEsperando);
+    juego.insertarFicha(fichaParaMover, dropPoint);//, fichaJugadorEsperando);
     //console.log(fichaParaMover);
     //fichaJugadorEsperando = null;
   }

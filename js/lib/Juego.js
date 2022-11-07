@@ -5,7 +5,6 @@ class Juego {
         this.width = this.canvas.getBoundingClientRect().width;
         this.height = this.canvas.getBoundingClientRect().height;
         this.partida;
-        this.fichaActiva;
         this.currentX;
         this.currentY;
         this.configurarPartida();
@@ -20,7 +19,6 @@ class Juego {
 
     cargarPartida4enLinea(jugador1, jugador2) {
         this.partida = new Partida(this.ctx, 4, 5, 30, jugador1, jugador2);
-        //this.fichaActiva = this.partida.fichaPrimerJugador();
     }
 
     fichaClickeada(x, y) {
@@ -41,8 +39,9 @@ class Juego {
        return this.partida.checkDropPoint(xUp, yUp);
     }
 
-    insertarFicha(ctx, fichaParaMover, columna, xUpCursor, yUpCursor){
-        this.partida.insertarFicha(ctx, fichaParaMover, columna, xUpCursor, yUpCursor);
+    insertarFicha(fichaParaMover, dropPoint){
+        this.partida.insertarFicha(fichaParaMover, dropPoint);
+        this.partida.setFichaActiva();
     }
 
 /*
