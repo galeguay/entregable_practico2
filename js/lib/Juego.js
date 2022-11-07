@@ -36,14 +36,21 @@ class Juego {
     clearCanvas(){
         this.partida.clearCanvas(width, height);
     }
+
+    checkDropPoint(xUp, yUp){
+        this.partida.checkDropPoint(xUp, yUp);
+    }
+
+    insertarFicha(ctx, fichaParaMover, columna, yUpCursor){
+        this.partida.insertarFicha(ctx, fichaParaMover, columna, yUpCursor);
+    }
+
 /*
     mouseEvents(){
-        console.log("entro");
         window.addEventListener('load', () => {
             document.addEventListener('mousedown', onMouseDown); // Inicia arrastrada
             document.addEventListener('mouseup', onMouseUp); // Detiene arrastrada
             document.addEventListener('mousemove', onMoveMouse); // Movimiento del mouse
-            console.log("entro");
         });
 
         let fichaMessi = new Ficha(this.ctx,"images/4enLinea/fichaMessi.png", "#FF0000", 10, 10, 50, 50, this.width, this.height);
@@ -69,7 +76,6 @@ class Juego {
             const rect = this.canvas.getBoundingClientRect();
             const x = event.clientX - rect.left; //coordenadas x e y dentro del canvas
             const y = event.clientY - rect.top;
-            console.log("se clickeo");
             let fichaParaMover = fichaClickeada(x, y);
             if(fichaParaMover != null){
                 //fichaParaMover = clickFicha;

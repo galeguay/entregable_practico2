@@ -19,4 +19,10 @@ class DropPoint{
         let heightImg = this.heightImg;
         this.ctx.drawImage(this.imagen, x, y, widthImg, heightImg);
     }
+
+    isPointInside(xUpCursor, yUpCursor){
+        let _x = (this.posX + 25) - xUpCursor;
+        let _y = (this.posY + 25) - yUpCursor;
+        return Math.sqrt(_x * _x + _y * _y) < 25;
+    }
 }

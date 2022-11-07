@@ -70,4 +70,13 @@ class Partida{
     clearCanvas(width, height){
         this.tablero.clearCanvas(width, height);
     }
+
+    checkDropPoint(xUp, yUp){
+        return this.tablero.checkDropPoint(xUp, yUp);
+    }
+
+    insertarFicha(ctx, fichaParaMover, columna, yUpCursor){
+        this.tablero.insertarFicha(ctx, fichaParaMover, columna, yUpCursor);
+    }
+
 }
