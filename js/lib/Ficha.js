@@ -42,9 +42,9 @@ class Ficha {
 
     /**Chequea si el puntero esta dentro de la ficha */
     isPointInside(cursorX, cursorY){
-        let _x = this.posX - cursorX;
-        let _y = this.posY - cursorY;
-        return Math.sqrt(_x * _x + _y * _y) < 60;
+        let _x = (this.posX + 25) - cursorX;
+        let _y = (this.posY + 25) - cursorY;
+        return Math.sqrt(_x * _x + _y * _y) < 25;
     }
 
 }

@@ -21,8 +21,8 @@ class DropPoint{
     }
 
     isDropPointInside(xUpCursor, yUpCursor){
-        let _x = this.posX - xUpCursor;
-        let _y = this.posY - yUpCursor;
-        return Math.sqrt(_x * _x + _y * _y) < 60;
+        let _x = (this.posX + 25) - xUpCursor;
+        let _y = (this.posY + 25) - yUpCursor;
+        return Math.sqrt(_x * _x + _y * _y) < 25;
     }
 }

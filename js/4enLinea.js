@@ -17,7 +17,7 @@ let height = canvas.getBoundingClientRect().height;
 let cantidadFichasParaGanar = 4;
 //Se crea una nueva instancia de la clase Tablero
 let tablero = new Tablero(ctx, cantidadFichasParaGanar, 0, 0);
-tablero.draw(ctx);
+//tablero.draw(ctx); //NO LLAMAR PORQUE LO DIBUJA DOS VECES
 
 //Se crean nuevas instancias de la clase Ficha
 let fichaMessi = new Ficha(ctx,"images/4enLinea/fichaMessi.png", "#FF0000", 10, 10, 50, 50, widht, height);
@@ -36,35 +36,41 @@ function getCursorPosition(canvas, event) {
 
 
 let isMouseDown = false;
-let fichaParaMover;
 let difX;
 let difY;
-
-
+let fichaParaMover;
+let fichaJugadorEsperando;
+let fichaInsertada;
 /**Cuando se clickea el mouse*/
 function onMouseDown(event){
   isMouseDown = true;
   const rect = canvas.getBoundingClientRect();
   const x = event.clientX - rect.left; //coordenadas x e y dentro del canvas
   const y = event.clientY - rect.top;
+  console.log("x :" + x +" y: "+y);
   let clickFicha = fichaClickeada(x, y);
-  if(clickFicha != null){
-    fichaParaMover = clickFicha;
+  if(clickFicha === fichaParaMover && clickFicha != null){
+    // console.log(fichaParaMover);
+    // console.log("click == "+ clickFicha);
     difX = x - fichaParaMover.getPosX();
     difY = y - fichaParaMover.getPosY();
   }
 }
+
+
 /**Cuando se mueve el mouse mientras se esta clickeando*/
 function onMoveMouse(event){ 
-  if(isMouseDown && fichaParaMover != null){
+  if(isMouseDown && fichaParaMover != null && fichaJugadorEsperando != fichaParaMover){
     const rect = canvas.getBoundingClientRect();
     let posX = event.clientX - rect.left;
     let posY = event.clientY - rect.top;
-    if(fichaParaMover != null){
-      fichaParaMover.setPosition(posX - difX, posY - difY);
-      clearCanvas(fichaParaMover);
-      fichaParaMover.draw(ctx);
-    }
+    fichaParaMover.setPosition(posX - difX, posY - difY);
+    clearCanvas(fichaParaMover);
+    fichaParaMover.draw(ctx);
+    fichaInsertada.draw(ctx);
+    if(fichaParaMover == fichaMessi) fichaJugadorEsperando = fichaRonaldo;
+    else if (fichaParaMover == fichaRonaldo) fichaJugadorEsperando = fichaMessi;
+    fichaJugadorEsperando.draw(ctx);
   }
 }
 
@@ -75,17 +81,27 @@ function onMouseUp(event){
   const xUpCursor = event.clientX - rectt.left; //coordenadas x e y dentro del canvas
   const yUpCursor = event.clientY - rectt.top;
   let dropPoint = tablero.checkDropPoint(xUpCursor, yUpCursor);
-  if(dropPoint != null && fichaParaMover != null){
-    tablero.insertarFicha(ctx, fichaParaMover, dropPoint, yUpCursor);
-    console.log("Se encontro DropPoint");
-  }else fichaParaMover = null;
+  console.log(fichaParaMover);
+  if(dropPoint != null && fichaParaMover != null){ //Si encuentra dropPoint y fichaParaMover
+    clearCanvas(fichaParaMover);
+    //tablero.insertarFichaTablero(ctx, fichaParaMover, dropPoint, yUpCursor, fichaJugadorEsperando);
+    fichaParaMover = tablero.insertarFichaTablero(ctx, fichaParaMover, dropPoint, yUpCursor, fichaJugadorEsperando);
+    fichaInsertada = 
+    console.log(fichaParaMover);
+    fichaJugadorEsperando = null;
+  }
+  else if(dropPoint == null && fichaParaMover != null){ //Si no encuentra dropPoint
+    fichaParaMover = null;
+  }
   
 }
 
 function fichaClickeada(x, y){
-  if(fichaMessi.isPointInside(x, y)) return fichaMessi;
-  else if(fichaRonaldo.isPointInside(x, y)) return fichaRonaldo;
-}
+  if(fichaMessi.isPointInside(x, y)) fichaParaMover = fichaMessi;
+  else if(fichaRonaldo.isPointInside(x, y)) fichaParaMover = fichaRonaldo;
+  return fichaParaMover;
+} 
+
 function clearCanvas(fichaParaDibujar){
   ctx.clearRect(0, 0, widht, height);
   tablero.draw(ctx);

@@ -12,6 +12,7 @@ class Tablero {
         };
         this.#cargarImagen();
         this.#cargarDropPoints();
+        this.aux;
     }
 
     #cargarImagen() {
@@ -51,6 +52,7 @@ class Tablero {
             this.arrayDropPoints.push(dropPoint);
             x = x + 54;
         }
+        //console.log(this.arrayDropPoints);
     }
     #actualizarDropPoints(){
         let x = this.x_column0;
@@ -60,12 +62,14 @@ class Tablero {
             this.arrayDropPoints[i].draw();
             x = x + 54;
         }
+        //console.log(this.arrayDropPoints);
     }
 
     clearCanvas(){
         this.ctx.clearRect(0, 0, width, height);
         tablero.draw(ctx);
     }
+
     checkDropPoint(xUp, yUp){
     if(this.arrayDropPoints[0].isDropPointInside(xUp, yUp)) return this.arrayDropPoints[0];
     else if(this.arrayDropPoints[1].isDropPointInside(xUp, yUp)) return this.arrayDropPoints[1];
@@ -74,19 +78,26 @@ class Tablero {
     else if(this.arrayDropPoints[4].isDropPointInside(xUp, yUp)) return this.arrayDropPoints[4];
     else if(this.arrayDropPoints[5].isDropPointInside(xUp, yUp)) return this.arrayDropPoints[5];
     else if(this.arrayDropPoints[6].isDropPointInside(xUp, yUp)) return this.arrayDropPoints[6];
-}
-
-
-insertarFicha(ctx, fichaParaMover, columna, yUpCursor){
-    ctx.save();
-    ctx.translate(0,100);
-    ctx.setInterval("animacionFicha(fichaParaMover, yUpCursor)", 2);
-    ctx.restore();    
-    console.log("Inserto ficha");
-    // actualizar matriz de logica (aregar el numerito en la matriz)
-    // si columnaCompleta()
-    //     ocultar el drop point
     }
+
+
+    insertarFichaTablero(ctx, fichaParaMover, columna, yUpCursor, fichaJugadorEsperando){
+        ctx.save();
+        fichaJugadorEsperando.draw(ctx);
+        //El translate de Y es a la casilla vacia
+        ctx.translate(0,100);
+        fichaParaMover.draw(ctx);
+        
+        //fichaParaMover.insertarFicha(jugador, columna); // actualizar matriz de logica (aregar el numerito en la matriz)
+        // if(esColumnaCompleta(columna)){ // si columnaCompleta()
+        //     this.clearCanvas(); //ANDA?? Oculto el droppoint
+        // }
+        ctx.restore();
+        console.log("Inserto ficha y el siguiente es:");
+        console.log(fichaJugadorEsperando);
+        return fichaJugadorEsperando; //Return del jugador siguiente
+    }
+    
 
     animacionFicha(fichaParaMover, posY){
         if (posY < 327){
