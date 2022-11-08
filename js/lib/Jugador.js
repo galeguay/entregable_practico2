@@ -25,4 +25,8 @@ class Jugador{
     getFichasJugadas(){
         return this.fichasJugadas;
     }
+
+    jugoFicha(){
+        this.fichasJugadas++;
+    }
 }
