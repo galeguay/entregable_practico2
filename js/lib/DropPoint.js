@@ -5,6 +5,7 @@ class DropPoint{
         this.posY = posY;
         this.widthImg = widthImg;
         this.heightImg = heightImg;
+        this.enable = true;
         this.imagen = new Image();
         this.imagen.onload = ()=> {
             this.draw();
@@ -13,17 +14,17 @@ class DropPoint{
     }
 
     draw(){
-        let x = this.posX;
-        let y = this.posY;
-        let widthImg = this.widthImg;
-        let heightImg = this.heightImg;
-        this.ctx.drawImage(this.imagen, x, y, widthImg, heightImg);
+        if(this.enable)
+            this.ctx.drawImage(this.imagen, this.posX, this.posY, this.widthImg, this.heightImg);
     }
 
     isPointInside(xUpCursor, yUpCursor){
-        let _x = (this.posX + 25) - xUpCursor;
-        let _y = (this.posY + 25) - yUpCursor;
-        return Math.sqrt(_x * _x + _y * _y) < 25;
+        if(this.enable){
+            let _x = (this.posX + 25) - xUpCursor;
+            let _y = (this.posY + 25) - yUpCursor;
+            return Math.sqrt(_x * _x + _y * _y) < 25;
+        }else
+            return false;
     }
 
     getX(){
@@ -32,5 +33,9 @@ class DropPoint{
 
     getY(){
         return this.posY;
+    }
+
+    disable(){
+        this.enable = false;
     }
 }

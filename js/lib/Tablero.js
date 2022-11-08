@@ -9,6 +9,8 @@ class Tablero {
         this.arrayDropPoints = new Array();
         this.arrayFichasJ1 = new Array();
         this.arrayFichasJ2 = new Array();
+        this.columns = cantidadFichasParaGanar + 3;
+        this.rows = cantidadFichasParaGanar + 3;
         this.imagen = new Image();
         this.imagen.onload = ()=> {
             this.draw();
@@ -100,23 +102,23 @@ class Tablero {
         return this.arrayFichasJ2[index];
     }
 
-    checkDropPoint(xUp, yUp){
-        if(this.arrayDropPoints[0].isPointInside(xUp, yUp)) return this.arrayDropPoints[0];
-        else if(this.arrayDropPoints[1].isPointInside(xUp, yUp)) return this.arrayDropPoints[1];
-        else if(this.arrayDropPoints[2].isPointInside(xUp, yUp)) return this.arrayDropPoints[2];
-        else if(this.arrayDropPoints[3].isPointInside(xUp, yUp)) return this.arrayDropPoints[3];
-        else if(this.arrayDropPoints[4].isPointInside(xUp, yUp)) return this.arrayDropPoints[4];
-        else if(this.arrayDropPoints[5].isPointInside(xUp, yUp)) return this.arrayDropPoints[5];
-        else if(this.arrayDropPoints[6].isPointInside(xUp, yUp)) return this.arrayDropPoints[6];
+    getColumna(xUp, yUp){
+        if(this.arrayDropPoints[0].isPointInside(xUp, yUp)) return 0;
+        else if(this.arrayDropPoints[1].isPointInside(xUp, yUp)) return 1;
+        else if(this.arrayDropPoints[2].isPointInside(xUp, yUp)) return 2;
+        else if(this.arrayDropPoints[3].isPointInside(xUp, yUp)) return 3;
+        else if(this.arrayDropPoints[4].isPointInside(xUp, yUp)) return 4;
+        else if(this.arrayDropPoints[5].isPointInside(xUp, yUp)) return 5;
+        else if(this.arrayDropPoints[6].isPointInside(xUp, yUp)) return 6;
     }
 
-
-    insertarFicha(fichaParaMover, dropPoint){
+    insertarFicha(fichaParaMover, columna, row){
+        let dropPoint = this.arrayDropPoints[columna];
+        let destinoY = (this.rows - row + 2) * 54 ;
+        console.log(this.rows + " - " + row + " = " + destinoY);
         fichaParaMover.setPosition(dropPoint.getX(), dropPoint.getY());
         fichaParaMover.draw();
-        //if(dropPoint[0]) 
-        //if(columnaLlena == 0)
-        this.animacionCaida(fichaParaMover, /*filaLibre*/500);
+        this.animacionCaida(fichaParaMover, destinoY);
     }
 
     animacionCaida(ficha, destinoY){
@@ -137,5 +139,9 @@ class Tablero {
 
     getY(){ //Obtiene la pos en y
         return this.posY;
+    }
+    
+    disableDropPoint(columna){
+        this.arrayDropPoints[columna].disable();
     }
 }

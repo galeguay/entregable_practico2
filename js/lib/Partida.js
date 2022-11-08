@@ -1,12 +1,13 @@
 class Partida {
-    constructor(ctx, cantidadFichasParaGanar, tiempoDeJuego, tiempoDeTurno, jugador1, jugador2) {
+    constructor(ctx, cantidadFichasParaGanar, minutosDeJuego, segundosDeTurno, jugador1, jugador2, timer) {
         this.ctx = ctx;
         this.cantidadFichasParaGanar = cantidadFichasParaGanar;
-        this.tiempoDeJuego = tiempoDeJuego;
-        this.tiempoDeTurno = tiempoDeTurno;
+        this.minutosDeJuego = minutosDeJuego;
+        this.segundosDeTurno = segundosDeTurno;
         this.jugador1 = jugador1;
         this.jugador2 = jugador2;
         this.jugadorActual;
+        this.timer = timer;
         this.fichaActiva;
         this.tablero;
         this.matrizLogica = new MatrizLogica(cantidadFichasParaGanar);
@@ -19,6 +20,7 @@ class Partida {
         this.tablero.cargarFichas(this.jugador1, this.jugador2);
         this.sortearPrimerJugador();
         //Iniciar Temporizador
+        this.startTimer(this.minutosDeJuego * 60, this.timer);
         //timer.draw(ctx);
         //setTimeout(finishMatch(null), 1000 * 60 * this.tiempoDeJuego);
         this.#iniciarTurno();
@@ -34,6 +36,27 @@ class Partida {
         //setTimeout(finishMatch(null), 1000 * this.tiempoDeTurno);
         //Habilitar ficha al jugadorActual
         //cuando suelte la ficha en un dropPoint
+    }
+
+
+    insertarFicha(fichaParaMover, columna) {
+        console.log("insertarFicha()");
+        let numJugador = 0;
+        if (this.jugadorActual == this.jugador1)
+            numJugador = 1;
+        else
+            numJugador = 2;
+        let row = this.matrizLogica.insertarFicha(numJugador, columna);
+        let columnaCompleta = this.matrizLogica.esColumnaCompleta(columna);
+        this.tablero.insertarFicha(fichaParaMover, columna, row);
+        this.jugadorActual.jugoFicha();
+        if (this.matrizLogica.esGanador(numJugador))
+            this.terminarPartida(this.jugadorActual);
+        else{
+            if (columnaCompleta)
+                this.tablero.disableDropPoint(columna);
+            this.turnoSiguiente();
+        }
     }
 
     terminarPartida(jugadorActual) {
@@ -70,15 +93,8 @@ class Partida {
         this.tablero.clearCanvas(width, height);
     }
 
-    checkDropPoint(xUp, yUp) {
-        return this.tablero.checkDropPoint(xUp, yUp);
-    }
-
-    insertarFicha(fichaParaMover, dropPoint) {
-        console.log("insertarFicha()");
-        this.tablero.insertarFicha(fichaParaMover, dropPoint);
-        this.jugadorActual.jugoFicha();
-        this.turnoSiguiente();
+    getColumna(xUp, yUp) {
+        return this.tablero.getColumna(xUp, yUp);
     }
 
     tablero() {
@@ -89,4 +105,17 @@ class Partida {
         return this.fichaActiva;
     }
 
+    startTimer(duration, display) {
+        var timer = duration, minutes, seconds;
+        setInterval(function () {
+            minutes = parseInt(timer / 60, 10)
+            seconds = parseInt(timer % 60, 10);
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+            display.textContent = minutes + ":" + seconds;
+            if (--timer < 0) {
+                timer = duration;
+            }
+        }, 1000);
+    }
 }
