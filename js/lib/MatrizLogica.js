@@ -7,7 +7,7 @@ class MatrizLogica{
     }
 
 
-    /**Inserta numero de fcha de jugador en el ultimo casillero libre de la columna indicada por parametro */
+    /**Inserta numero de ficha de jugador en el ultimo casillero libre de la columna indicada por parametro */
     insertarFicha(numJugador, col){
         let casillaLibre = 0;
         let inserto = false;

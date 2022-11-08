@@ -1,10 +1,40 @@
 "use strict";
 /** @type {CanvasRenderingContext2D} */
-window.addEventListener('load', () => {
+
+window.addEventListener('load', function(){
+  document.getElementById('timer').style.display = "none";
+  let button = document.querySelector('#button4');
+  button = document.querySelector('#button4');
+  /*button = document.querySelector('#button5');
+  button = document.querySelector('#button6');
+  button = document.querySelector('#button7');*/
+  button.addEventListener('click', () =>{
+    document.querySelector('#titulo').style.display = "none";
+    document.getElementById('button4').style.display = "none";
+    document.getElementById('button5').style.display = "none";
+    document.getElementById('button6').style.display = "none";
+    document.getElementById('button7').style.display = "none";
+    document.getElementById('nombreJugador1').style.display = "none";
+    document.getElementById('nombreJugador2').style.display = "none";
+    document.getElementById('elegirFicha').style.display = "none";
+    document.getElementById('messi').style.display = "none";
+    document.getElementById('ronaldo').style.display = "none";
+    document.getElementById('elegirColor').style.display = "none";
+    document.getElementById('colorMessi').style.display = "none";
+    document.getElementById('colorRonaldo').style.display = "none";
+    document.getElementById('timer').style.display = "flex";
+  });
+
   document.addEventListener('mousedown', onMouseDown); // Inicia arrastrada
   document.addEventListener('mouseup', onMouseUp); // Detiene arrastrada
   document.addEventListener('mousemove', onMoveMouse); // Movimiento del mouse 
-})
+
+});
+
+/**Obtiene color elegido por el jugador */
+document.getElementById("colorMessi").addEventListener("input", function() {
+  console.log(this.value);
+});
 
 let canvas = document.querySelector('#gameCanvas');
 let ctx = canvas.getContext('2d');

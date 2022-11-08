@@ -5,6 +5,7 @@ class Tablero {
         this.x_column0 = x_column0;
         this.cantidadFichasParaGanar = cantidadFichasParaGanar;
         this.imagenSrc;
+        this.matrizLogica;
         this.arrayDropPoints = new Array();
         this.arrayFichasJ1 = new Array();
         this.arrayFichasJ2 = new Array();
@@ -42,6 +43,8 @@ class Tablero {
     }
 
     draw(){
+        ctx.fillStyle = "black";
+        ctx.fillRect(0, 0, 890, 590);
         this.ctx.drawImage(this.imagen, 0, 0, 890, 590);
     }
 
@@ -140,6 +143,14 @@ class Tablero {
         }, 20);
     }
 
+    getX(){ //Obtiene la pos en x
+        return this.posX;
+    }
+
+    getY(){ //Obtiene la pos en y
+        return this.posY;
+    }
+    
     disableDropPoint(columna){
         this.arrayDropPoints[columna].disable();
     }

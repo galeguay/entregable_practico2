@@ -8,6 +8,23 @@
     --primarioSombra3: #001828;
     --primarioLuz1: #1F7BB6;
     --primarioLuz2: #6DB6E6;
+    --primarioLuz3: #ADDCFA;
+    --secundario: #7B28B3;
+    --secundarioSombra1: #5C0995;
+    --secundarioSombra2: #410569;
+    --secundarioSombra3: #1F0133;
+    --secundarioLuz1: #8A41BB;
+    --secundarioLuz2: #9B57C9;
+    --secundarioLuz3: #E0C2F5;
+    --acento: #FFBC2C;
+    --acentoSombra1: #FFAE00;
+    --acentoSombra2: #C18400;
+    --acentoSombra3: #674700;
+    --acentoLuz1: #FFC341;
+    --acentoLuz2: #FFD986;
+    --acentoLuz3: #FFE6B0;
+    --logo: #2E58FF;
+    --textLink: #8AB3FD;
 }
 .game{
     margin: 50px;
@@ -39,29 +56,31 @@
 }
 
 
+
 .canvas-container{
     width: 890px;
     height: 590px;
     position: relative;
 }
-#titulo{
-    display: block;
+/*#titulo{
+    display: flex;
     position: absolute;
-    left: 256px;
-    top: 30px;
+    left:256px;
+    top:100px;
     text-shadow: 5px 5px 5px black ;
     text-shadow: rgb(0, 17, 255) 5px 0 15px;
-}
+}*/
 #gameCanvas {
     position: absolute;
     background-image: url("../images/4enLinea/tablero4.webp");
 }
 
-#button4, #button5, #button6, #button7, #buttonReiniciar, #buttonMenuPrincipal {
-    left: 374px;
+#button4 {
     color: black;
     display: block;
     position:absolute;
+    left: 370px;
+    top:200px;
     padding: 0px;
     width: 150px;
     height: 54px;
@@ -72,88 +91,20 @@
     -webkit-transition: all 150ms ease-in-out;
     transition: all 150ms ease-in-out;
 }
-#button4{
-    top: 340px;
-}
-#button5{
-    top: 400px;
-}
-#button6{
-    top: 460px;
-}
-#button7{
-    top: 520px;
-}
-
-#button4:hover, #button5:hover, #button6:hover, #button7:hover, #buttonReiniciar:hover, #buttonMenuPrincipal:hover {
+#button4:hover {
     background-color: var(--primarioLuz3);
     box-shadow: 0 0 10px 0 var(--primarioLuz1) inset, 0 0 10px 4px var(--primarioLuz1);
 }   
-
-#ronaldo, #messi{
-    color: black;
-    display: block;
-    position: absolute;
-    top: 150px;
+#button4:focus{
+    display: none;
 }
-#ronaldo:hover, #messi:hover{
-    box-shadow: 0 0 10px 0 white inset, 0 0 10px 4px white;
+#button4:focus #gameCanvas {
+    position: relative;
+    background-image: none;
 }
-#messi{
-    left: 250px;
-}
-#ronaldo{
-    left: 540px;
-}
-#elegirFicha{
-    color: black;
-    display: block;
-    position: absolute;
-    left: 370px;
-    top: 185px;
-}
-#colorMessi, #colorRonaldo{
-    position: absolute;
-    top: 280px;
-    width: 100px;
-    background-color: transparent;
-}
-#colorMessi{
-    left: 245px;
-}
-#colorRonaldo{
-    left: 536px;
-}
-#elegirColor{
-    color: black;
-    position: absolute;
-    left: 370px;
-    top: 280px;
-}
-
-#nombreJugador1, #nombreJugador2{
-    position: absolute;
-    top: 100px;
-    width: 150px;
-}
-#nombreJugador1{
-    left: 220px;
-}
-#nombreJugador2{
-    left: 510px;
-}
+/*#button4:focus #titulo{
+    display: none;
+}*/
 
 
 
-
-
-
-#timer{
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0.756);
-    top: 140px;
-    left: 30px;
-    padding: 10px;
-    border: 2px solid white;
-    border-radius: 20px;
-}
