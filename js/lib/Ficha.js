@@ -20,12 +20,12 @@ class Ficha {
 
     draw(){
         this.ctx.drawImage(this.imagen, this.posX, this.posY, this.widthImg, this.heightImg);
-        ctx.lineWidth = 5;
+        /*ctx.lineWidth = 5;
         // Color de línea
         ctx.strokeStyle = "#212121";
         ctx.arc(x, y, radio, anguloInicio, anguloFin);
         // Hacemos que se dibuje
-        ctx.stroke();
+        ctx.stroke();*/
     }
 
     /**Actualiza la posicion al mover el mouse*/
