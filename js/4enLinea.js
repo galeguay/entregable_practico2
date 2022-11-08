@@ -23,6 +23,7 @@ window.addEventListener('load', function(){
     document.getElementById('colorMessi').style.display = "none";
     document.getElementById('colorRonaldo').style.display = "none";
     document.getElementById('timer').style.display = "flex";
+    let juego = new Juego(canvas, timer);
   });
 
   document.addEventListener('mousedown', onMouseDown); // Inicia arrastrada
@@ -42,7 +43,6 @@ let width = canvas.getBoundingClientRect().width;
 let height = canvas.getBoundingClientRect().height;
 let cantidadFichasParaGanar = 7;
 let timer = document.querySelector('#timer');
-let juego = new Juego(canvas, timer);
 
 /**Obtiene la posicion del cursor*/
 function getCursorPosition(canvas, event) {

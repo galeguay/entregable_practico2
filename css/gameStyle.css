@@ -54,7 +54,7 @@
 }
 #gameCanvas {
     position: absolute;
-    background-image: url("../images/4enLinea/tablero4.webp");
+    background-image: url("../images/4enLinea/tableroCompleto.webp");
 }
 
 #button4, #button5, #button6, #button7, #buttonReiniciar, #buttonMenuPrincipal {
