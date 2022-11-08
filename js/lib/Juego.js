@@ -8,13 +8,17 @@ class Juego {
         this.timer = timer;
         this.currentX;
         this.currentY;
+        this.defaultXFichaJ1 = 70;
+        this.defaultXFichaJ2 = 773;
+        this.defaultYFichas = 175;
+
         this.configurarPartida();
         //this.mouseEvents();
     }
 
     configurarPartida(){
-        let jugador1 = new Jugador("Jugador1", "#FFFFFF", new Ficha(this.ctx,"images/4enLinea/fichaMessi.png", "#FF0000", 10, 500, 50, 50));
-        let jugador2 = new Jugador("Jugador2", "#FFFFFF", new Ficha(this.ctx,"images/4enLinea/fichaRonaldo.png", "#FF0000", 800, 500, 50, 50));
+        let jugador1 = new Jugador("Jugador1", "#FFFFFF", new Ficha(this.ctx,"images/4enLinea/fichaMessi.png", "#FF0000", this.defaultXFichaJ1, this.defaultYFichas, 50, 50));
+        let jugador2 = new Jugador("Jugador2", "#FFFFFF", new Ficha(this.ctx,"images/4enLinea/fichaRonaldo.png", "#FF0000", this.defaultXFichaJ2, this.defaultYFichas, 50, 50));
         this.cargarPartida4enLinea(jugador1, jugador2);
     }
 

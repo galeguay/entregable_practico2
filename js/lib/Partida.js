@@ -115,6 +115,7 @@ class Partida {
             display.textContent = minutes + ":" + seconds;
             if (--timer < 0) {
                 timer = duration;
+                this.terminarPartida();
             }
         }, 1000);
     }

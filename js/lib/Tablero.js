@@ -72,13 +72,23 @@ class Tablero {
         for (let i = 0; i < ((this.cantidadFichasParaGanar + 3) * (this.cantidadFichasParaGanar + 2))/2; i++) {
             this.arrayFichasJ1.push(new Ficha(this.ctx, fichaJ1.getImagenSrc(), fichaJ1.colorBorde, fichaJ1.getX(), fichaJ1.getY()+dif, 50, 50));
             this.arrayFichasJ2.push(new Ficha(this.ctx, fichaJ2.getImagenSrc(), fichaJ2.colorBorde, fichaJ2.getX(), fichaJ2.getY()+dif, 50, 50));
-            dif-=10;
+            dif+=10;
         }
-        this.#actualizarFichas();
+        setTimeout(()=>{
+            this.clearCanvas();
+            this.#actualizarFichas();
+        },500);
     }
 
-    #actualizarFichas(){
+/*     #actualizarFichas(){
         for (let i = 0; i < this.arrayFichasJ1.length; i++) {
+            this.arrayFichasJ1[i].draw();
+            this.arrayFichasJ2[i].draw();
+        }
+    } */
+    
+    #actualizarFichas(){
+        for (let i = this.arrayFichasJ1.length-1; i > -1; i--) {
             this.arrayFichasJ1[i].draw();
             this.arrayFichasJ2[i].draw();
         }

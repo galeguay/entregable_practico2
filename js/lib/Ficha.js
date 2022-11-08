@@ -10,7 +10,7 @@ class Ficha {
         this.imagen = new Image();
         this.imagen.onload = ()=> {
             setTimeout(()=>{
-                this.draw()
+                this.draw();
             });
         };
         this.imagen.src = imagenSrc;

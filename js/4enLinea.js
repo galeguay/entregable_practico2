@@ -1,21 +1,18 @@
 "use strict";
 /** @type {CanvasRenderingContext2D} */
-let timer;
+window.addEventListener('load', () => {
+  document.addEventListener('mousedown', onMouseDown); // Inicia arrastrada
+  document.addEventListener('mouseup', onMouseUp); // Detiene arrastrada
+  document.addEventListener('mousemove', onMoveMouse); // Movimiento del mouse 
+})
+
 let canvas = document.querySelector('#gameCanvas');
 let ctx = canvas.getContext('2d');
 let width = canvas.getBoundingClientRect().width;
 let height = canvas.getBoundingClientRect().height;
-let juego;
 let cantidadFichasParaGanar = 7;
-
-window.addEventListener('load', () => {
-  timer = document.querySelector('#timer');
-  document.addEventListener('mousedown', onMouseDown); // Inicia arrastrada
-  document.addEventListener('mouseup', onMouseUp); // Detiene arrastrada
-  document.addEventListener('mousemove', onMoveMouse); // Movimiento del mouse 
-  juego = new Juego(canvas, timer);
-})
-
+let timer = document.querySelector('#timer');
+let juego = new Juego(canvas, timer);
 
 /**Obtiene la posicion del cursor*/
 function getCursorPosition(canvas, event) {
@@ -71,6 +68,6 @@ function onMouseUp(event){
   if(columna != null && fichaParaMover != null){ //Si encuentra dropPoint y fichaParaMover
     juego.clearCanvas(fichaParaMover);
     juego.insertarFicha(fichaParaMover, columna);
-    fichaParaMover = null;
   }
+  fichaParaMover = null;
 }
