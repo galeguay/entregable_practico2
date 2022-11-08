@@ -2,6 +2,7 @@
 /** @type {CanvasRenderingContext2D} */
 
 window.addEventListener('load', function(){
+  document.getElementById('timer').style.display = "none";
   let button = document.querySelector('#button4');
   button = document.querySelector('#button4');
   /*button = document.querySelector('#button5');
@@ -21,6 +22,9 @@ window.addEventListener('load', function(){
     document.getElementById('elegirColor').style.display = "none";
     document.getElementById('colorMessi').style.display = "none";
     document.getElementById('colorRonaldo').style.display = "none";
+    document.getElementById('timer').style.display = "flex";
+    
+
     let juego;
     juego = new Juego(canvas);
   });
