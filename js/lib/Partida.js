@@ -1,12 +1,13 @@
 class Partida {
-    constructor(ctx, cantidadFichasParaGanar, tiempoDeJuego, tiempoDeTurno, jugador1, jugador2) {
+    constructor(ctx, cantidadFichasParaGanar, minutosDeJuego, segundosDeTurno, jugador1, jugador2, timer) {
         this.ctx = ctx;
         this.cantidadFichasParaGanar = cantidadFichasParaGanar;
-        this.tiempoDeJuego = tiempoDeJuego;
-        this.tiempoDeTurno = tiempoDeTurno;
+        this.minutosDeJuego = minutosDeJuego;
+        this.segundosDeTurno = segundosDeTurno;
         this.jugador1 = jugador1;
         this.jugador2 = jugador2;
         this.jugadorActual;
+        this.timer = timer;
         this.fichaActiva;
         this.tablero;
         this.matrizLogica = new MatrizLogica(cantidadFichasParaGanar);
@@ -19,6 +20,7 @@ class Partida {
         this.tablero.cargarFichas(this.jugador1, this.jugador2);
         this.sortearPrimerJugador();
         //Iniciar Temporizador
+        this.startTimer(this.minutosDeJuego * 60, this.timer);
         //timer.draw(ctx);
         //setTimeout(finishMatch(null), 1000 * 60 * this.tiempoDeJuego);
         this.#iniciarTurno();
@@ -95,7 +97,6 @@ class Partida {
         return this.tablero.getColumna(xUp, yUp);
     }
 
-
     tablero() {
         return this.tablero;
     }
@@ -104,4 +105,17 @@ class Partida {
         return this.fichaActiva;
     }
 
+    startTimer(duration, display) {
+        var timer = duration, minutes, seconds;
+        setInterval(function () {
+            minutes = parseInt(timer / 60, 10)
+            seconds = parseInt(timer % 60, 10);
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+            display.textContent = minutes + ":" + seconds;
+            if (--timer < 0) {
+                timer = duration;
+            }
+        }, 1000);
+    }
 }

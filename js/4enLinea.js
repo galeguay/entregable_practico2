@@ -1,20 +1,21 @@
 "use strict";
 /** @type {CanvasRenderingContext2D} */
-
-window.addEventListener('load', () => {
-  document.addEventListener('mousedown', onMouseDown); // Inicia arrastrada
-  document.addEventListener('mouseup', onMouseUp); // Detiene arrastrada
-  document.addEventListener('mousemove', onMoveMouse); // Movimiento del mouse 
-
-})
-
+let timer;
 let canvas = document.querySelector('#gameCanvas');
 let ctx = canvas.getContext('2d');
 let width = canvas.getBoundingClientRect().width;
 let height = canvas.getBoundingClientRect().height;
-
+let juego;
 let cantidadFichasParaGanar = 7;
-let juego = new Juego(canvas);
+
+window.addEventListener('load', () => {
+  timer = document.querySelector('#timer');
+  document.addEventListener('mousedown', onMouseDown); // Inicia arrastrada
+  document.addEventListener('mouseup', onMouseUp); // Detiene arrastrada
+  document.addEventListener('mousemove', onMoveMouse); // Movimiento del mouse 
+  juego = new Juego(canvas, timer);
+})
+
 
 /**Obtiene la posicion del cursor*/
 function getCursorPosition(canvas, event) {
