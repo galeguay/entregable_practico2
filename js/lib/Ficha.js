@@ -20,11 +20,9 @@ class Ficha {
 
     draw(){
         this.ctx.drawImage(this.imagen, this.posX, this.posY, this.widthImg, this.heightImg);
-        /*ctx.lineWidth = 5;
-        // Color de línea
-        ctx.strokeStyle = "#212121";
-        ctx.arc(x, y, radio, anguloInicio, anguloFin);
-        // Hacemos que se dibuje
+        /*ctx.lineWidth = 2;
+        ctx.strokeStyle = "#000080"; //COLOR PASADO POR USUARIO
+        ctx.arc(95, 210, 25, 0, 360);
         ctx.stroke();*/
     }
 
