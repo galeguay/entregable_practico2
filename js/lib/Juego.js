@@ -17,30 +17,55 @@ class Juego {
         //this.mouseEvents();
     }
 
+    cargarOcultarElementos(cantidadFichasParaGanar){
+        document.getElementById('titulo').style.display = "none";
+        document.getElementById('button4').style.display = "none";
+        document.getElementById('button5').style.display = "none";
+        document.getElementById('button6').style.display = "none";
+        document.getElementById('button7').style.display = "none";
+        document.getElementById('nombreJugador1').style.display = "none";
+        document.getElementById('nombreJugador2').style.display = "none";
+        document.getElementById('elegirFicha').style.display = "none";
+        document.getElementById('messi').style.display = "none";
+        document.getElementById('ronaldo').style.display = "none";
+        document.getElementById('elegirColor').style.display = "none";
+        document.getElementById('colorMessi').style.display = "none";
+        document.getElementById('colorRonaldo').style.display = "none";
+        document.getElementById('timer').style.display = "flex";
+        let nombreJugador1;
+        document.getElementById("nombreJugador1").addEventListener("input", function() {
+            nombreJugador1 = this.value;
+        });
+        let nombreJugador2;
+        document.getElementById("nombreJugador2").addEventListener("input", function() {
+            nombreJugador2 = this.value;
+        });
+        cargarPartida(nombreJugador1, nombreJugador2, cantidadFichasParaGanar);
+    }
+
     cargarInterfazDeAjustesDePartida(){
         console.log("cargarInterfazDeAjustesDePartida()");
         window.addEventListener('load', function(){
             document.getElementById('timer').style.display = "none";
-            let button = document.querySelector('#button4');
-            button = document.querySelector('#button4');
-            /*button = document.querySelector('#button5');
-            button = document.querySelector('#button6');
-            button = document.querySelector('#button7');*/
-            button.addEventListener('click', () =>{
-                document.querySelector('#titulo').style.display = "none";
-                document.getElementById('button4').style.display = "none";
-                document.getElementById('button5').style.display = "none";
-                document.getElementById('button6').style.display = "none";
-                document.getElementById('button7').style.display = "none";
-                document.getElementById('nombreJugador1').style.display = "none";
-                document.getElementById('nombreJugador2').style.display = "none";
-                document.getElementById('elegirFicha').style.display = "none";
-                document.getElementById('messi').style.display = "none";
-                document.getElementById('ronaldo').style.display = "none";
-                document.getElementById('elegirColor').style.display = "none";
-                document.getElementById('colorMessi').style.display = "none";
-                document.getElementById('colorRonaldo').style.display = "none";
-                document.getElementById('timer').style.display = "flex";
+            let button4 = document.querySelector('#button4');
+            button4.addEventListener('click', () =>{
+                let cantidadFichasParaGanar = 4;
+                this.cargarOcultarElementos(cantidadFichasParaGanar);
+            });
+            let button5 = document.querySelector('#button5');
+            button5.addEventListener('click', () =>{
+                let cantidadFichasParaGanar = 5;
+                this.cargarOcultarElementos(cantidadFichasParaGanar);
+            });
+            let button6 = document.querySelector('#button6');
+            button6.addEventListener('click', () =>{
+                let cantidadFichasParaGanar = 6;
+                this.cargarOcultarElementos(cantidadFichasParaGanar);
+            });
+            let button7 = document.querySelector('#button7');
+            button7.addEventListener('click', () =>{
+                let cantidadFichasParaGanar = 7;
+                this.cargarOcultarElementos(cantidadFichasParaGanar);
             });
             document.addEventListener('mousedown', this.onMouseDown); // Inicia arrastrada
             document.addEventListener('mouseup', this.onMouseUp); // Detiene arrastrada

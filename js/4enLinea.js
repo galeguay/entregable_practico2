@@ -5,7 +5,6 @@ window.addEventListener('load', function(){
 
   document.getElementById('timer').style.display = "none";
   let button4 = document.querySelector('#button4');
-  button4 = document.querySelector('#button4');
  /*button = document.querySelector('#button5');
   button = document.querySelector('#button6');
   button = document.querySelector('#button7');*/
@@ -99,15 +98,7 @@ document.getElementById("colorRonaldo").addEventListener("input", function() {
 
 });
 
-document.getElementById("nombreJugador1").addEventListener("input", function() {
-  let nombreJugador1 = this.value;
-  nombreJugador1.configurarPartida(nombreJugador1); //Se lo tengo que pasar al configurar partida (juego)
-});
 
-document.getElementById("nombreJugador2").addEventListener("input", function() {
-  let nombreJugador2 = this.value;
-  nombreJugador2.configurarPartida(nombreJugador2); //Se lo tengo que pasar al configurar partida (juego)
-});
 
 
 let canvas = document.querySelector('#gameCanvas');
