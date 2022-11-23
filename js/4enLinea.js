@@ -28,7 +28,7 @@ window.addEventListener('load', function(){
     //let juego = new Juego(canvas, timer);
   })
   button5.addEventListener('click', () =>{
-    let cantidadFichasParaGanar = 5;
+    //let cantidadFichasParaGanar = 5;
     document.getElementById('titulo').style.display = "none";
     document.getElementById('button4').style.display = "none";
     document.getElementById('button5').style.display = "none";
@@ -46,7 +46,7 @@ window.addEventListener('load', function(){
     //let juego = new Juego(canvas, timer);
   })
   button6.addEventListener('click', () =>{
-    let cantidadFichasParaGanar = 6;
+    //let cantidadFichasParaGanar = 6;
     document.getElementById('titulo').style.display = "none";
     document.getElementById('button4').style.display = "none";
     document.getElementById('button5').style.display = "none";
@@ -64,7 +64,7 @@ window.addEventListener('load', function(){
     //let juego = new Juego(canvas, timer);
   })
   button7.addEventListener('click', () =>{
-    let cantidadFichasParaGanar = 7;
+    //let cantidadFichasParaGanar = 7;
     document.getElementById('titulo').style.display = "none";
     document.getElementById('button4').style.display = "none";
     document.getElementById('button5').style.display = "none";
@@ -114,7 +114,7 @@ let canvas = document.querySelector('#gameCanvas');
 let ctx = canvas.getContext('2d');
 let width = canvas.getBoundingClientRect().width;
 let height = canvas.getBoundingClientRect().height;
-//let cantidadFichasParaGanar = 7;
+let cantidadFichasParaGanar = 7;
 let timer = document.querySelector('#timer');
 let juego = new Juego(canvas, timer);
 
@@ -132,46 +132,4 @@ let difX;
 let difY;
 let fichaJugadorEsperando;
 
-/**Cuando se clickea el mouse*/
-function onMouseDown(event){
-  isMouseDown = true;
-  const rect = canvas.getBoundingClientRect();
-  const x = event.clientX - rect.left; //coordenadas x e y dentro del canvas
-  const y = event.clientY - rect.top;
-  fichaActiva = juego.getFichaActiva();
-  if (fichaActiva != null){
-    if (fichaActiva.isPointInside(x, y)){
-      fichaParaMover = fichaActiva;
-      difX = x - fichaParaMover.getX();
-      difY = y - fichaParaMover.getY();
-    }
-  }
-}
 
-/**Cuando se mueve el mouse mientras se esta clickeando*/
-function onMoveMouse(event){
-  if(isMouseDown && fichaParaMover != null){
-    const rect = canvas.getBoundingClientRect();
-    let posX = event.clientX - rect.left;
-    let posY = event.clientY - rect.top;
-    if(fichaParaMover != null){
-      fichaActiva.setPosition(posX - difX, posY - difY);
-      juego.clearCanvas();
-      fichaActiva.draw(ctx);
-    }
-  }
-}
-
-/**Cuando se desclickea el mouse*/
-function onMouseUp(event){
-  isMouseDown = false;
-  const rectt = canvas.getBoundingClientRect();
-  const xUpCursor = event.clientX - rectt.left; //coordenadas x e y dentro del canvas
-  const yUpCursor = event.clientY - rectt.top;
-  let columna = juego.getColumna(xUpCursor, yUpCursor);
-  if(columna != null && fichaParaMover != null){ //Si encuentra dropPoint y fichaParaMover
-    juego.clearCanvas(fichaParaMover);
-    juego.insertarFicha(fichaParaMover, columna);
-  }
-  fichaParaMover = null;
-}
