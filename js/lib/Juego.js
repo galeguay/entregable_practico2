@@ -12,12 +12,10 @@ class Juego {
         this.defaultXFichaJ1 = 70;
         this.defaultXFichaJ2 = 773;
         this.defaultYFichas = 175;
-        this.cargarInterfazDeAjustesDePartida();
-        //this.configurarPartida();
-        //this.mouseEvents();
+        this.mostrarInterfazDeAjustesDePartida();
     }
 
-    cargarInterfazDeAjustesDePartida(){
+    mostrarInterfazDeAjustesDePartida(){
         console.log("cargarInterfazDeAjustesDePartida()");
         window.addEventListener('load', function(){
             document.getElementById('timer').style.display = "none";
@@ -48,7 +46,7 @@ class Juego {
         });
     }
 
-/**Cuando se clickea el mouse*/
+    /**Cuando se clickea el mouse*/
     onMouseDown(event){
     isMouseDown = true;
     const rect = canvas.getBoundingClientRect();
@@ -64,7 +62,7 @@ class Juego {
     }
 }
 
-  /**Cuando se mueve el mouse mientras se esta clickeando*/
+    /**Cuando se mueve el mouse mientras se esta clickeando*/
     onMoveMouse(event){
         if(isMouseDown && fichaParaMover != null){
         const rect = canvas.getBoundingClientRect();
@@ -78,7 +76,7 @@ class Juego {
         }
     }
 
-  /**Cuando se desclickea el mouse*/
+    /**Cuando se desclickea el mouse*/
     onMouseUp(event){
         isMouseDown = false;
         const rectt = canvas.getBoundingClientRect();
@@ -126,68 +124,4 @@ class Juego {
         this.partida.insertarFicha(fichaParaMover, columna);
     }
 
-/*
-    mouseEvents(){
-        window.addEventListener('load', () => {
-            document.addEventListener('mousedown', onMouseDown); // Inicia arrastrada
-            document.addEventListener('mouseup', onMouseUp); // Detiene arrastrada
-            document.addEventListener('mousemove', onMoveMouse); // Movimiento del mouse
-        });
-
-        let fichaMessi = new Ficha(this.ctx,"images/4enLinea/fichaMessi.png", "#FF0000", 10, 10, 50, 50, this.width, this.height);
-        let fichaRonaldo = new Ficha(this.ctx,"images/4enLinea/fichaRonaldo.png", "red", 150, 10, 50, 50,  this.width, this.height);
-        //fichaMessi.draw(this.ctx);
-        //fichaRonaldo.draw(this.ctx);
-
-        let isMouseDown = false;
-        let fichaParaMover;
-        let difX;
-        let difY;
-
-        /**Obtiene la posicion del cursor*/
-        /*function getCursorPosition(canvas, event) {
-            const rect = canvas.getBoundingClientRect();
-            const x = event.clientX - rect.left;
-            const y = event.clientY - rect.top;
-        }*/
-
-        /**Cuando se clickea el mouse*/
-        /*function onMouseDown(event){
-            isMouseDown = true;
-            const rect = this.canvas.getBoundingClientRect();
-            const x = event.clientX - rect.left; //coordenadas x e y dentro del canvas
-            const y = event.clientY - rect.top;
-            let fichaParaMover = fichaClickeada(x, y);
-            if(fichaParaMover != null){
-                //fichaParaMover = clickFicha;
-                difX = x - fichaParaMover.getPosX();
-                difY = y - fichaParaMover.getPosY();
-            }
-        }
-*/
-        /**Cuando se mueve el mouse mientras se esta clickeando*/
-        /*function onMoveMouse(event){
-            if(isMouseDown && fichaParaMover != null){
-            const rect = this.canvas.getBoundingClientRect();
-            let posX = event.clientX - rect.left;
-            let posY = event.clientY - rect.top;
-            if(fichaParaMover != null){
-                fichaParaMover.setPosition(posX - difX, posY - difY);
-                this.partida.tablero().clearCanvas();
-                fichaParaMover.draw(ctx);
-            }
-            }
-        }
-*/
-        /**Cuando se desclickea el mouse*/
-        /*function onMouseUp(event){
-            isMouseDown = false;
-            fichaParaMover = null;
-        }
-        function fichaClickeada(x, y){
-            if(fichaMessi.isPointInside(x, y)) return fichaMessi;
-            else if(fichaRonaldo.isPointInside(x, y)) return fichaRonaldo;
-        }
-    }
-*/
 }
