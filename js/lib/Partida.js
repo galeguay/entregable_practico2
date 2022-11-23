@@ -15,8 +15,8 @@ class Partida {
     }
 
     iniciarPartida() {
-        console.log("iniciarPartida()");
-        this.tablero = new Tablero(this.ctx, this.cantidadFichasParaGanar, 0, 0);
+        console.log("partida.iniciarPartida()");
+        this.tablero = new Tablero(this.ctx, this.cantidadFichasParaGanar);
         this.tablero.cargarFichas(this.jugador1, this.jugador2);
         this.sortearPrimerJugador();
         //Iniciar Temporizador

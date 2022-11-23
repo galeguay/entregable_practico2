@@ -1,8 +1,8 @@
 class Tablero {
-    constructor(ctx, cantidadFichasParaGanar, y_row0, x_column0) {
+    constructor(ctx, cantidadFichasParaGanar) {
         this.ctx = ctx;
-        this.y_row0 = y_row0;
-        this.x_column0 = x_column0;
+        this.x_column0 = 262;
+        this.y_row0 = 162;
         this.cantidadFichasParaGanar = cantidadFichasParaGanar;
         this.imagenSrc;
         this.matrizLogica;
@@ -20,12 +20,8 @@ class Tablero {
     }
 
     #cargarImagen() {
-        this.x_column0 = 262;
-        this.y_row0 = 162;
         switch (this.cantidadFichasParaGanar) {
-            case 4: this.x_column0;
-                    this.y_row0;
-                    this.imagen.src = "images/4enLinea/tablero4.webp";
+            case 4: this.imagen.src = "images/4enLinea/tablero4.webp";
                     break;
             case 5: this.x_column0 = this.x_column0 - 27;
                     this.y_row0 = this.y_row0 - 54;
@@ -124,7 +120,15 @@ class Tablero {
 
     insertarFicha(fichaParaMover, columna, row){
         let dropPoint = this.arrayDropPoints[columna];
-        let destinoY = (this.rows - row + 2) * 54 ;
+        let destinoY = 0;
+        if(this.rows == 7)
+            destinoY = ((this.rows - row + 2) * 54) +2;
+        else if(this.rows == 8)
+            destinoY = ((this.rows - row + 1) * 54) +2;
+        else if(this.rows == 9)
+            destinoY = ((this.rows - row ) * 54) +2;
+        else if(this.rows == 10)
+            destinoY = ((this.rows - row - 1) * 54) +2;
         console.log(this.rows + " - " + row + " = " + destinoY);
         fichaParaMover.setPosition(dropPoint.getX(), dropPoint.getY());
         fichaParaMover.draw();

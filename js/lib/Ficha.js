@@ -24,6 +24,12 @@ class Ficha {
         ctx.strokeStyle = "#000080"; //COLOR PASADO POR USUARIO
         ctx.arc(95, 210, 25, 0, 360);
         ctx.stroke();*/
+        /*ctx.lineWidth = 5;
+        // Color de línea
+        ctx.strokeStyle = "#212121";
+        ctx.arc(x, y, radio, anguloInicio, anguloFin);
+        // Hacemos que se dibuje
+        ctx.stroke();*/
     }
 
     /**Actualiza la posicion al mover el mouse*/
