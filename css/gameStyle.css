@@ -8,6 +8,14 @@
     --primarioSombra3: #001828;
     --primarioLuz1: #1F7BB6;
     --primarioLuz2: #6DB6E6;
+    --acento: #FFBC2C;
+    --acentoSombra1: #FFAE00;
+    --acentoSombra2: #C18400;
+    --acentoSombra3: #674700;
+    --acentoLuz1: #FFC341;
+    --acentoLuz2: #FFD986;
+    --colorJugador1: #000080;
+    --colorJugador2: #ff0000;
 }
 .game{
     margin: 50px;
@@ -142,6 +150,68 @@
 #nombreJugador2{
     left: 510px;
 }
+
+
+#ganador1, #ganador2{
+    position: absolute;
+    font-size: 55px;
+    text-shadow: 5px 5px 5px black ;
+    top: 255px;
+}
+#ganador1{
+    left: 210px;
+    text-shadow: var(--colorJugador1) 5px 0 15px;
+}
+#ganador2{
+    left: 160px;
+    text-shadow: var(--colorJugador2) 5px 0 15px;
+}
+#reiniciar, #menu{
+    display: block;
+    position:absolute;
+    padding: 0px;
+    width: 150px;
+    height: 50px;
+    border-radius: 17px;
+    margin-bottom: 20px;
+    border-color: var(--acento);
+    box-shadow: 0 0 40px 40px var(--acento) inset, 0 0 0 0 var(--acento);
+    -webkit-transition: all 150ms ease-in-out;
+    transition: all 150ms ease-in-out;
+    top: 350px;
+}
+
+#reiniciar{
+    left: 464px;
+}
+#menu{
+    left: 280px;
+}
+
+#terminoTiempoReglamentario{
+    display: block;
+    position: absolute;
+    top: 255px;
+    left: 145px;
+    font-size: 55px;
+    text-shadow: 5px 5px 5px black ;
+    text-shadow: rgb(255, 0, 0) 5px 0 15px;
+}
+#iniciaJugador1, #iniciaJugador2{
+    display: block;
+    position: absolute;
+    top: 138px;
+    font-size: 20px;
+    text-shadow: 5px 5px 5px black ;
+    text-shadow: rgb(146, 17, 17) 5px 0 15px;
+}
+#iniciaJugador1{
+    left: 45px;
+}
+#iniciaJugador2{
+    left: 717px;
+}
+
 
 #timer{
     position: absolute;

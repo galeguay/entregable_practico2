@@ -16,6 +16,9 @@ let difY;
 let fichaJugadorEsperando;
 
 window.addEventListener('load', function () {
+    document.getElementById('reiniciar').style.display = "none";
+    document.getElementById('menu').style.display = "none";
+    document.getElementById('terminoTiempoReglamentario').style.display = "none";
     document.getElementById('timer').style.display = "none";
     let button = document.querySelector('#button4');
     button = document.querySelector('#button4');
