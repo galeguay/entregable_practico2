@@ -79,13 +79,14 @@ class Partida {
                 document.getElementById('terminoTiempoReglamentario').classList.toggle('hide');
             }
         }
-            document.getElementById('turnoJugador1').classList.remove('hide');
-            document.getElementById('turnoJugador2').classList.remove('hide');
-            document.getElementById('turnoJugador1').classList.toggle('hide');
-            document.getElementById('turnoJugador2').classList.toggle('hide');
+        if(numJugador == 0){
             textGanador1.classList.toggle('hide');
             textGanador2.classList.toggle('hide');
-        //mostrar botones de reinicio rapido o volver a menu
+        }
+        document.getElementById('turnoJugador1').classList.remove('hide');
+        document.getElementById('turnoJugador2').classList.remove('hide');
+        document.getElementById('turnoJugador1').classList.toggle('hide');
+        document.getElementById('turnoJugador2').classList.toggle('hide');
         console.log("termino por tiempo");
         document.getElementById('divFin').classList.toggle('hide');
     }
