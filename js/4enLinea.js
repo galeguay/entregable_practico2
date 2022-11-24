@@ -72,7 +72,6 @@ function ocultarInterfazDeAjusteDePartida(cantidadFichasParaGanar) {
 
 /**Obtiene color elegido por el jugador */
 document.getElementById("colorMessi").addEventListener("input", function () {
-    console.log(this.value);
 });
 
 /**Obtiene la posicion del cursor*/

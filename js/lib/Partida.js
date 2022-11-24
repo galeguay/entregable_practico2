@@ -8,6 +8,7 @@ class Partida {
         this.jugador2 = jugador2;
         this.jugadorActual;
         this.timer = timer;
+        this.isPlaying = false;
         this.fichaActiva;
         this.tablero;
         this.matrizLogica = new MatrizLogica(cantidadFichasParaGanar);
@@ -15,7 +16,9 @@ class Partida {
     }
 
     iniciarPartida() {
-        console.log("partida.iniciarPartida()");
+        console.log("iniciarPartida()");
+        this.isPlaying = true;
+        console.log("isplaying se hace: "+ this.isPlaying);
         this.tablero = new Tablero(this.ctx, this.cantidadFichasParaGanar);
         this.tablero.cargarFichas(this.jugador1, this.jugador2);
         this.sortearPrimerJugador();
@@ -28,14 +31,11 @@ class Partida {
 
     #iniciarTurno() {
         console.log("iniciarTurno()");
+        console.log("isplaying se hace: "+ this.isPlaying);
         if (this.jugadorActual == this.jugador1)
             this.fichaActiva = this.tablero.getFichaJ1(this.jugadorActual.getFichasJugadas());
         else
             this.fichaActiva = this.tablero.getFichaJ2(this.jugadorActual.getFichasJugadas());
-        //Establecer temporizador?
-        //setTimeout(finishMatch(null), 1000 * this.tiempoDeTurno);
-        //Habilitar ficha al jugadorActual
-        //cuando suelte la ficha en un dropPoint
     }
 
 
@@ -61,6 +61,9 @@ class Partida {
 
     terminarPartida(jugadorActual) {
         console.log("terminarPartida()");
+        this.isPlaying = false;
+        this.fichaActiva = null;
+        this.timer.style.display = "none";
         if (!jugadorActual) {
             if (this.matrizLogica.esGanador(jugadorActual)) {
                 //dibujar pantalla ganador
@@ -105,6 +108,10 @@ class Partida {
         return this.fichaActiva;
     }
 
+    isPlaying(){
+        return this.isPlaying;
+    }
+
     startTimer(duration, display) {
         var timer = duration, minutes, seconds;
         setInterval(function () {
@@ -113,7 +120,7 @@ class Partida {
             minutes = minutes < 10 ? "0" + minutes : minutes;
             seconds = seconds < 10 ? "0" + seconds : seconds;
             display.textContent = minutes + ":" + seconds;
-            if (--timer < 0) {
+            if (--timer < 0 && this.isPlaying) {
                 timer = duration;
                 this.terminarPartida();
             }

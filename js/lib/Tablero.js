@@ -79,13 +79,6 @@ class Tablero {
         },500);
     }
 
-/*     #actualizarFichas(){
-        for (let i = 0; i < this.arrayFichasJ1.length; i++) {
-            this.arrayFichasJ1[i].draw();
-            this.arrayFichasJ2[i].draw();
-        }
-    } */
-    
     #actualizarFichas(){
         for (let i = this.arrayFichasJ1.length-1; i > -1; i--) {
             this.arrayFichasJ1[i].draw();
