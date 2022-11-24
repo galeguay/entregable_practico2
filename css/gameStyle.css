@@ -221,3 +221,14 @@
     border: 2px solid white;
     border-radius: 20px;
 }
+
+.divFinClass{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 890px;
+    height: 590px;
+    background-color: rgba(255, 255, 255, 0.226);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}

@@ -64,23 +64,27 @@ class Partida {
         this.fichaActiva = null;
         this.timer.style.display = "none";
         if (this.jugadorActual != null) {
-            console.log("Ganoooo");
             if (this.matrizLogica.esGanador(numJugador)) {
                 console.log("Gano jugador");
                 if(numJugador == 1){
-                    console.log("gano " + this.jugadorActual.getNombre());
+                    document.getElementById('ganador1').innerHTML += this.jugadorActual.getNombre();
                     document.getElementById('ganador1').style.display = "block";  
                 } 
-                else if(numJugador == 2) document.getElementById('ganador2').style.display = "block";
+                else if(numJugador == 2){
+                    document.getElementById('ganador2').innerHTML += this.jugadorActual.getNombre();
+                    document.getElementById('ganador2').style.display = "block";
+                } 
             } else {
                 //Se termino el tiempo
                 //document.getElementById('terminoTiempoReglamentario').style.display = "block";
                 //mostrar motivo por el cual finalizó la partida
             }
             //mostrar botones de reinicio rapido o volver a menu
-            console.log("Botones");
+            document.getElementById('divFin').classList.toggle('divFinClass');
             document.getElementById('reiniciar').style.display = "block";
             document.getElementById('menu').style.display = "block";
+            document.getElementById('iniciaJugador1').style.display = "none";
+            document.getElementById('iniciaJugador2').style.display = "none";
         }
     }
     /*
@@ -104,10 +108,16 @@ class Partida {
     sortearPrimerJugador() {
         console.log("sortearPrimerJugador()");
         let primerJugador = Math.floor(Math.random() * 2.0) + 1;
-        if (primerJugador == 1)
+        if (primerJugador == 1){
             this.jugadorActual = this.jugador1;
-        else
+            document.getElementById('iniciaJugador1').style.display = "block";
+            document.getElementById('iniciaJugador1').innerHTML += this.jugadorActual.getNombre();
+        }
+        else{
             this.jugadorActual = this.jugador2;
+            document.getElementById('iniciaJugador2').style.display = "block";
+            document.getElementById('iniciaJugador2').innerHTML += this.jugadorActual.getNombre();
+        }
     }
 
     turnoSiguiente() {

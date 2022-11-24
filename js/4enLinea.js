@@ -18,6 +18,7 @@ let nombreJugador1;
 let nombreJugador2;
 
 window.addEventListener('load', function () {
+    document.getElementById('divFin').classList.toggle('divFinClass');
     document.getElementById('iniciaJugador1').style.display = "none";
     document.getElementById('iniciaJugador2').style.display = "none";
     document.getElementById('terminoTiempoReglamentario').style.display = "none";
