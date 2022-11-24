@@ -18,10 +18,10 @@ class Partida {
     iniciarPartida() {
         console.log("iniciarPartida()");
         this.isPlaying = true;
-        console.log("isplaying se hace: "+ this.isPlaying);
         this.tablero = new Tablero(this.ctx, this.cantidadFichasParaGanar);
         this.tablero.cargarFichas(this.jugador1, this.jugador2);
         this.sortearPrimerJugador();
+
         //Iniciar Temporizador
         this.startTimer(this.minutosDeJuego * 60, this.timer);
         //timer.draw(ctx);
@@ -31,7 +31,6 @@ class Partida {
 
     #iniciarTurno() {
         console.log("iniciarTurno()");
-        console.log("isplaying se hace: "+ this.isPlaying);
         if (this.jugadorActual == this.jugador1)
             this.fichaActiva = this.tablero.getFichaJ1(this.jugadorActual.getFichasJugadas());
         else
@@ -51,7 +50,7 @@ class Partida {
         this.tablero.insertarFicha(fichaParaMover, columna, row);
         this.jugadorActual.jugoFicha();
         if (this.matrizLogica.esGanador(numJugador))
-            this.terminarPartida(this.jugadorActual);
+            this.terminarPartida(numJugador);
         else{
             if (columnaCompleta)
                 this.tablero.disableDropPoint(columna);
@@ -59,13 +58,15 @@ class Partida {
         }
     }
 
-    terminarPartida(jugadorActual) {
+    terminarPartida(numJugador) {
         console.log("terminarPartida()");
         this.isPlaying = false;
         this.fichaActiva = null;
         this.timer.style.display = "none";
-        if (!jugadorActual) {
-            if (this.matrizLogica.esGanador(jugadorActual)) {
+        console.log(this.jugadorActual);
+        if (this.jugadorActual != null) {
+            if (this.matrizLogica.esGanador(numJugador)) {
+                console.log("gano " + this.jugadorActual.getNombre());
                 //dibujar pantalla ganador
             } else {
                 //mostrar motivo por el cual finalizó la partida

@@ -16,12 +16,18 @@ class Juego {
 
     cargarPartida(nombreJugador1, nombreJugador2, cantidadFichasParaGanar) {
         console.log("cargarPartida4enLinea()");
+        if (nombreJugador1 == null)
+            nombreJugador1 = "Jugador1";
         if (nombreJugador1 == "")
             nombreJugador1 = "Jugador1";
+        if (nombreJugador2 == null)
+            nombreJugador2 = "Jugador2";
         if (nombreJugador2 == "")
-            nombreJugador1 = "Jugador2";
+            nombreJugador2 = "Jugador2";
         let jugador1 = new Jugador(nombreJugador1, "#FFFFFF", new Ficha(this.ctx, "images/4enLinea/fichaMessi.png", "#FF0000", this.defaultXFichaJ1, this.defaultYFichas, 50, 50));
         let jugador2 = new Jugador(nombreJugador2, "#FFFFFF", new Ficha(this.ctx, "images/4enLinea/fichaRonaldo.png", "#FF0000", this.defaultXFichaJ2, this.defaultYFichas, 50, 50));
+        console.log(nombreJugador1);
+        console.log(nombreJugador2);
         this.partida = new Partida(this.ctx, cantidadFichasParaGanar, 5, 30, jugador1, jugador2, this.timer);
     }
 
