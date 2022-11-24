@@ -18,6 +18,8 @@ let nombreJugador1;
 let nombreJugador2;
 
 window.addEventListener('load', function () {
+    document.getElementById('divFin').classList.toggle('hide');
+    document.getElementById('timer').classList.toggle('hide');
     document.getElementById('divFin').classList.toggle('divFinClass');
     document.getElementById('iniciaJugador1').style.display = "none";
     document.getElementById('iniciaJugador2').style.display = "none";
@@ -72,6 +74,7 @@ function ocultarInterfazDeAjusteDePartida(cantidadFichasParaGanar) {
     document.getElementById('colorMessi').style.display = "none";
     document.getElementById('colorRonaldo').style.display = "none";
     document.getElementById('timer').style.display = "flex";
+    document.getElementById('timer').classList.toggle('hide');
 
     console.log(nombreJugador1);
     console.log(nombreJugador2);

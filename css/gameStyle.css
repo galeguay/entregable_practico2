@@ -180,11 +180,16 @@
     top: 350px;
 }
 
+
 #reiniciar{
     left: 464px;
 }
 #menu{
     left: 280px;
+}
+#reiniciar:hover, #menu:hover{
+    background-color: var(--acentoLuz2);
+    box-shadow: 0 0 10px 0 var(--acento) inset, 0 0 10px 4px var(--acento);
 }
 
 #terminoTiempoReglamentario{
