@@ -67,9 +67,6 @@ function ocultarInterfazDeAjusteDePartida(cantidadFichasParaGanar) {
     document.getElementById('colorMessi').style.display = "none";
     document.getElementById('colorRonaldo').style.display = "none";
     document.getElementById('timer').style.display = "flex";
-
-    console.log(nombreJugador1);
-    console.log(nombreJugador2);
     juego.cargarPartida(nombreJugador1, nombreJugador2, cantidadFichasParaGanar);
 }
 
@@ -127,6 +124,7 @@ function onMouseUp(event) {
         const xUpCursor = event.clientX - rectt.left; //coordenadas x e y dentro del canvas
         const yUpCursor = event.clientY - rectt.top;
         let columna = juego.getColumna(xUpCursor, yUpCursor);
+        console.log("columna: " + columna);
         if (columna != null && fichaParaMover != null) { //Si encuentra dropPoint y fichaParaMover
             juego.clearCanvas(fichaParaMover);
             juego.insertarFicha(fichaParaMover, columna);
