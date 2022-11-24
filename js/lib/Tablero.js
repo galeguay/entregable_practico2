@@ -76,7 +76,7 @@ class Tablero {
         setTimeout(()=>{
             this.clearCanvas();
             this.#actualizarFichas();
-        },500);
+        },400);
     }
 
     #actualizarFichas(){
@@ -103,26 +103,11 @@ class Tablero {
 
     getColumna(xUp, yUp){
         for (let i = 0; i < this.arrayDropPoints.length; i++) {
-        //let encontro = false;
-        //while ()
             if(this.arrayDropPoints[i].isPointInside(xUp, yUp)){
                 return i;
             }
         }
     }
-/*
-        if(this.arrayDropPoints[0].isPointInside(xUp, yUp)) return 0;
-        else if(this.arrayDropPoints[1].isPointInside(xUp, yUp)) return 1;
-        else if(this.arrayDropPoints[2].isPointInside(xUp, yUp)) return 2;
-        else if(this.arrayDropPoints[3].isPointInside(xUp, yUp)) return 3;
-        else if(this.arrayDropPoints[4].isPointInside(xUp, yUp)) return 4;
-        else if(this.arrayDropPoints[5].isPointInside(xUp, yUp)) return 5;
-        else if(this.arrayDropPoints[6].isPointInside(xUp, yUp)) return 6;
-        else if(this.arrayDropPoints[7].isPointInside(xUp, yUp)) return 7;
-        else if(this.arrayDropPoints[8].isPointInside(xUp, yUp)) return 8;
-        else if(this.arrayDropPoints[9].isPointInside(xUp, yUp)) return 9;
-        else if(this.arrayDropPoints[10].isPointInside(xUp, yUp)) return 10;
-    }*/
 
     insertarFicha(fichaParaMover, columna, row){
         let dropPoint = this.arrayDropPoints[columna];
@@ -135,7 +120,7 @@ class Tablero {
             destinoY = ((this.rows - row ) * 54) +2;
         else if(this.rows == 10)
             destinoY = ((this.rows - row - 1) * 54) +2;
-        console.log(this.rows + " - " + row + " = " + destinoY);
+        //console.log(this.rows + " - " + row + " = " + destinoY);
         fichaParaMover.setPosition(dropPoint.getX(), dropPoint.getY());
         fichaParaMover.draw();
         this.animacionCaida(fichaParaMover, destinoY);

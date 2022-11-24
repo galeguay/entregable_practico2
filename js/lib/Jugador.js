@@ -29,4 +29,8 @@ class Jugador{
     jugoFicha(){
         this.fichasJugadas++;
     }
+
+    resetFichasJugadas(){
+        this.fichasJugadas = 0;
+    }
 }

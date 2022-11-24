@@ -124,13 +124,13 @@ class MatrizLogica{
 
     /**Imprime la matriz en consola*/
     #printMatrizConsole(){
-        console.log("Matriz inicializada: ")
+        //console.log("Matriz inicializada: ")
         for (let i = 0; i < this.matriz.length; i++){
             let fila = "";
             for (let n = 0; n < this.matriz[i].length; n++) {
                 fila = fila + this.matriz[i][n] + ", ";
             }
-            console.log(fila +"\n");
+            //console.log(fila +"\n");
         }
     }
 
