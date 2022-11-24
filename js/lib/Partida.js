@@ -108,15 +108,15 @@ class Partida {
     sortearPrimerJugador() {
         console.log("sortearPrimerJugador()");
         let primerJugador = Math.floor(Math.random() * 2.0) + 1;
+        document.getElementById('iniciaJugador1').innerHTML += this.jugador1.getNombre();
+        document.getElementById('iniciaJugador2').innerHTML += this.jugador2.getNombre();
         if (primerJugador == 1){
             this.jugadorActual = this.jugador1;
-            document.getElementById('iniciaJugador1').style.display = "block";
-            document.getElementById('iniciaJugador1').innerHTML += this.jugadorActual.getNombre();
+            document.getElementById('iniciaJugador1').classList.toggle('hide');
         }
         else{
             this.jugadorActual = this.jugador2;
-            document.getElementById('iniciaJugador2').style.display = "block";
-            document.getElementById('iniciaJugador2').innerHTML += this.jugadorActual.getNombre();
+            document.getElementById('iniciaJugador2').classList.toggle('hide');
         }
     }
 
@@ -126,6 +126,8 @@ class Partida {
             this.jugadorActual = this.jugador2;
         else
             this.jugadorActual = this.jugador1;
+        document.getElementById('iniciaJugador1').classList.toggle('hide');
+        document.getElementById('iniciaJugador2').classList.toggle('hide');
         this.#iniciarTurno();
     }
 

@@ -21,8 +21,8 @@ window.addEventListener('load', function () {
     document.getElementById('divFin').classList.toggle('hide');
     document.getElementById('timer').classList.toggle('hide');
     document.getElementById('divFin').classList.toggle('divFinClass');
-    document.getElementById('iniciaJugador1').style.display = "none";
-    document.getElementById('iniciaJugador2').style.display = "none";
+    document.getElementById('iniciaJugador1').classList.toggle('hide');
+    document.getElementById('iniciaJugador2').classList.toggle('hide');
     document.getElementById('terminoTiempoReglamentario').style.display = "none";
     document.getElementById('ganador1').style.display = "none";
     document.getElementById('ganador2').style.display = "none";
