@@ -61,6 +61,25 @@ class Partida {
 
     terminarPartida(jugadorActual) {
         console.log("terminarPartida()");
+        if (jugadorActual) {
+            console.log("Gano jugador");
+            if (this.matrizLogica.esGanador(jugadorActual)) {
+                /*if(this.jugador1) */document.getElementById('ganador1').style.display = "block";
+                //else if(this.jugador2) document.getElementById('ganador2').style.display = "block";
+            } else {
+                //Se termino el tiempo
+                //document.getElementById('terminoTiempoReglamentario').style.display = "block";
+                //mostrar motivo por el cual finalizó la partida
+            }
+            //mostrar botones de reinicio rapido o volver a menu
+            console.log("Botones");
+            document.getElementById('reiniciar').style.display = "block";
+            document.getElementById('menu').style.display = "block";
+        }
+    }
+    /*
+    terminarPartida(jugadorActual) {
+        console.log("terminarPartida()");
         if (!jugadorActual) {
             if (this.matrizLogica.esGanador(jugadorActual)) {
                 //dibujar pantalla ganador
@@ -69,7 +88,7 @@ class Partida {
             }
             //mostrar botones de reinicio rapido o volver a menu
         }
-    }
+    }*/
 
     sortearPrimerJugador() {
         console.log("sortearPrimerJugador()");
