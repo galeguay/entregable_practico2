@@ -51,7 +51,7 @@ class Partida {
         this.tablero.insertarFicha(fichaParaMover, columna, row);
         this.jugadorActual.jugoFicha();
         if (this.matrizLogica.esGanador(numJugador))
-            this.terminarPartida(this.jugadorActual);
+            this.terminarPartida(numJugador);
         else{
             if (columnaCompleta)
                 this.tablero.disableDropPoint(columna);
@@ -59,13 +59,18 @@ class Partida {
         }
     }
 
-    terminarPartida(jugadorActual) {
+    terminarPartida(numJugador) {
         console.log("terminarPartida()");
-        if (jugadorActual) {
-            console.log("Gano jugador");
-            if (this.matrizLogica.esGanador(jugadorActual)) {
-                /*if(this.jugador1) */document.getElementById('ganador1').style.display = "block";
-                //else if(this.jugador2) document.getElementById('ganador2').style.display = "block";
+        
+        if (this.jugadorActual != null) {
+            console.log("Ganoooo");
+            if (this.matrizLogica.esGanador(numJugador)) {
+                console.log("Gano jugador");
+                if(numJugador == 1){
+                    //console.log("Ganador " + this.jugadorActual.)
+                    document.getElementById('ganador1').style.display = "block";  
+                } 
+                else if(numJugador == 2) document.getElementById('ganador2').style.display = "block";
             } else {
                 //Se termino el tiempo
                 //document.getElementById('terminoTiempoReglamentario').style.display = "block";

@@ -14,14 +14,18 @@ let fichaParaMover;
 let difX;
 let difY;
 let fichaJugadorEsperando;
+let nombreJugador1;
+let nombreJugador2;
 
 window.addEventListener('load', function () {
+    document.getElementById('iniciaJugador1').style.display = "none";
+    document.getElementById('iniciaJugador2').style.display = "none";
+    document.getElementById('terminoTiempoReglamentario').style.display = "none";
+    document.getElementById('ganador1').style.display = "none";
+    document.getElementById('ganador2').style.display = "none";
     document.getElementById('reiniciar').style.display = "none";
     document.getElementById('menu').style.display = "none";
-    document.getElementById('terminoTiempoReglamentario').style.display = "none";
     document.getElementById('timer').style.display = "none";
-    let button = document.querySelector('#button4');
-    button = document.querySelector('#button4');
 
     console.log("cargarInterfazDeAjustesDePartida()");
     document.getElementById('timer').style.display = "none";
@@ -44,6 +48,16 @@ window.addEventListener('load', function () {
     document.addEventListener('mousedown', onMouseDown); // Inicia arrastrada
     document.addEventListener('mouseup', onMouseUp); // Detiene arrastrada
     document.addEventListener('mousemove', onMoveMouse); // Movimiento del mouse 
+
+    
+
+    document.getElementById("nombreJugador1").addEventListener("input", function () {
+        nombreJugador1 = this.value;
+        //console.log(nombreJugador1);
+    });
+    document.getElementById("nombreJugador2").addEventListener("input", function () {
+        nombreJugador2 = this.value;
+    });
 });
 
 
@@ -62,15 +76,9 @@ function ocultarInterfazDeAjusteDePartida(cantidadFichasParaGanar) {
     document.getElementById('colorMessi').style.display = "none";
     document.getElementById('colorRonaldo').style.display = "none";
     document.getElementById('timer').style.display = "flex";
-    let nombreJugador1;
-    document.getElementById("nombreJugador1").addEventListener("input", function () {
-        nombreJugador1 = this.value;
-    });
-    let nombreJugador2;
-    document.getElementById("nombreJugador2").addEventListener("input", function () {
-        nombreJugador2 = this.value;
-    });
+    console.log(nombreJugador1);
     juego.cargarPartida(nombreJugador1, nombreJugador2, cantidadFichasParaGanar);
+    
 }
 
 /**Obtiene color elegido por el jugador */
