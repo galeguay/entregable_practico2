@@ -12,7 +12,6 @@ class Juego {
         this.defaultXFichaJ1 = 70;
         this.defaultXFichaJ2 = 773;
         this.defaultYFichas = 175;
-        this.isPlaying = false;
     }
 
     cargarPartida(nombreJugador1, nombreJugador2, cantidadFichasParaGanar) {
@@ -27,8 +26,9 @@ class Juego {
             nombreJugador2 = "Jugador2";
         let jugador1 = new Jugador(nombreJugador1, "#FFFFFF", new Ficha(this.ctx, "images/4enLinea/fichaMessi.png", "#FF0000", this.defaultXFichaJ1, this.defaultYFichas, 50, 50));
         let jugador2 = new Jugador(nombreJugador2, "#FFFFFF", new Ficha(this.ctx, "images/4enLinea/fichaRonaldo.png", "#FF0000", this.defaultXFichaJ2, this.defaultYFichas, 50, 50));
+        console.log(nombreJugador1);
+        console.log(nombreJugador2);
         this.partida = new Partida(this.ctx, cantidadFichasParaGanar, 5, 30, jugador1, jugador2, this.timer);
-        this.isPlaying = true;
     }
 
     fichaClickeada(x, y) {
@@ -39,7 +39,10 @@ class Juego {
     }
 
     getFichaActiva() {
-        return this.partida.getFichaActiva();
+        if (this.partida != null)
+            return this.partida.getFichaActiva();
+        else
+            return null;
     }
 
     clearCanvas() {
@@ -47,7 +50,10 @@ class Juego {
     }
 
     getColumna(xUp, yUp) {
-        return this.partida.getColumna(xUp, yUp);
+        if (this.partida != null)
+            return this.partida.getColumna(xUp, yUp);
+        else
+            return null;
     }
 
     insertarFicha(fichaParaMover, columna) {
@@ -55,6 +61,9 @@ class Juego {
     }
 
     isPlaying(){
-        return this.isPlaying;
+        if (this.partida != null)
+            return this.partida.isPlaying;
+        else
+            return false;
     }
 }

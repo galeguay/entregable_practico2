@@ -47,13 +47,9 @@ window.addEventListener('load', function () {
     });
     document.addEventListener('mousedown', onMouseDown); // Inicia arrastrada
     document.addEventListener('mouseup', onMouseUp); // Detiene arrastrada
-    document.addEventListener('mousemove', onMoveMouse); // Movimiento del mouse 
-
-    
-
+    document.addEventListener('mousemove', onMoveMouse); // Movimiento del mouse
     document.getElementById("nombreJugador1").addEventListener("input", function () {
         nombreJugador1 = this.value;
-        //console.log(nombreJugador1);
     });
     document.getElementById("nombreJugador2").addEventListener("input", function () {
         nombreJugador2 = this.value;
@@ -69,21 +65,21 @@ function ocultarInterfazDeAjusteDePartida(cantidadFichasParaGanar) {
     document.getElementById('button7').style.display = "none";
     document.getElementById('nombreJugador1').style.display = "none";
     document.getElementById('nombreJugador2').style.display = "none";
-    document.getElementById('elegirFicha').style.display = "none";
     document.getElementById('messi').style.display = "none";
     document.getElementById('ronaldo').style.display = "none";
     document.getElementById('elegirColor').style.display = "none";
     document.getElementById('colorMessi').style.display = "none";
     document.getElementById('colorRonaldo').style.display = "none";
     document.getElementById('timer').style.display = "flex";
+
     console.log(nombreJugador1);
+    console.log(nombreJugador2);
     juego.cargarPartida(nombreJugador1, nombreJugador2, cantidadFichasParaGanar);
     
 }
 
 /**Obtiene color elegido por el jugador */
 document.getElementById("colorMessi").addEventListener("input", function () {
-    console.log(this.value);
 });
 
 /**Obtiene la posicion del cursor*/

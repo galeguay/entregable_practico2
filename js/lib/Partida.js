@@ -8,6 +8,7 @@ class Partida {
         this.jugador2 = jugador2;
         this.jugadorActual;
         this.timer = timer;
+        this.isPlaying = false;
         this.fichaActiva;
         this.tablero;
         this.matrizLogica = new MatrizLogica(cantidadFichasParaGanar);
@@ -15,10 +16,12 @@ class Partida {
     }
 
     iniciarPartida() {
-        console.log("partida.iniciarPartida()");
+        console.log("iniciarPartida()");
+        this.isPlaying = true;
         this.tablero = new Tablero(this.ctx, this.cantidadFichasParaGanar);
         this.tablero.cargarFichas(this.jugador1, this.jugador2);
         this.sortearPrimerJugador();
+
         //Iniciar Temporizador
         this.startTimer(this.minutosDeJuego * 60, this.timer);
         //timer.draw(ctx);
@@ -32,10 +35,6 @@ class Partida {
             this.fichaActiva = this.tablero.getFichaJ1(this.jugadorActual.getFichasJugadas());
         else
             this.fichaActiva = this.tablero.getFichaJ2(this.jugadorActual.getFichasJugadas());
-        //Establecer temporizador?
-        //setTimeout(finishMatch(null), 1000 * this.tiempoDeTurno);
-        //Habilitar ficha al jugadorActual
-        //cuando suelte la ficha en un dropPoint
     }
 
 
@@ -61,13 +60,15 @@ class Partida {
 
     terminarPartida(numJugador) {
         console.log("terminarPartida()");
-        
+        this.isPlaying = false;
+        this.fichaActiva = null;
+        this.timer.style.display = "none";
         if (this.jugadorActual != null) {
             console.log("Ganoooo");
             if (this.matrizLogica.esGanador(numJugador)) {
                 console.log("Gano jugador");
                 if(numJugador == 1){
-                    //console.log("Ganador " + this.jugadorActual.)
+                    console.log("gano " + this.jugadorActual.getNombre());
                     document.getElementById('ganador1').style.display = "block";  
                 } 
                 else if(numJugador == 2) document.getElementById('ganador2').style.display = "block";
@@ -85,8 +86,13 @@ class Partida {
     /*
     terminarPartida(jugadorActual) {
         console.log("terminarPartida()");
-        if (!jugadorActual) {
-            if (this.matrizLogica.esGanador(jugadorActual)) {
+        this.isPlaying = false;
+        this.fichaActiva = null;
+        this.timer.style.display = "none";
+        console.log(this.jugadorActual);
+        if (this.jugadorActual != null) {
+            if (this.matrizLogica.esGanador(numJugador)) {
+                console.log("gano " + this.jugadorActual.getNombre());
                 //dibujar pantalla ganador
             } else {
                 //mostrar motivo por el cual finalizó la partida
@@ -129,6 +135,10 @@ class Partida {
         return this.fichaActiva;
     }
 
+    isPlaying(){
+        return this.isPlaying;
+    }
+
     startTimer(duration, display) {
         var timer = duration, minutes, seconds;
         setInterval(function () {
@@ -137,7 +147,7 @@ class Partida {
             minutes = minutes < 10 ? "0" + minutes : minutes;
             seconds = seconds < 10 ? "0" + seconds : seconds;
             display.textContent = minutes + ":" + seconds;
-            if (--timer < 0) {
+            if (--timer < 0 && this.isPlaying) {
                 timer = duration;
                 this.terminarPartida();
             }
