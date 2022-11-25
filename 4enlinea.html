@@ -55,28 +55,39 @@
                 <!-- <button id="buttonReiniciar" ><h2>REINICIAR</h2></button>
                 <button id="buttonMenuPrincipal"><h2>Menu Principal</h2></button> -->
                 <h1 id="titulo">4 en línea - Astros del fútbol</h1>
-                <input id="nombreJugador1" type="text" placeholder="Nombre jugador Messi...">
-                <input id="nombreJugador2" type="text" placeholder="Nombre jugador CR7...">
+                <input id="inputNombreJugador1" type="text" placeholder="Nombre jugador Messi...">
+                <input id="inputNombreJugador2" type="text" placeholder="Nombre jugador CR7...">
                 <img id="messi" src="images/4enLinea/fichaMessi.png" alt="" id="ficha">
                 <img id="ronaldo" src="images/4enLinea/fichaRonaldo.png" alt="" id="ficha">
                 <h2 id="elegirColor">Elegi tu color</h2>
                 <input id="colorMessi" type="color" value="#000080">
                 <input id="colorRonaldo" type="color" value="#ff0000">
-                <button id="button4"><h2>4 en linea</h2></button>
-                <button id="button5"><h2>5 en linea</h2></button>
-                <button id="button6"><h2>6 en linea</h2></button>
-                <button id="button7"><h2>7 en linea</h2></button>
-                <h1 id="timer" class="hide"></h1>
-                <div id="divFin" class="divFinClass hide"> 
-                    <h1 id="ganador1">GANADOR </h1>
-                    <h1 id="ganador2">GANADOR </h1>
-                    <button id="reiniciar"><h2>Reiniciar</h2></button>
-                    <button id="menu"><h2>Menu</h2></button>
+                <button id="button4">
+                    <h2>4 en linea</h2>
+                </button>
+                <button id="button5">
+                    <h2>5 en linea</h2>
+                </button>
+                <button id="button6">
+                    <h2>6 en linea</h2>
+                </button>
+                <button id="button7">
+                    <h2>7 en linea</h2>
+                </button>
+                <h2 id="timer"></h2>
+                <div id="divFin" class="divFinClass hide">
+                    <h1 id="ganador1"></h1>
+                    <h1 id="ganador2"></h1>
+                    <button id="reiniciar">
+                        <h2>Reiniciar</h2>
+                    </button>
+                    <button id="menu">
+                        <h2>Menu</h2>
+                    </button>
                     <h1 id="terminoTiempoReglamentario">SE TERMINO EL TIEMPO</h1>
-                    <h1 id="iniciaJugador1">Inicia </h1>
-                    <h1 id="iniciaJugador2">Inicia </h1>
                 </div>
-
+                <h1 id="turnoJugador1"></h1>
+                <h1 id="turnoJugador2"></h1>
             </div>
             <div class="game-description flex-column">
                 <div>
@@ -238,17 +249,17 @@
             </section>
         </footer>
         </div>
-    </footer>
-    <script type="text/javascript" src="js/burguerMenu.js"></script>
-    <script type="text/javascript" src="js/menuPerfil.js"></script>
-    <script type="text/javascript" src="js/lib/MatrizLogica.js"></script>
-    <script type="text/javascript" src="js/lib/Jugador.js"></script>
-    <script type="text/javascript" src="js/lib/Tablero.js"></script>
-    <script type="text/javascript" src="js/lib/Ficha.js"></script>
-    <script type="text/javascript" src="js/lib/DropPoint.js"></script>
-    <script type="text/javascript" src="js/lib/Partida.js"></script>
-    <script type="text/javascript" src="js/lib/Juego.js"></script>
-    <script type="text/javascript" src="js/4enLinea.js"></script>
+        </footer>
+        <script type="text/javascript" src="js/burguerMenu.js"></script>
+        <script type="text/javascript" src="js/menuPerfil.js"></script>
+        <script type="text/javascript" src="js/lib/MatrizLogica.js"></script>
+        <script type="text/javascript" src="js/lib/Jugador.js"></script>
+        <script type="text/javascript" src="js/lib/Tablero.js"></script>
+        <script type="text/javascript" src="js/lib/Ficha.js"></script>
+        <script type="text/javascript" src="js/lib/DropPoint.js"></script>
+        <script type="text/javascript" src="js/lib/Partida.js"></script>
+        <script type="text/javascript" src="js/lib/Juego.js"></script>
+        <script type="text/javascript" src="js/4enLinea.js"></script>
 </body>
 
 </html>

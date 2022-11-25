@@ -6,16 +6,17 @@ class Juego {
         this.width = this.canvas.getBoundingClientRect().width;
         this.height = this.canvas.getBoundingClientRect().height;
         this.partida;
-        this.timer = document.querySelector('#timer');
         this.currentX;
         this.currentY;
         this.defaultXFichaJ1 = 70;
         this.defaultXFichaJ2 = 773;
         this.defaultYFichas = 175;
+        this.datosDePartida = new Array();
     }
 
     cargarPartida(nombreJugador1, nombreJugador2, cantidadFichasParaGanar) {
         console.log("cargarPartida4enLinea()");
+        this.cantidadFichasParaGanar = cantidadFichasParaGanar;
         if (nombreJugador1 == null)
             nombreJugador1 = "Jugador 1";
         if (nombreJugador1 == "")
@@ -26,13 +27,15 @@ class Juego {
             nombreJugador2 = "Jugador 2";
         let jugador1 = new Jugador(nombreJugador1, "#FFFFFF", new Ficha(this.ctx, "images/4enLinea/fichaMessi.png", "#FF0000", this.defaultXFichaJ1, this.defaultYFichas, 50, 50));
         let jugador2 = new Jugador(nombreJugador2, "#FFFFFF", new Ficha(this.ctx, "images/4enLinea/fichaRonaldo.png", "#FF0000", this.defaultXFichaJ2, this.defaultYFichas, 50, 50));
-        console.log(nombreJugador1);
-        console.log(nombreJugador2);
-        this.partida = new Partida(this.ctx, cantidadFichasParaGanar, 5, 30, jugador1, jugador2, this.timer);
+        this.datosDePartida = [cantidadFichasParaGanar, 5, jugador1, jugador2];
+        this.partida = new Partida(this.ctx, cantidadFichasParaGanar, 5, jugador1, jugador2);
+    }
+
+    clearAll(){
+        this.ctx.clearRect(0, 0, width, height);
     }
 
     fichaClickeada(x, y) {
-        console.log("fichaClickeada()");
         this.partida.fichaClickeada();
         if (fichaMessi.isPointInside(x, y)) return fichaMessi;
         else if (fichaRonaldo.isPointInside(x, y)) return fichaRonaldo;
@@ -65,5 +68,13 @@ class Juego {
             return this.partida.isPlaying;
         else
             return false;
+    }
+
+    reiniciarPartida(){
+        let jugador1 = this.datosDePartida[2];
+        let jugador2 = this.datosDePartida[3];
+        jugador1.resetFichasJugadas();
+        jugador2.resetFichasJugadas();
+        this.partida = new Partida(this.ctx, this.datosDePartida[0], this.datosDePartida[1], jugador1, jugador2);
     }
 }

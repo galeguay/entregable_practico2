@@ -139,14 +139,16 @@
 
 #nombreJugador1, #nombreJugador2{
     padding: 1px;
+}
+#inputNombreJugador1, #inputNombreJugador2{
     position: absolute;
     top: 100px;
     width: 150px;
 }
-#nombreJugador1{
+#inputNombreJugador1{
     left: 220px;
 }
-#nombreJugador2{
+#inputNombreJugador2{
     left: 510px;
 }
 
@@ -156,10 +158,10 @@
     position: absolute;
     font-size: 55px;
     text-shadow: 5px 5px 5px black ;
-    top: 255px;
+    top: 155px;
 }
 #ganador1{
-    left: 210px;
+    left: 160px;
     text-shadow: var(--colorJugador1) 5px 0 15px;
 }
 #ganador2{
@@ -202,28 +204,30 @@
     text-shadow: 5px 5px 5px black ;
     text-shadow: rgb(255, 0, 0) 5px 0 15px;
 }
-#iniciaJugador1, #iniciaJugador2{
+#turnoJugador1, #turnoJugador2{
     display: block;
+    width: 100px;
     position: absolute;
-    top: 138px;
-    font-size: 20px;
+    top: 100px;
+    font-size: 18px;
     text-shadow: 5px 5px 5px black ;
     text-shadow: rgb(146, 17, 17) 5px 0 15px;
 }
-#iniciaJugador1{
-    left: 45px;
+#turnoJugador1{
+    left: 60px;
 }
-#iniciaJugador2{
-    left: 717px;
+#turnoJugador2{
+    left: 750px;
 }
 
 
 #timer{
+
     position: absolute;
     background-color: rgba(0, 0, 0, 0.756);
-    top: 30px;
-    left: 30px;
-    padding: 10px;
+    top: 540px;
+    left: 412px;
+    padding: 5px;
     border: 2px solid white;
     border-radius: 20px;
 }

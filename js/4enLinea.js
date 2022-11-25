@@ -5,8 +5,8 @@ let canvas = document.querySelector('#gameCanvas');
 let ctx = canvas.getContext('2d');
 let width = canvas.getBoundingClientRect().width;
 let height = canvas.getBoundingClientRect().height;
-let timer = document.querySelector('#timer');
-let juego = new Juego(canvas, timer);
+let timer = document.getElementById('timer');
+let juego = new Juego(canvas);
 
 let isMouseDown = false;
 let fichaActiva;
@@ -18,67 +18,84 @@ let nombreJugador1;
 let nombreJugador2;
 
 window.addEventListener('load', function () {
-    document.getElementById('divFin').classList.toggle('hide');
-    document.getElementById('timer').classList.toggle('hide');
-    document.getElementById('divFin').classList.toggle('divFinClass');
-    document.getElementById('iniciaJugador1').style.display = "none";
-    document.getElementById('iniciaJugador2').style.display = "none";
-    document.getElementById('terminoTiempoReglamentario').style.display = "none";
-    document.getElementById('ganador1').style.display = "none";
-    document.getElementById('ganador2').style.display = "none";
-    document.getElementById('reiniciar').style.display = "none";
-    document.getElementById('menu').style.display = "none";
-    document.getElementById('timer').style.display = "none";
-
     console.log("cargarInterfazDeAjustesDePartida()");
-    document.getElementById('timer').style.display = "none";
+    timer.classList.toggle('hide');
+    document.getElementById('turnoJugador1').classList.toggle('hide');
+    document.getElementById('turnoJugador2').classList.toggle('hide');
+    let menu = document.getElementById('menu');
+    menu.addEventListener('click', () => {
+        toggleInterfazDeAjusteDePartida();
+        toggleInterfazFinalDePartida();
+        resetInterfaz();
+        juego.clearAll();
+    });
+    let reiniciar = document.getElementById('reiniciar');
+    reiniciar.addEventListener('click', () => {
+        toggleInterfazFinalDePartida();
+        resetInterfaz();
+        juego.clearAll();
+        juego.reiniciarPartida();
+    });
     let button4 = document.querySelector('#button4');
     button4.addEventListener('click', () => {
-        ocultarInterfazDeAjusteDePartida(4);
+        toggleInterfazDeAjusteDePartida();
+        juego.cargarPartida(nombreJugador1, nombreJugador2, 4);
     });
     let button5 = document.querySelector('#button5');
     button5.addEventListener('click', () => {
-        ocultarInterfazDeAjusteDePartida(5);
+        toggleInterfazDeAjusteDePartida();
+        juego.cargarPartida(nombreJugador1, nombreJugador2, 5);
     });
     let button6 = document.querySelector('#button6');
     button6.addEventListener('click', () => {
-        ocultarInterfazDeAjusteDePartida(6);
+        toggleInterfazDeAjusteDePartida();
+        juego.cargarPartida(nombreJugador1, nombreJugador2, 6);
     });
     let button7 = document.querySelector('#button7');
     button7.addEventListener('click', () => {
-        ocultarInterfazDeAjusteDePartida(7);
+        toggleInterfazDeAjusteDePartida();
+        juego.cargarPartida(nombreJugador1, nombreJugador2, 7);
     });
+
+    document.getElementById("inputNombreJugador1").addEventListener("input", function () {
+        nombreJugador1 = this.value;
+    });
+    document.getElementById("inputNombreJugador2").addEventListener("input", function () {
+        nombreJugador2 = this.value;
+    });
+
     document.addEventListener('mousedown', onMouseDown); // Inicia arrastrada
     document.addEventListener('mouseup', onMouseUp); // Detiene arrastrada
     document.addEventListener('mousemove', onMoveMouse); // Movimiento del mouse
-    document.getElementById("nombreJugador1").addEventListener("input", function () {
-        nombreJugador1 = this.value;
-    });
-    document.getElementById("nombreJugador2").addEventListener("input", function () {
-        nombreJugador2 = this.value;
-    });
 });
 
+function resetInterfaz(){
+    document.getElementById('turnoJugador1').classList.remove('hide');
+    document.getElementById('turnoJugador2').classList.remove('hide');
+    document.getElementById('terminoTiempoReglamentario').classList.remove('hide');
+    document.getElementById('ganador1').classList.remove('hide');
+    document.getElementById('ganador2').classList.remove('hide');
+    document.getElementById('turnoJugador1').classList.toggle('hide');
+    document.getElementById('turnoJugador2').classList.toggle('hide');
+}
 
-function ocultarInterfazDeAjusteDePartida(cantidadFichasParaGanar) {
-    document.getElementById('titulo').style.display = "none";
-    document.getElementById('button4').style.display = "none";
-    document.getElementById('button5').style.display = "none";
-    document.getElementById('button6').style.display = "none";
-    document.getElementById('button7').style.display = "none";
-    document.getElementById('nombreJugador1').style.display = "none";
-    document.getElementById('nombreJugador2').style.display = "none";
-    document.getElementById('messi').style.display = "none";
-    document.getElementById('ronaldo').style.display = "none";
-    document.getElementById('elegirColor').style.display = "none";
-    document.getElementById('colorMessi').style.display = "none";
-    document.getElementById('colorRonaldo').style.display = "none";
-    document.getElementById('timer').style.display = "flex";
+function toggleInterfazFinalDePartida(){
+    document.getElementById('divFin').classList.toggle('hide');
+}
 
-    console.log(nombreJugador1);
-    console.log(nombreJugador2);
-    juego.cargarPartida(nombreJugador1, nombreJugador2, cantidadFichasParaGanar);
-    
+function toggleInterfazDeAjusteDePartida() {
+    document.getElementById('titulo').classList.toggle('hide');
+    document.getElementById('button4').classList.toggle('hide');
+    document.getElementById('button5').classList.toggle('hide');
+    document.getElementById('button6').classList.toggle('hide');
+    document.getElementById('button7').classList.toggle('hide');
+    document.getElementById('inputNombreJugador1').classList.toggle('hide');
+    document.getElementById('inputNombreJugador2').classList.toggle('hide');
+    document.getElementById('messi').classList.toggle('hide');
+    document.getElementById('ronaldo').classList.toggle('hide');
+    document.getElementById('elegirColor').classList.toggle('hide');
+    document.getElementById('colorMessi').classList.toggle('hide');
+    document.getElementById('colorRonaldo').classList.toggle('hide');
 }
 
 /**Obtiene color elegido por el jugador */
