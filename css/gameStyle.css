@@ -135,13 +135,14 @@
     position: absolute;
     left: 370px;
     top: 280px;
+    text-shadow: 1px 1px 10px rgb(255, 255, 255) ;
+
 }
 
-#nombreJugador1, #nombreJugador2{
-    padding: 1px;
-}
+
 #inputNombreJugador1, #inputNombreJugador2{
     position: absolute;
+    padding: 1px;
     top: 100px;
     width: 150px;
 }
