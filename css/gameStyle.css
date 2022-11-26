@@ -158,16 +158,18 @@
     display: block;
     position: absolute;
     font-size: 55px;
-    text-shadow: 5px 5px 5px black ;
+    /* text-shadow: 5px 5px 5px black ; */
     top: 155px;
 }
 #ganador1{
-    left: 160px;
-    text-shadow: var(--colorJugador1) 5px 0 15px;
+    color: black;
+    left: 170px;
+    text-shadow: rgb(0, 17, 255) 5px 2px 15px;
 }
 #ganador2{
-    left: 160px;
-    text-shadow: var(--colorJugador2) 5px 0 15px;
+    color: black;
+    left: 170px;
+    text-shadow: rgb(255, 0, 0) 5px 0 15px;
 }
 #reiniciar, #menu{
     display: block;
