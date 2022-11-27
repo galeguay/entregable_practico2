@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style2.css">
+    <title>Juegazos</title>
+</head>
+
+<body>
+    <div class="loadingScreen">
+        <div class="loading">
+            <img class="rotate" src="images/icons/icons8-loading-67.png">
+            <div id="myProgress">
+                <div id="myBar" class="normalBoldText">0%</div>
+            </div>
+        </div>
+    </div>
+    <header id="header2" class="ultrablur">
+        <div class="divHeader1">
+                <div class="hamburger">
+                    <div class="hamburger-inner">
+                        <div id="contenido" class="hide enderezar">
+                            <a class="contenidoDerecho" href="#recomendados">Recomendados</a>
+                            <a class="contenidoDerecho" href="#premium">Premium</a>
+                            <a class="contenidoDerecho" href="#carreras">Carreras</a>
+                            <a class="contenidoDerecho" href="#clasicos">Clasicos</a>
+                            <a class="contenidoDerecho" href="#accion">Accion y aventura</a>
+                            <a class="contenidoDerecho" href="">2 jugadores</a> 
+                        </div>
+                        
+                    </div>
+                </div>
+        </div>
+            
+            <!-- <div class="menuHamburguesa">
+                <img class="mainmenubtn" src="images/icons/menuHamburguesa.png" alt="Menu Hamburguesa">
+                <div class="menuHamburguesa-child hide">
+                    <a href="#recomendados">Recomendados</a>
+                    <a href="#premium">Premium</a>
+                    <a href="#carreras">Carreras</a>
+                    <a href="#clasicos">Clasicos</a>
+                    <a href="#accion">Accion y aventura</a>
+                    <a href="">2 jugadores</a>
+                </div>
+            </div> -->
+            <a href="index2.html"><img id="logoC" src="images/icons/logo.png" alt="logo de Juegazos" class="logo"></a>
+        </div>
+        <div class="divHeader2">
+            <div class="buscador">
+                <img src="images/icons/lupa.png" alt="lupa">
+                <form action="GET"><input type="text" placeholder="Buscar juego..."></form>
+            </div>
+            <img src="images/icons/carrito.png" alt="Carrito de compras">
+            <div class="menuPerfil">
+                <img class="imagenPerfil" src="images/icons/imagenperfil.png" alt="Imagen perfil">
+                <div class="menuPerfil-child hide">
+                    <a>Ver Perfil</a>
+                    <a>Mis favoritos</a>
+                    <a>Mis compras</a>
+                    <a>Cerrar Sesion</a>
+                    <img class="imageRedes" src="images/icons/redesSociales.png" alt="">
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="divBody ultrablur">
+        <section class="lanzamiento">
+            <h1>Proximo Lanzamiento</h1>
+            <div>
+                <img src="images/DragonBall/DBinicio.png" alt="Dragon Ball portada de juego">
+                <div class="contenidoLanzamiento">
+                    <h1>DragonBall FighterZ</h1>
+                    <h3>DragonBall FighterZ nace de lo que hace a la serie DragonBall tan famosa:
+                        luchas espectaculares e interminables con luchadores superpoderosos.
+                        Podras jugar con tus personajes favoritos de la serie,
+                        utilizando los movimientos destacados de cada uno. </h3>
+                    <a href="dragonball.html"><button class="btn-masinfo button">
+                            <h2>MAS INFO</h2>
+                        </button></a>
+                </div>
+            </div>
+        </section>
+
+        <section class="category recomendados" id="recomendados">
+            <h1>Recomendados para vos...</h1>
+            <div class="slider-wrapper">
+                <div class="slide-arrow slide-arrow-prev">
+                    <img src="images/left-arrow.png">
+                </div>
+                <div class="slide-arrow slide-arrow-next">
+                    <img src="images/right-arrow.png">
+                </div>
+                <ul class="slides-container">
+                    <li class="gameCard">
+                        <img src="images/recomendados/forza7.jpg">
+                        <h3>Forza MotorSport 7</h3>
+                    </li>
+                    <li class="gameCard">
+                        <img src="images/recomendados/gta5.jpg">
+                        <h3>Grand Theft Auto V</h3>
+                    </li>
+                    <li class="gameCard">
+                        <img src="images/recomendados/mortalKombat8.jpg">
+                        <h3>Mortal Kombat 8</h3>
+                    </li>
+                    <li class="gameCard">
+                        <img src="images/recomendados/needForSpeed.jpg">
+                        <h3>Need for Speed</h3>
+                    </li>
+                    <li class="gameCard">
+                        <img src="images/recomendados/uncharted4.jpg">
+                        <h3>Uncharted 4</h3>
+                    </li>
+                    <li class="gameCard">
+                        <img src="images/recomendados/redDead2.jpg">
+                        <h3>Red Dead Redemption 2</h3>
+                    </li>
+                    <li class="gameCard">
+                        <img src="images/recomendados/sonicClassic.jpg">
+                        <h3>Sonic Classic</h3>
+                    </li>
+                    <li class="gameCard">
+                        <img src="images/recomendados/superMario.png">
+                        <h3>Super Mario</h3>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section class="category" id="premium">
+            <h1>Premium</h1>
+            <div class="slider-wrapper">
+                <div class="slide-arrow slide-arrow-prev">
+                    <img src="images/left-arrow.png">
+                </div>
+                <div class="slide-arrow slide-arrow-next">
+                    <img src="images/right-arrow.png">
+                </div>
+                <ul class="slides-container">
+                    <li class="payGameCard">
+                        <div class="gameCard">
+                            <img src="images/premium/fifa23.jpeg">
+                            <h3>FIFA 23</h3>
+                        </div>
+                        <div class="payInfo">
+                            <h3 class="price">US$69.99</h3>
+                            <button class="button buyButton smallBoldText">Comprar</button>
+                        </div>
+                    </li>
+                    <li class="payGameCard">
+                        <div class="gameCard">
+                            <img src="images/premium/2k23.webp">
+                            <h3>2K23</h3>
+                        </div>
+                        <div class="payInfo">
+                            <h3 class="price">US$7.99</h3>
+                            <button class="button buyButton smallBoldText">Comprar</button>
+                        </div>
+                    </li>
+                    <li class="payGameCard">
+                        <div class="gameCard">
+                            <img src="images/premium/madenNFL.jpeg">
+                            <h3>MADDEN NFL</h3>
+                        </div>
+                        <div class="payInfo">
+                            <h3 class="price">US$89.99</h3>
+                            <button class="button buyButton smallBoldText">Comprar</button>
+                        </div>
+                    </li>
+                    <li class="payGameCard">
+                        <div class="gameCard">
+                            <img src="images/premium/ufc.jpg">
+                            <h3>UFC</h3>
+                        </div>
+                        <div class="payInfo">
+                            <h3 class="price">US$29.99</h3>
+                            <button class="button buyButton smallBoldText">Comprar</button>
+                        </div>
+                    </li>
+                    <li class="payGameCard">
+                        <div class="gameCard">
+                            <img src="images/premium/tennis.jpg">
+                            <h3>Tennis Wordl Tour</h3>
+                        </div>
+                        <div class="payInfo">
+                            <h3 class="price">US$64.99</h3>
+                            <button class="button buyButton smallBoldText">Comprar</button>
+                        </div>
+                    </li>
+                    <li class="payGameCard">
+                        <div class="gameCard">
+                            <img src="images/premium/tonyHawk.jpg">
+                            <h3>Tony Hawk's Pro Skater</h3>
+                        </div>
+                        <div class="payInfo">
+                            <h3 class="price">US$9.99</h3>
+                            <button class="button buyButton smallBoldText">Comprar</button>
+                        </div>
+                    </li>
+                    <li class="payGameCard">
+                        <div class="gameCard">
+                            <img src="images/premium/ridersRepublic.jpeg">
+                            <h3>Riders Republic</h3>
+                        </div>
+                        <div class="payInfo">
+                            <h3 class="price">US$69.99</h3>
+                            <button class="button buyButton smallBoldText">Comprar</button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section class="category" id="clasicos">
+            <h1>Clásicos</h1>
+            <div class="slider-wrapper">
+                <div class="slide-arrow slide-arrow-prev">
+                    <img src="images/left-arrow.png">
+                </div>
+                <div class="slide-arrow slide-arrow-next">
+                    <img src="images/right-arrow.png">
+                </div>
+                <ul class="slides-container">
+                    <a href="4enlinea.html">
+                        <li class="gameCard">
+                            <img src="images/clasicos/miniatura4linea.png">
+                            <h3>4 en línea - Astros del futbol</h3>
+                        </li>
+                    </a>
+                    <li class="gameCard">
+                        <img src="images/clasicos/finalFantasyXV.jpg">
+                        <h3>Fina Fantasy XV</h3>
+                    </li>
+                    <li class="gameCard">
+                        <img src="images/clasicos/superMario.png">
+                        <h3>Super Mario</h3>
+                    </li>
+                    <li class="gameCard">
+                        <img src="images/clasicos/mortalKombat8.jpg">
+                        <h3>Mortal Kombat 8</h3>
+                    </li>
+                    <li class="gameCard">
+                        <img src="images/clasicos/sonicClassic.jpg">
+                        <h3>Sonic Classic</h3>
+                    </li>
+                    <li class="gameCard">
+                        <img src="images/clasicos/pacMan.jpg">
+                        <h3>Pac-Man</h3>
+                    </li>
+                    <li class="gameCard">
+                        <img src="images/clasicos/streetFighter2.jpg">
+                        <h3>Street Fighter II</h3>
+                    </li>
+                    <li class="gameCard">
+                        <img src="images/clasicos/superMarioB.png">
+                        <h3>Super Mario Bros.</h3>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section class="category" id="carreras">
+            <h1>Carreras</h1>
+            <div class="slider-wrapper">
+                <div class="slide-arrow slide-arrow-prev">
+                    <img src="images/left-arrow.png">
+                </div>
+                <div class="slide-arrow slide-arrow-next">
+                    <img src="images/right-arrow.png">
+                </div>
+                <ul class="slides-container">
+                    <li class="gameCard">
+                        <img src="images/carreras/csrRacing.jpg">
+                        <h3>CSR Racing 3rd Aniversary</h3>
+                    </li>
+                    <li class="gameCard">
+                        <img src="images/carreras/forza4.jpg">
+                        <h3>Forza 4</h3>
+                    </li>
+                    <li class="gameCard">
+                        <img src="images/carreras/forza7.jpg">
+                        <h3>Forza Motor Sport 7</h3>
+                    </li>
+                    <li class="gameCard">
+                        <img src="images/carreras/mergeRoundSpeed.jpg">
+                        <h3>Merge Round Speed</h3>
+                    </li>
+                    <li class="gameCard">
+                        <img src="images/carreras/needForSpeed.jpg">
+                        <h3>Need For Speed</h3>
+                    </li>
+                    <li class="gameCard">
+                        <img src="images/carreras/redLine.jpg">
+                        <h3>Redline Rush</h3>
+                    </li>
+                    <li class="gameCard">
+                        <img src="images/carreras/topSpeed.jpg">
+                        <h3>Top Speed</h3>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section class="category" id="accion">
+            <h1>Accion y aventura</h1>
+            <div class="slider-wrapper">
+                <div class="slide-arrow slide-arrow-prev">
+                    <img src="images/left-arrow.png">
+                </div>
+                <div class="slide-arrow slide-arrow-next">
+                    <img src="images/right-arrow.png">
+                </div>
+                <ul class="slides-container">
+                    <li class="gameCard">
+                        <img src="images/accion y aventura/codModern.jpg">
+                        <h3>Call of Duty Modern Warfare</h3>
+                    </li>
+                    <li class="gameCard">
+                        <img src="images/accion y aventura/uncharted4.jpg">
+                        <h3>Uncharted 4</h3>
+                    </li>
+                    <li class="gameCard">
+                        <img src="images/accion y aventura/theLastOfUs.jpg">
+                        <h3>The Last of Us</h3>
+                    </li>
+                    <li class="gameCard">
+                        <img src="images/accion y aventura/godOfWar.jpg">
+                        <h3>God of War Ragnarok</h3>
+                    </li>
+                    <li class="gameCard">
+                        <img src="images/accion y aventura/redDead2.jpg">
+                        <h3>Red Dead Redemption II</h3>
+                    </li>
+                    <li class="gameCard">
+                        <img src="images/accion y aventura/gta5.jpg">
+                        <h3>Gran Theft Auto V</h3>
+                    </li>
+                    <li class="gameCard">
+                        <img src="images/clasicos/superMario.png">
+                        <h3>Super Mario</h3>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <footer>
+            <div class="div-footer1">
+                <section class="colum">
+                    <h3>Categorías de juegos</h3>
+                    <ul>
+                        <li><a href="index.html#recomendados">Recomendados para vos</a></li>
+                        <li><a href="index.html#accion">Acción y aventura</a></li>
+                        <li><a href="index.html#carreras">Carreras</a></li>
+                        <li><a href="index.html#clasicos">Clásicos</a></li>
+                        <li><a href="index.html#premium">Premium</a></li>
+                    </ul>
+                </section>
+                <section class="colum">
+                    <h3>Perfil</h3>
+                    <ul>
+                        <li><a>Iniciar Sesión</a></li>
+                        <li><a>Mis juegos favoritos</a></li>
+                        <li><a>Mis compras</a></li>
+                        <li><a>Cerrar sesión</a></li>
+                    </ul>
+                </section>
+                <section class="colum">
+                    <h3>Contacto</h3>
+                    <ul>
+                        <li><a>Instagram</a></li>
+                        <li><a>Facebook</a></li>
+                        <li><a>Twitter</a></li>
+                        <li><a>YouTube</a></li>
+                        <li><a>Mail de contacto</a></li>
+                    </ul>
+                </section>
+            </div>
+            <section class="div-footer2">
+                <p class="item1">Todos los derechos reservados Copyright © 2022 Juegazos.com</p>
+                <ul class="item2">
+                    <li><a class="normalBoldText">Ayuda</a></li>
+                    <li><a class="normalBoldText">Terminos de uso</a></li>
+                    <li><a class="normalBoldText">Privacidad</a></li>
+                </ul>
+            </section>
+        </footer>
+        <script type="text/javascript" src="js/carrousel.js"></script>
+        <script type="text/javascript" src="js/burguerMenu.js"></script>
+        <script type="text/javascript" src="js/menuPerfil.js"></script>
+        <script type="text/javascript" src="js/loading.js"></script>
+        <script type="text/javascript" src="js/sticky.js"></script>
+    </div>
+</body>
+
+</html>
