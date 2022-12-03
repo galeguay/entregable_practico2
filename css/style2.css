@@ -115,6 +115,7 @@ header{
 .sticky + .divBody {
     padding-top: 102px;
   }
+  
 .logo2{
     position: absolute;
     top: -9px;
